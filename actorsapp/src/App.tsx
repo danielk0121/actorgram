@@ -512,12 +512,19 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
   )
 }
 
+// TODO: API 서버 연동 시 업로드 이미지 분석 결과로 교체
+const PHOTO_SEARCH_DUMMY_ACTOR = '톰 크루즈'
+const PHOTO_SEARCH_DUMMY_IMAGE = 'https://picsum.photos/seed/tomcruze/200'
+
 function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
+  const [searched, setSearched] = useState(false)
+  const [selected, setSelected] = useState<Movie | null>(null)
 
   const handleFile = (file: File) => {
     const url = URL.createObjectURL(file)
     setPreview(url)
+    setSearched(true)
   }
 
   const handleDrop = (e: React.DragEvent) => {
@@ -525,6 +532,25 @@ function PhotoSearchPage() {
     const file = e.dataTransfer.files[0]
     if (file) handleFile(file)
   }
+
+  // TODO: API 서버 연동 시 실제 검색 결과로 교체
+  const q = PHOTO_SEARCH_DUMMY_ACTOR.toLowerCase()
+  const filteredMovies = searched
+    ? SAMPLE_MOVIES.filter((m) =>
+        m.actors.some((a) => a.name.toLowerCase().includes(q))
+      )
+    : []
+
+  const matchedActors: Actor[] = searched
+    ? Array.from(
+        new Map(
+          filteredMovies
+            .flatMap((m) => m.actors)
+            .filter((a) => a.name.toLowerCase().includes(q))
+            .map((a) => [a.name, a])
+        ).values()
+      )
+    : []
 
   return (
     <>
@@ -551,12 +577,39 @@ function PhotoSearchPage() {
         />
       </div>
 
-      {preview && (
-        <div className="empty-state">
-          {/* TODO: API 서버 연동 시 이미지 업로드 후 배우/영화 검색 결과 표시 */}
-          사진 검색 API 연동 전입니다.
-        </div>
+      {searched && (
+        <>
+          <div className="photo-search-result-label">
+            {/* TODO: API 서버 연동 시 실제 인식 결과로 교체 */}
+            사진에서 <strong>{PHOTO_SEARCH_DUMMY_ACTOR}</strong> 을(를) 인식했습니다.
+            <span className="photo-search-result-notice"> · 아래 검색 결과는 샘플 검색 결과입니다.</span>
+          </div>
+
+          {matchedActors.length > 0 && (
+            <section className="result-section">
+              <div className="section-title">배우</div>
+              <div className="actor-list">
+                {matchedActors.map((a) => (
+                  <ActorCard key={a.name} actor={{ ...a, imageUrl: a.imageUrl ?? PHOTO_SEARCH_DUMMY_IMAGE }} allMovies={filteredMovies} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {filteredMovies.length > 0 && (
+            <section className="result-section">
+              <div className="section-title">영화 ({filteredMovies.length})</div>
+              <div className="movie-grid has-search">
+                {filteredMovies.map((movie) => (
+                  <MovieCard key={movie.id} movie={movie} search={PHOTO_SEARCH_DUMMY_ACTOR} mode="actor" onClick={() => setSelected(movie)} />
+                ))}
+              </div>
+            </section>
+          )}
+        </>
       )}
+
+      {selected && <MovieModal movie={selected} onClose={() => setSelected(null)} />}
     </>
   )
 }

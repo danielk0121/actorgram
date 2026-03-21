@@ -577,6 +577,18 @@
   object-fit: contain;
 }
 
+.photo-search-result-label {
+  margin: 24px 0 16px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.photo-search-result-notice {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
 /* Footer */
 .footer {
   border-top: 1px solid var(--color-border);
