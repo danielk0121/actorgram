@@ -1,0 +1,573 @@
+/* Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-favicon {
+  width: 24px;
+  height: 24px;
+}
+
+.header-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-item:hover {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.nav-item--active {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Search */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.search-bar input {
+  flex: 1;
+  max-width: 480px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-bar input:focus {
+  border-color: var(--color-accent);
+}
+
+.search-bar button {
+  padding: 8px 18px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.search-bar button:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Section title */
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Result section */
+.result-section {
+  margin-bottom: 40px;
+}
+
+/* Actor list */
+.actor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actor-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actor-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actor-card-role-images-wrap {
+  border-top: 1px solid var(--color-border);
+  padding-top: 10px;
+}
+
+.actor-card-role-images-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.actor-card-role-images-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.actor-card-role-thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 4px;
+  background: #e8e8e8;
+  overflow: hidden;
+}
+
+.actor-card-role-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-card-more-btn {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 4px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.actor-card-more-btn:hover {
+  background: var(--color-border);
+}
+
+.actor-card-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+
+.actor-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.actor-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.actor-card-detail {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* Movie grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.movie-grid.has-search {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.movie-grid.movie-grid--single {
+  grid-template-columns: 1fr;
+}
+
+.movie-grid--single .movie-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-grid--single .movie-card-poster {
+  width: 120px;
+  min-width: 120px;
+  aspect-ratio: 1 / 1;
+}
+
+.movie-grid--single .movie-card-info {
+  flex: 1;
+}
+
+/* Movie card */
+.movie-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.movie-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.movie-card-poster {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.movie-card-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-card-info {
+  padding: 10px 12px;
+}
+
+.movie-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.movie-card-crew {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.movie-card-overview {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.movie-card-actors {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 8px;
+}
+
+.movie-card-actor {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+}
+
+.movie-card-actor-name {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.movie-card-actor-detail {
+  color: var(--color-text-secondary);
+}
+
+.movie-card-role-images {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.movie-card-role-image {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-card-role-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Movie detail modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  max-width: 560px;
+  width: 100%;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--color-text-primary);
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.modal-meta {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.modal-overview {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Modal actors */
+.modal-actors {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+.modal-actor-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.modal-actor-name {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.modal-actor-role {
+  color: var(--color-text-secondary);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Mobile: 350px 이하 */
+@media (max-width: 350px) {
+  .header {
+    padding: 0 12px;
+  }
+
+  .header-favicon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-logo {
+    font-size: 15px;
+  }
+
+  .nav-item {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .search-bar {
+    margin-bottom: 16px;
+  }
+
+  .search-bar input {
+    font-size: 13px;
+  }
+
+  .search-bar button {
+    font-size: 13px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .main {
+    padding: 16px 12px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .movie-grid,
+  .movie-grid.has-search {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .movie-card-title {
+    font-size: 12px;
+  }
+
+  .movie-card-meta {
+    font-size: 11px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modal {
+    padding: 20px 16px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    max-width: 100%;
+  }
+
+  .modal-title {
+    font-size: 16px;
+    padding-right: 24px;
+  }
+
+  .modal-overview {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 12px 16px;
+    font-size: 11px;
+  }
+}
