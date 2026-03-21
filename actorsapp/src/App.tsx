@@ -376,7 +376,7 @@ function MovieModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
   )
 }
 
-type Page = '배우' | '영화'
+type Page = '배우' | '영화' | '사진검색'
 
 function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: string | null; onSearchDone?: () => void }) {
   const [query, setQuery] = useState(initialSearch ?? '톰 크루즈')
@@ -512,6 +512,55 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
   )
 }
 
+function PhotoSearchPage() {
+  const [preview, setPreview] = useState<string | null>(null)
+
+  const handleFile = (file: File) => {
+    const url = URL.createObjectURL(file)
+    setPreview(url)
+  }
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault()
+    const file = e.dataTransfer.files[0]
+    if (file) handleFile(file)
+  }
+
+  return (
+    <>
+      <div
+        className="photo-search-dropzone"
+        onDrop={handleDrop}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        {preview
+          ? <img src={preview} alt="업로드된 사진" className="photo-search-preview" />
+          : (
+            <>
+              <div className="photo-search-icon">🖼</div>
+              <div className="photo-search-label">사진을 드래그하거나 클릭하여 업로드</div>
+              <div className="photo-search-sub">배우 또는 영화를 사진으로 검색합니다</div>
+            </>
+          )
+        }
+        <input
+          type="file"
+          accept="image/*"
+          className="photo-search-input"
+          onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFile(f) }}
+        />
+      </div>
+
+      {preview && (
+        <div className="empty-state">
+          {/* TODO: API 서버 연동 시 이미지 업로드 후 배우/영화 검색 결과 표시 */}
+          사진 검색 API 연동 전입니다.
+        </div>
+      )}
+    </>
+  )
+}
+
 function App() {
   const [page, setPage] = useState<Page>('배우')
   const [actorSearch, setActorSearch] = useState<string | null>(null)
@@ -531,12 +580,14 @@ function App() {
         <nav className="header-nav">
           <button className={`nav-item${page === '배우' ? ' nav-item--active' : ''}`} onClick={() => setPage('배우')}>배우</button>
           <button className={`nav-item${page === '영화' ? ' nav-item--active' : ''}`} onClick={() => setPage('영화')}>영화</button>
+          <button className={`nav-item${page === '사진검색' ? ' nav-item--active' : ''}`} onClick={() => setPage('사진검색')}>사진 검색</button>
         </nav>
       </header>
 
       <main className="main">
         {page === '배우' && <ActorSearchPage initialSearch={actorSearch} onSearchDone={() => setActorSearch(null)} />}
         {page === '영화' && <MovieSearchPage onActorClick={handleActorClick} />}
+        {page === '사진검색' && <PhotoSearchPage />}
       </main>
 
       <footer className="footer">actors — React + TypeScript + Vite</footer>
