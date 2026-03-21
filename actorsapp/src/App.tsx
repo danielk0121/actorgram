@@ -40,7 +40,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
     mainActors: ['톰 크루즈', '존 보이트'],
     actors: [
-      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05' },
+      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/mi1/200', 'https://picsum.photos/seed/mi2/200', 'https://picsum.photos/seed/mi3/200'] },
       { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01' },
     ],
   },
@@ -51,7 +51,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
     mainActors: ['톰 크루즈', '르네 젤위거'],
     actors: [
-      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05' },
+      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/jm1/200', 'https://picsum.photos/seed/jm2/200', 'https://picsum.photos/seed/jm3/200'] },
       { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01' },
     ],
   },
@@ -62,7 +62,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
     mainActors: ['톰 크루즈', '마일스 텔러'],
     actors: [
-      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05' },
+      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/tg1/200', 'https://picsum.photos/seed/tg2/200', 'https://picsum.photos/seed/tg3/200'] },
       { name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01' },
     ],
   },
