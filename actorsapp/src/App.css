@@ -262,7 +262,13 @@
   grid-template-columns: 1fr;
 }
 
+/* 영화 화면 카드: 1줄(포스터+정보) + 2줄(배우목록) */
 .movie-grid--single .movie-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card-top-row {
   display: flex;
   flex-direction: row;
 }
@@ -275,6 +281,15 @@
 
 .movie-grid--single .movie-card-info {
   flex: 1;
+}
+
+/* 배우 목록 2열 그리드 */
+.movie-card-actors--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--color-border);
 }
 
 /* Movie card */
