@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
 import './App.css'
 
 interface Actor {
@@ -377,20 +378,18 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
 }
 
 
-type Page = '배우' | '영화' | '사진검색'
+function ActorSearchPage() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const initialQ = searchParams.get('q') ?? '톰 크루즈'
+  const [query, setQuery] = useState(initialQ)
+  const [search, setSearch] = useState(initialQ)
 
-function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: string | null; onSearchDone?: () => void }) {
-  const [query, setQuery] = useState(initialSearch ?? '톰 크루즈')
-  const [search, setSearch] = useState(initialSearch ?? '톰 크루즈')
-
-  // 영화 화면에서 배우 클릭 시 검색어 반영
+  // URL 쿼리 파라미터 변경 시 검색어 반영 (영화 화면 배우 클릭 등)
   useEffect(() => {
-    if (initialSearch) {
-      setQuery(initialSearch)
-      setSearch(initialSearch)
-      onSearchDone?.()
-    }
-  }, [initialSearch])
+    const q = searchParams.get('q') ?? '톰 크루즈'
+    setQuery(q)
+    setSearch(q)
+  }, [searchParams])
 
   const q = search.toLowerCase()
 
@@ -411,7 +410,10 @@ function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: stri
       )
     : []
 
-  const handleSearch = () => setSearch(query)
+  const handleSearch = () => {
+    setSearch(query)
+    setSearchParams({ q: query })
+  }
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') handleSearch()
   }
@@ -595,32 +597,33 @@ function PhotoSearchPage() {
 }
 
 function App() {
-  const [page, setPage] = useState<Page>('배우')
-  const [actorSearch, setActorSearch] = useState<string | null>(null)
+  const navigate = useNavigate()
 
   const handleActorClick = (actorName: string) => {
-    setActorSearch(actorName)
-    setPage('배우')
+    navigate(`/actors?q=${encodeURIComponent(actorName)}`)
   }
 
   return (
     <div className="app">
       <header className="header">
-        <button className="header-left" onClick={() => setPage('배우')}>
+        <NavLink to="/actors" className="header-left">
           <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
           <div className="header-logo">actors</div>
-        </button>
+        </NavLink>
         <nav className="header-nav">
-          <button className={`nav-item${page === '배우' ? ' nav-item--active' : ''}`} onClick={() => setPage('배우')}>배우</button>
-          <button className={`nav-item${page === '영화' ? ' nav-item--active' : ''}`} onClick={() => setPage('영화')}>영화</button>
-          <button className={`nav-item${page === '사진검색' ? ' nav-item--active' : ''}`} onClick={() => setPage('사진검색')}>사진 검색</button>
+          <NavLink to="/actors" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우</NavLink>
+          <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
+          <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
         </nav>
       </header>
 
       <main className="main">
-        {page === '배우' && <ActorSearchPage initialSearch={actorSearch} onSearchDone={() => setActorSearch(null)} />}
-        {page === '영화' && <MovieSearchPage onActorClick={handleActorClick} />}
-        {page === '사진검색' && <PhotoSearchPage />}
+        <Routes>
+          <Route path="/" element={<ActorSearchPage />} />
+          <Route path="/actors" element={<ActorSearchPage />} />
+          <Route path="/movies" element={<MovieSearchPage onActorClick={handleActorClick} />} />
+          <Route path="/photos" element={<PhotoSearchPage />} />
+        </Routes>
       </main>
 
       <footer className="footer">actors — React + TypeScript + Vite</footer>
