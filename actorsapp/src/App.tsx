@@ -357,7 +357,7 @@ function MovieModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
   )
 }
 
-type Page = '홈' | '배우' | '영화'
+type Page = '배우' | '영화'
 
 function ActorSearchPage() {
   const [query, setQuery] = useState('톰 크루즈')
@@ -485,24 +485,23 @@ function MovieSearchPage() {
 }
 
 function App() {
-  const [page, setPage] = useState<Page>('홈')
+  const [page, setPage] = useState<Page>('배우')
 
   return (
     <div className="app">
       <header className="header">
-        <div className="header-left">
+        <button className="header-left" onClick={() => setPage('배우')}>
           <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
           <div className="header-logo">actors</div>
-        </div>
+        </button>
         <nav className="header-nav">
-          <button className={`nav-item${page === '홈' ? ' nav-item--active' : ''}`} onClick={() => setPage('홈')}>홈</button>
           <button className={`nav-item${page === '배우' ? ' nav-item--active' : ''}`} onClick={() => setPage('배우')}>배우</button>
           <button className={`nav-item${page === '영화' ? ' nav-item--active' : ''}`} onClick={() => setPage('영화')}>영화</button>
         </nav>
       </header>
 
       <main className="main">
-        {(page === '홈' || page === '배우') && <ActorSearchPage />}
+        {page === '배우' && <ActorSearchPage />}
         {page === '영화' && <MovieSearchPage />}
       </main>
 
