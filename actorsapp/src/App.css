@@ -159,22 +159,15 @@
   padding-top: 10px;
 }
 
-.actor-card-role-images-scroll {
-  display: flex;
+/* 배우 카드 배역 이미지 그리드 (4열) */
+.actor-card-role-images-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.actor-card-role-images-scroll::-webkit-scrollbar {
-  display: none;
 }
 
 .actor-card-role-thumb {
-  flex-shrink: 0;
-  width: 72px;
-  height: 72px;
+  aspect-ratio: 1 / 1;
   border-radius: 4px;
   background: #e8e8e8;
   overflow: hidden;
@@ -186,24 +179,22 @@
   object-fit: cover;
 }
 
-.actor-card-more-btn {
-  flex-shrink: 0;
-  width: 72px;
-  height: 72px;
-  border-radius: 4px;
+/* 배역 이미지 하단 더보기 버튼 */
+.actor-card-more-btn-below {
+  margin-top: 8px;
+  width: 100%;
+  padding: 6px 0;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  font-size: 11px;
+  border-radius: var(--radius);
+  font-size: 13px;
   color: var(--color-text-secondary);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.4;
+  font-family: inherit;
+  transition: background 0.15s;
 }
 
-.actor-card-more-btn:hover {
+.actor-card-more-btn-below:hover {
   background: var(--color-border);
 }
 
@@ -526,6 +517,68 @@
   text-align: center;
   font-size: 12px;
   color: var(--color-text-secondary);
+}
+
+/* 배우 프로필 화면 */
+.actor-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.actor-profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.actor-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.actor-profile-detail {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* 배우 프로필 이미지 그리드 */
+.actor-profile-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.actor-profile-image-item {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  background: #e8e8e8;
+  overflow: hidden;
+}
+
+.actor-profile-image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Mobile: 420px 이하 */

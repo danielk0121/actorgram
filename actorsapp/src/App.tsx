@@ -265,16 +265,17 @@ const SAMPLE_MOVIES: Movie[] = [
   },
 ]
 
-const MAX_ROLE_IMAGES = 10
+// 배우 카드에서 기본 노출 이미지 수 (4개 2줄 = 8개)
+const ROLE_IMAGES_DEFAULT = 8
 
 function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
-  const [expanded, setExpanded] = useState(false)
+  const navigate = useNavigate()
 
   const roleImages = allMovies
     .flatMap((m) => m.actors.find((a) => a.name === actor.name)?.roleImages ?? [])
 
-  const visibleImages = expanded ? roleImages : roleImages.slice(0, MAX_ROLE_IMAGES)
-  const hasMore = roleImages.length > MAX_ROLE_IMAGES && !expanded
+  const visibleImages = roleImages.slice(0, ROLE_IMAGES_DEFAULT)
+  const hasMore = roleImages.length > ROLE_IMAGES_DEFAULT
 
   return (
     <div className="actor-card">
@@ -292,18 +293,21 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
       </div>
       {roleImages.length > 0 && (
         <div className="actor-card-role-images-wrap">
-          <div className="actor-card-role-images-scroll">
+          <div className="actor-card-role-images-grid">
             {visibleImages.map((img, i) => (
               <div key={i} className="actor-card-role-thumb">
                 <img src={img} alt={`${actor.name} 배역 ${i + 1}`} />
               </div>
             ))}
-            {hasMore && (
-              <button className="actor-card-more-btn" onClick={() => setExpanded(true)}>
-                +{roleImages.length - MAX_ROLE_IMAGES}<br />더보기
-              </button>
-            )}
           </div>
+          {hasMore && (
+            <button
+              className="actor-card-more-btn-below"
+              onClick={() => navigate(`/profiles?actor=${encodeURIComponent(actor.name)}`)}
+            >
+              더보기
+            </button>
+          )}
         </div>
       )}
     </div>
@@ -638,6 +642,57 @@ function PhotoSearchPage() {
   )
 }
 
+function ActorProfilePage() {
+  const [searchParams] = useSearchParams()
+  const actorName = searchParams.get('actor') ?? ''
+
+  // 해당 배우의 모든 roleImages 수집
+  const allRoleImages = SAMPLE_MOVIES
+    .flatMap((m) => m.actors.find((a) => a.name === actorName)?.roleImages ?? [])
+
+  const actor = SAMPLE_MOVIES
+    .flatMap((m) => m.actors)
+    .find((a) => a.name === actorName)
+
+  if (!actor) {
+    return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
+  }
+
+  return (
+    <>
+      <div className="actor-profile-header">
+        <div className="actor-profile-image">
+          {actor.imageUrl
+            ? <img src={actor.imageUrl} alt={actor.name} />
+            : <span>이미지 없음</span>
+          }
+        </div>
+        <div>
+          <div className="actor-profile-name">{actor.name}</div>
+          <div className="actor-profile-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
+        </div>
+      </div>
+
+      {allRoleImages.length > 0 && (
+        <section className="result-section">
+          <div className="section-title">영화 속 이미지 ({allRoleImages.length})</div>
+          <div className="actor-profile-images-grid">
+            {allRoleImages.map((img, i) => (
+              <div key={i} className="actor-profile-image-item">
+                <img src={img} alt={`${actor.name} ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {allRoleImages.length === 0 && (
+        <div className="empty-state">등록된 이미지가 없습니다.</div>
+      )}
+    </>
+  )
+}
+
 function App() {
   const navigate = useNavigate()
 
@@ -656,6 +711,7 @@ function App() {
           <NavLink to="/actors" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우</NavLink>
           <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
           <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
+          <NavLink to="/profiles" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 프로필</NavLink>
         </nav>
       </header>
 
@@ -665,6 +721,7 @@ function App() {
           <Route path="/actors" element={<ActorSearchPage />} />
           <Route path="/movies" element={<MovieSearchPage onActorClick={handleActorClick} />} />
           <Route path="/photos" element={<PhotoSearchPage />} />
+          <Route path="/profiles" element={<ActorProfilePage />} />
         </Routes>
       </main>
 
