@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 interface Actor {
@@ -267,7 +267,13 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
   )
 }
 
-function MovieCard({ movie, search, mode, onClick }: { movie: Movie; search: string; mode: 'actor' | 'movie'; onClick: () => void }) {
+function MovieCard({ movie, search, mode, onClick, onActorClick }: {
+  movie: Movie
+  search: string
+  mode: 'actor' | 'movie'
+  onClick: () => void
+  onActorClick?: (actorName: string) => void
+}) {
   // 배우 화면: 검색어와 일치하는 배우의 배역만 표시
   const matchedActors = search
     ? movie.actors.filter(
@@ -319,9 +325,22 @@ function MovieCard({ movie, search, mode, onClick }: { movie: Movie; search: str
         {mode === 'movie' && mainActorDetails.length > 0 && (
           <div className="movie-card-actors">
             {mainActorDetails.map((a) => (
-              <div key={a.name} className="movie-card-actor">
-                <div className="movie-card-actor-name">{a.name} · {a.role}</div>
-              </div>
+              <button
+                key={a.name}
+                className="movie-card-actor movie-card-actor--clickable"
+                onClick={(e) => { e.stopPropagation(); onActorClick?.(a.name) }}
+              >
+                <div className="movie-card-actor-profile">
+                  {a.imageUrl
+                    ? <img src={a.imageUrl} alt={a.name} />
+                    : <span>{a.name[0]}</span>
+                  }
+                </div>
+                <div>
+                  <div className="movie-card-actor-name">{a.name}</div>
+                  <div className="movie-card-actor-detail">{a.role}</div>
+                </div>
+              </button>
             ))}
           </div>
         )}
@@ -359,10 +378,19 @@ function MovieModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
 
 type Page = '배우' | '영화'
 
-function ActorSearchPage() {
-  const [query, setQuery] = useState('톰 크루즈')
-  const [search, setSearch] = useState('톰 크루즈')
+function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: string | null; onSearchDone?: () => void }) {
+  const [query, setQuery] = useState(initialSearch ?? '톰 크루즈')
+  const [search, setSearch] = useState(initialSearch ?? '톰 크루즈')
   const [selected, setSelected] = useState<Movie | null>(null)
+
+  // 영화 화면에서 배우 클릭 시 검색어 반영
+  useEffect(() => {
+    if (initialSearch) {
+      setQuery(initialSearch)
+      setSearch(initialSearch)
+      onSearchDone?.()
+    }
+  }, [initialSearch])
 
   const q = search.toLowerCase()
 
@@ -432,7 +460,7 @@ function ActorSearchPage() {
   )
 }
 
-function MovieSearchPage() {
+function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) => void }) {
   const [query, setQuery] = useState('')
   const [search, setSearch] = useState('')
   const [selected, setSelected] = useState<Movie | null>(null)
@@ -473,7 +501,7 @@ function MovieSearchPage() {
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className="movie-grid movie-grid--single">
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => setSelected(movie)} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => setSelected(movie)} onActorClick={onActorClick} />
             ))}
           </div>
         </section>
@@ -486,6 +514,12 @@ function MovieSearchPage() {
 
 function App() {
   const [page, setPage] = useState<Page>('배우')
+  const [actorSearch, setActorSearch] = useState<string | null>(null)
+
+  const handleActorClick = (actorName: string) => {
+    setActorSearch(actorName)
+    setPage('배우')
+  }
 
   return (
     <div className="app">
@@ -501,8 +535,8 @@ function App() {
       </header>
 
       <main className="main">
-        {page === '배우' && <ActorSearchPage />}
-        {page === '영화' && <MovieSearchPage />}
+        {page === '배우' && <ActorSearchPage initialSearch={actorSearch} onSearchDone={() => setActorSearch(null)} />}
+        {page === '영화' && <MovieSearchPage onActorClick={handleActorClick} />}
       </main>
 
       <footer className="footer">actors — React + TypeScript + Vite</footer>

@@ -371,6 +371,46 @@
   color: var(--color-text-secondary);
 }
 
+.movie-card-actor--clickable {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  padding: 4px 6px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  transition: background 0.15s;
+}
+
+.movie-card-actor--clickable:hover {
+  background: var(--color-bg);
+}
+
+.movie-card-actor-profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.movie-card-actor-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .movie-card-role-images {
   display: flex;
   gap: 4px;
