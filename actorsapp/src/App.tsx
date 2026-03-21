@@ -349,39 +349,12 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
   )
 }
 
-function MovieModal({ movie, onClose }: { movie: Movie; onClose: () => void }) {
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>✕</button>
-        <div className="modal-title">{movie.title}</div>
-        <div className="modal-meta">
-          <span>{movie.year}</span>
-          <span>{movie.genre}</span>
-          <span>{movie.country}</span>
-          <span>{movie.ageRating}</span>
-          <span>{movie.runtime}분</span>
-          <span>{movie.releaseDate}</span>
-        </div>
-        <div className="modal-actors">
-          {movie.actors.map((a) => (
-            <div key={a.name} className="modal-actor-item">
-              <span className="modal-actor-name">{a.name}</span>
-              <span className="modal-actor-role">{a.role}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 type Page = '배우' | '영화' | '사진검색'
 
 function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: string | null; onSearchDone?: () => void }) {
   const [query, setQuery] = useState(initialSearch ?? '톰 크루즈')
   const [search, setSearch] = useState(initialSearch ?? '톰 크루즈')
-  const [selected, setSelected] = useState<Movie | null>(null)
 
   // 영화 화면에서 배우 클릭 시 검색어 반영
   useEffect(() => {
@@ -449,13 +422,11 @@ function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: stri
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className={`movie-grid${search ? ' has-search' : ''}`}>
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="actor" onClick={() => setSelected(movie)} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="actor" onClick={() => {}} />
             ))}
           </div>
         </section>
       )}
-
-      {selected && <MovieModal movie={selected} onClose={() => setSelected(null)} />}
     </>
   )
 }
@@ -463,7 +434,6 @@ function ActorSearchPage({ initialSearch, onSearchDone }: { initialSearch?: stri
 function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) => void }) {
   const [query, setQuery] = useState('')
   const [search, setSearch] = useState('')
-  const [selected, setSelected] = useState<Movie | null>(null)
 
   const q = search.toLowerCase()
 
@@ -501,13 +471,11 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className="movie-grid movie-grid--single">
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => setSelected(movie)} onActorClick={onActorClick} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => {}} onActorClick={onActorClick} />
             ))}
           </div>
         </section>
       )}
-
-      {selected && <MovieModal movie={selected} onClose={() => setSelected(null)} />}
     </>
   )
 }
@@ -519,7 +487,6 @@ const PHOTO_SEARCH_DUMMY_IMAGE = 'https://picsum.photos/seed/tomcruze/200'
 function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
   const [searched, setSearched] = useState(false)
-  const [selected, setSelected] = useState<Movie | null>(null)
 
   const handleFile = (file: File) => {
     const url = URL.createObjectURL(file)
@@ -601,15 +568,13 @@ function PhotoSearchPage() {
               <div className="section-title">영화 ({filteredMovies.length})</div>
               <div className="movie-grid has-search">
                 {filteredMovies.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} search={PHOTO_SEARCH_DUMMY_ACTOR} mode="actor" onClick={() => setSelected(movie)} />
+                  <MovieCard key={movie.id} movie={movie} search={PHOTO_SEARCH_DUMMY_ACTOR} mode="actor" onClick={() => {}} />
                 ))}
               </div>
             </section>
           )}
         </>
       )}
-
-      {selected && <MovieModal movie={selected} onClose={() => setSelected(null)} />}
     </>
   )
 }
