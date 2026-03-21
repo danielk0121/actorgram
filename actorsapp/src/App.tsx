@@ -291,8 +291,10 @@ function MovieCard({ movie, search, mode, onClick }: { movie: Movie; search: str
       <div className="movie-card-info">
         <div className="movie-card-title">{movie.title}</div>
         <div className="movie-card-meta">{movie.year} · {movie.genre} · {movie.country}</div>
-        <div className="movie-card-crew">감독 {movie.director} · 작가 {movie.writer}</div>
-        <div className="movie-card-crew">{movie.ageRating} · {movie.runtime}분 · {movie.releaseDate}</div>
+        <div className="movie-card-crew">감독 {movie.director}</div>
+        <div className="movie-card-crew">작가 {movie.writer}</div>
+        <div className="movie-card-crew">{movie.ageRating} · {movie.runtime}분</div>
+        <div className="movie-card-crew">개봉 {movie.releaseDate}</div>
 
         {mode === 'actor' && matchedActors.length > 0 && (
           <div className="movie-card-actors">
