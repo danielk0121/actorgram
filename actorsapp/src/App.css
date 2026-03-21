@@ -516,8 +516,8 @@
   color: var(--color-text-secondary);
 }
 
-/* Mobile: 350px 이하 */
-@media (max-width: 350px) {
+/* Mobile: 420px 이하 */
+@media (max-width: 420px) {
   .header {
     padding: 0 12px;
   }
