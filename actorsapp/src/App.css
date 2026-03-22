@@ -412,7 +412,8 @@
 }
 
 .movie-card-actor-row-image {
-  flex: 1;
+  /* 항상 3개 기준 크기 고정 */
+  flex: 0 0 calc((100% - 8px) / 3);
   aspect-ratio: 1 / 1;
   border-radius: 4px;
   background: #e8e8e8;
