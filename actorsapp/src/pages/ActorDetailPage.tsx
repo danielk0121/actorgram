@@ -97,7 +97,7 @@ export function ActorDetailPage() {
               <div className="detail-movie-role-groups">
                 {filteredMovies.map((m) => {
                   const a = m.actors.find((a) => a.name === actorName)
-                  if (!a || !a.roleImages || a.roleImages.length === 0) return null
+                  if (!a) return null
                   return (
                     <div key={m.id} className="detail-movie-role-group">
                       {/* 영화 정보 1줄 - 클릭 시 영화 상세로 이동 */}
