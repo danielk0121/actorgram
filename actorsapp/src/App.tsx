@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
 import './App.css'
 
+// public/ 경로 이미지에 BASE_URL 적용 (로컬: /, 배포: /actorgram/)
+const img = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 interface Actor {
   name: string
   role: string
@@ -300,7 +303,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
       >
         <div className="actor-card-image">
           {actor.imageUrl
-            ? <img src={actor.imageUrl} alt={actor.name} />
+            ? <img src={img(actor.imageUrl!)} alt={actor.name} />
             : <span>이미지 없음</span>
           }
         </div>
@@ -319,7 +322,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
             >
               <div className="actor-card-movie-poster">
                 {movie.posterUrl
-                  ? <img src={movie.posterUrl} alt={movie.title} />
+                  ? <img src={img(movie.posterUrl!)} alt={movie.title} />
                   : <span>없음</span>
                 }
               </div>
@@ -327,13 +330,13 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
                 <div className="actor-card-movie-title">{movie.title}</div>
                 <div className="actor-card-movie-role-name">{movie.releaseDate} · {actorInMovie.role}</div>
                 <div className="actor-card-role-thumbs">
-                  {actorInMovie.roleImages!.slice(0, 3).map((img, i) => (
+                  {actorInMovie.roleImages!.slice(0, 3).map((imgUrl, i) => (
                     <div
                       key={i}
                       className="actor-card-role-thumb"
                       onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actor=${encodeURIComponent(actor.name)}`) }}
                     >
-                      <img src={img} alt={`${actorInMovie.role} ${i + 1}`} />
+                      <img src={img(imgUrl)} alt={`${actorInMovie.role} ${i + 1}`} />
                     </div>
                   ))}
                 </div>
@@ -375,7 +378,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
         <div className="movie-card-top-row">
           <div className="movie-card-poster">
             {movie.posterUrl
-              ? <img src={movie.posterUrl} alt={movie.title} />
+              ? <img src={img(movie.posterUrl!)} alt={movie.title} />
               : <span>이미지 없음</span>
             }
           </div>
@@ -399,7 +402,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
               >
                 <div className="movie-card-actor-profile">
                   {a.imageUrl
-                    ? <img src={a.imageUrl} alt={a.name} />
+                    ? <img src={img(a.imageUrl!)} alt={a.name} />
                     : <span>{a.name[0]}</span>
                   }
                 </div>
@@ -419,7 +422,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
     <div className="movie-card" onClick={onClick}>
       <div className="movie-card-poster">
         {movie.posterUrl
-          ? <img src={movie.posterUrl} alt={movie.title} />
+          ? <img src={img(movie.posterUrl!)} alt={movie.title} />
           : <span>이미지 없음</span>
         }
       </div>
@@ -439,9 +442,9 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                 <div className="movie-card-actor-detail">{a.role}</div>
                 {a.roleImages && a.roleImages.length > 0 && (
                   <div className="movie-card-role-images">
-                    {a.roleImages.map((img, i) => (
+                    {a.roleImages.map((imgUrl, i) => (
                       <div key={i} className="movie-card-role-image">
-                        <img src={img} alt={`${a.role} ${i + 1}`} />
+                        <img src={img(imgUrl)} alt={`${a.role} ${i + 1}`} />
                       </div>
                     ))}
                   </div>
@@ -597,7 +600,7 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
 
 // TODO: API 서버 연동 시 업로드 이미지 분석 결과로 교체
 const PHOTO_SEARCH_DUMMY_ACTOR = '톰 크루즈'
-const PHOTO_SEARCH_DUMMY_IMAGE = '/images/tomcruze.jpg'
+const PHOTO_SEARCH_DUMMY_IMAGE = 'images/tomcruze.jpg'
 
 function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
@@ -727,7 +730,7 @@ function ActorDetailPage() {
       <div className="detail-actor-header">
         <div className="detail-actor-image">
           {actor.imageUrl
-            ? <img src={actor.imageUrl} alt={actor.name} />
+            ? <img src={img(actor.imageUrl!)} alt={actor.name} />
             : <span>이미지 없음</span>
           }
         </div>
@@ -753,7 +756,7 @@ function ActorDetailPage() {
                   <div className="detail-movie-role-group-header">
                     <div className="detail-movie-role-group-poster">
                       {m.posterUrl
-                        ? <img src={m.posterUrl} alt={m.title} />
+                        ? <img src={img(m.posterUrl!)} alt={m.title} />
                         : <span>이미지 없음</span>
                       }
                     </div>
@@ -764,11 +767,11 @@ function ActorDetailPage() {
                   </div>
                   {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
                   <div className="detail-role-images-grid">
-                    {a.roleImages.slice(0, 9).map((img, i) => {
+                    {a.roleImages.slice(0, 9).map((imgUrl, i) => {
                       const isLast = i === 8 && a.roleImages!.length > 9
                       return (
                         <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
-                          <img src={img} alt={`${actor.name} ${i + 1}`} />
+                          <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
                           {isLast && (
                             <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
                           )}
@@ -804,7 +807,7 @@ function MovieDetailPage() {
       <div className="detail-movie-header">
         <div className="detail-movie-header-poster">
           {movie.posterUrl
-            ? <img src={movie.posterUrl} alt={movie.title} />
+            ? <img src={img(movie.posterUrl!)} alt={movie.title} />
             : <span>이미지 없음</span>
           }
         </div>
@@ -836,7 +839,7 @@ function MovieDetailPage() {
               <div key={a.name} className="detail-cast-item">
                 <div className="detail-cast-image">
                   {a.imageUrl
-                    ? <img src={a.imageUrl} alt={a.name} />
+                    ? <img src={img(a.imageUrl!)} alt={a.name} />
                     : <span>{a.name[0]}</span>
                   }
                 </div>
