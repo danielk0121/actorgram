@@ -13,9 +13,9 @@ export const SAMPLE_MOVIES: Movie[] = [
     mainActors: [1, 2, 3, 4],
     cast: [
       { id: 1, actorId: 1, role: '이단 헌트', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
-      { id: 2, actorId: 2, role: '짐 펠프스' },
-      { id: 3, actorId: 3, role: '클레어 펠프스' },
-      { id: 4, actorId: 4, role: '유진 킷트리지' },
+      { id: 2, actorId: 2, role: '짐 펠프스', roleImages: ['/images/mi2.jpg', '/images/poster13.jpg'] },
+      { id: 3, actorId: 3, role: '클레어 펠프스', roleImages: ['/images/mi1.jpg', '/images/mi3.jpg'] },
+      { id: 4, actorId: 4, role: '유진 킷트리지', roleImages: ['/images/mi2.jpg'] },
     ],
   },
   {
@@ -318,7 +318,7 @@ export const SAMPLE_MOVIES: Movie[] = [
       { id: 114, actorId: 106, role: '쿠로사키 이치고', roleImages: ['/images/poster9.jpg', '/images/actor71.jpg', '/images/actor72.jpg'] },
       { id: 115, actorId: 107, role: '아바라이 렌지', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },
       { id: 116, actorId: 105, role: '쿠치키 루키아', roleImages: ['/images/poster9.jpg', '/images/actor70.jpg'] },
-      { id: 117, actorId: 108, role: '이노우에 오리히메' },
+      { id: 117, actorId: 108, role: '이노우에 오리히메', roleImages: ['/images/actor72.jpg', '/images/poster9.jpg'] },
       { id: 118, actorId: 104, role: '울키오라', roleImages: ['/images/poster9.jpg', '/images/actor71.jpg'] },
     ],
   },
