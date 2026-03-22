@@ -133,5 +133,6 @@ Actor (배우)
 | 배역 이미지 | Role Image | `roleImages` | 배우가 특정 작품에서 배역을 연기하는 장면 이미지 목록. CastEntry의 속성. |
 | 배우 카드 | Actor Card | `ActorCard` | 배우 검색 결과에서 배우 1명의 정보와 출연 정보 카드 목록을 묶어 표시하는 UI 단위. |
 | 출연 정보 카드 | Cast Entry Card | `CastEntryCard` | 배우 카드 안에서 CastEntry 1건의 정보(포스터·제목·개봉연도·배역명·배역 이미지 썸네일)를 표시하는 UI 단위. |
+| 영화 카드 | Movie Card | `MovieCard` | 영화 검색 결과에서 영화 1편의 정보와 주연배우 목록을 표시하는 UI 단위. |
 | 작품 형식 | Format | `format` | 작품이 단편인지 시리즈인지 구분하는 속성. `'단편'` 또는 `'시리즈'`. |
 | 에피소드 | Episode | `episode` | 시리즈 작품의 총 에피소드 수. |
