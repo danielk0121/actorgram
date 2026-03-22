@@ -20,6 +20,16 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- GitHub Pages SPA 라우팅 복원 -->
+    <script>
+      (function() {
+        var p = window.location.search.slice(1).split('&').find(function(s) { return s.startsWith('p=') });
+        if (p) {
+          var path = decodeURIComponent(p.slice(2));
+          window.history.replaceState(null, null, '/' + path);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
