@@ -667,9 +667,20 @@ function ActorProfilePage() {
             : <span>이미지 없음</span>
           }
         </div>
-        <div>
+        <div className="actor-profile-info">
           <div className="actor-profile-name">{actor.name}</div>
-          <div className="actor-profile-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
+          <div className="actor-profile-meta">
+            <span className="actor-profile-meta-label">출생연도</span>
+            <span>{actor.birthYear}년</span>
+          </div>
+          <div className="actor-profile-meta">
+            <span className="actor-profile-meta-label">국적</span>
+            <span>{actor.nationality}</span>
+          </div>
+          <div className="actor-profile-meta">
+            <span className="actor-profile-meta-label">데뷔일</span>
+            <span>{actor.debutDate}</span>
+          </div>
         </div>
       </div>
 
