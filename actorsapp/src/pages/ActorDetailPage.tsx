@@ -8,9 +8,8 @@ export function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const actorId = Number(searchParams.get('actorId') ?? '1')
-  const initialMovie = searchParams.get('movie') ?? ''
-  const [movieSearchInput, setMovieSearchInput] = useState(initialMovie)
-  const [movieSearch, setMovieSearch] = useState(initialMovie)
+  const [movieSearchInput, setMovieSearchInput] = useState('')
+  const [movieSearch, setMovieSearch] = useState('')
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
 

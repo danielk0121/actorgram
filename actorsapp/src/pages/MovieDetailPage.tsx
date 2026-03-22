@@ -58,7 +58,7 @@ export function MovieDetailPage() {
                 <button
                   key={c.id}
                   className="movie-card-actor-row"
-                  onClick={() => navigate(`/actor-detail?actorId=${actor.id}&movie=${encodeURIComponent(movie.title)}`)}
+                  onClick={() => navigate(`/actor-detail?actorId=${actor.id}`)}
                 >
                   <div className="movie-card-actor-row-info">
                     <div className="movie-card-actor-profile">
