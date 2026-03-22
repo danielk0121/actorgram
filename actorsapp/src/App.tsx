@@ -722,8 +722,9 @@ function AiSearchPage() {
 function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
-  const [movieSearchInput, setMovieSearchInput] = useState('')
-  const [movieSearch, setMovieSearch] = useState('')
+  const initialMovie = searchParams.get('movie') ?? ''
+  const [movieSearchInput, setMovieSearchInput] = useState(initialMovie)
+  const [movieSearch, setMovieSearch] = useState(initialMovie)
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
 
@@ -903,7 +904,7 @@ function MovieDetailPage() {
               <button
                 key={a.name}
                 className="movie-card-actor-row"
-                onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(a.name)}`)}
+                onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(a.name)}&movie=${encodeURIComponent(movie.title)}`)}
               >
                 <div className="movie-card-actor-row-info">
                   <div className="movie-card-actor-profile">
