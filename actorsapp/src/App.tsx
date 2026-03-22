@@ -640,8 +640,7 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
 }
 
 // TODO: API 서버 연동 시 업로드 이미지 분석 결과로 교체
-const PHOTO_SEARCH_DUMMY_ACTOR = '톰 크루즈'
-const PHOTO_SEARCH_DUMMY_IMAGE = 'images/tomcruze.jpg'
+const PHOTO_SEARCH_DUMMY_ACTORS = ['톰 크루즈', '맷 데이먼']
 
 function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
@@ -658,18 +657,13 @@ function PhotoSearchPage() {
   }
 
   // TODO: API 서버 연동 시 실제 검색 결과로 교체
-  const q = PHOTO_SEARCH_DUMMY_ACTOR.toLowerCase()
-  const filteredMovies = SAMPLE_MOVIES.filter((m) =>
-    m.actors.some((a) => a.name.toLowerCase().includes(q))
-  )
-  const matchedActors: Actor[] = Array.from(
-    new Map(
-      filteredMovies
-        .flatMap((m) => m.actors)
-        .filter((a) => a.name.toLowerCase().includes(q))
-        .map((a) => [a.name, a])
-    ).values()
-  )
+  const matchedActors: Actor[] = PHOTO_SEARCH_DUMMY_ACTORS.map((name) => {
+    const found = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === name)
+    return found ?? { name, role: '', birthYear: 0, nationality: '', debutDate: '' }
+  }).filter((a) => a.birthYear !== 0)
+
+  const moviesByActor = (actorName: string) =>
+    SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.name === actorName))
 
   return (
     <>
@@ -698,7 +692,8 @@ function PhotoSearchPage() {
 
       {/* TODO: API 서버 연동 시 실제 인식 결과로 교체 */}
       <div className="photo-search-result-label">
-        샘플 검색 결과입니다. 배우 사진이 <strong>{PHOTO_SEARCH_DUMMY_ACTOR}</strong>인 경우 아래처럼 표시됩니다.
+        <div>샘플 검색 결과입니다.</div>
+        <div>추정되는 배우: <strong>{PHOTO_SEARCH_DUMMY_ACTORS.join(', ')}</strong></div>
       </div>
 
       {matchedActors.length > 0 && (
@@ -706,7 +701,7 @@ function PhotoSearchPage() {
           <div className="section-title">배우</div>
           <div className="actor-list">
             {matchedActors.map((a) => (
-              <ActorCard key={a.name} actor={{ ...a, imageUrl: a.imageUrl ?? PHOTO_SEARCH_DUMMY_IMAGE }} allMovies={filteredMovies} />
+              <ActorCard key={a.name} actor={a} allMovies={moviesByActor(a.name)} />
             ))}
           </div>
         </section>
