@@ -78,18 +78,39 @@
 
 도메인 전반에서 일관되게 사용하는 용어를 정의한다. 코드, PRD, 커뮤니케이션 모두 이 용어를 기준으로 한다.
 
+### 데이터 구조 관계도
+
+```
+Movie (작품)
+├── cast: CastEntry[]          ← 출연진 (CastEntry의 집합)
+│   └── CastEntry (출연 정보)  ← 배우 1명 × 작품 1편의 출연 기록
+│       ├── actorId            → Actor 참조
+│       ├── role               ← 배역명 (문자열)
+│       └── roleImages[]       ← 배역 이미지 목록
+└── mainActors: number[]       ← 주연배우 actorId 목록 (CastEntry 중 주연만)
+
+Actor (배우)
+├── id
+├── name
+└── imageUrl                   ← 프로필 이미지
+
+필모그래피 = 특정 Actor가 출연한 CastEntry 전체 목록 (Movie를 가로질러 집계)
+```
+
+### 용어 정의
+
 | 한글 | 영어 | 소스코드 | 설명 |
 |---|---|---|---|
 | 배우 | Actor | `Actor` | 영화 또는 작품에 출연한 인물. 애니메이션의 경우 성우를 배우로 취급한다. |
 | 작품 | Movie | `Movie` | 영화, 애니메이션 등 배우가 출연하는 콘텐츠 단위. |
-| 출연진 | Cast | `cast` | 작품에 출연한 전체 배우 목록 (주연 포함). |
-| 주연배우 | Main Cast | `mainActors` | 작품의 주요 출연 배우 이름 목록. |
-| 배역 | Role | `role` | 배우가 작품에서 맡은 등장인물. |
-| 프로필 이미지 | Profile Image | `imageUrl` | 배우의 대표 사진. |
-| 배역 이미지 | Role Image | `roleImages` | 배우가 특정 작품에서 배역을 연기하는 장면 이미지 목록. |
+| 출연진 | Cast | `cast` | 작품에 출연한 CastEntry의 집합. `Movie.cast: CastEntry[]`. |
+| 출연 정보 | Cast Entry | `CastEntry` | 배우 1명 × 작품 1편의 출연 기록 1건. 출연진(cast)의 원소. 배역명과 배역 이미지를 포함한다. |
+| 주연배우 | Main Cast | `mainActors` | 작품의 주연 Actor id 목록. 배역(CastEntry)이 아닌 배우(Actor) 단위로 주연 여부를 결정한다. |
+| 배역 | Role | `role` | 배우가 작품에서 맡은 등장인물 이름. CastEntry의 속성. |
+| 필모그래피 | Filmography | — | 특정 배우의 전체 출연 기록. 해당 Actor의 CastEntry를 작품을 가로질러 집계한 목록. |
+| 프로필 이미지 | Profile Image | `imageUrl` | 배우의 대표 사진. Actor의 속성. |
+| 배역 이미지 | Role Image | `roleImages` | 배우가 특정 작품에서 배역을 연기하는 장면 이미지 목록. CastEntry의 속성. |
 | 배우 카드 | Actor Card | `ActorCard` | 배우 검색 결과에서 배우 1명의 정보와 필모그래피 카드를 묶어 표시하는 UI 단위. |
-| 필모그래피 | Filmography | — | 배우 한 명의 전체 출연작 목록. CastEntry의 집합. |
-| 필모그래피 카드 | Filmography Card | `FilmographyCard` | 배우 카드 안에서 출연작 1편의 정보(포스터·제목·개봉연도·배역명·배역 이미지 썸네일)를 표시하는 UI 단위. CastEntry를 기반으로 렌더링한다. |
-| 출연 정보 | Cast Entry | `CastEntry` | 배우가 특정 작품에 출연한 1건의 기록. 배역명과 배역 이미지를 포함한다. |
+| 필모그래피 카드 | Filmography Card | `FilmographyCard` | 배우 카드 안에서 CastEntry 1건의 정보(포스터·제목·개봉연도·배역명·배역 이미지 썸네일)를 표시하는 UI 단위. |
 | 작품 형식 | Format | `format` | 작품이 단편인지 시리즈인지 구분하는 속성. `'단편'` 또는 `'시리즈'`. |
 | 에피소드 | Episode | `episode` | 시리즈 작품의 총 에피소드 수. |
