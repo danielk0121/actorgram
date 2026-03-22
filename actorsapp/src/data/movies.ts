@@ -10,7 +10,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '브라이언 드 팔마', writer: '데이비드 코엡',
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
     posterUrl: '/images/poster13.jpg', format: '단편',
-    mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니'],
+    mainActors: [1, 2, 3, 4],
     actors: [
       { id: 1, name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
       { id: 2, name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01', gender: '남', imageUrl: '/images/actor2.jpg' },
@@ -24,7 +24,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '카메론 크로', writer: '카메론 크로',
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
-    mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴', '제리 오코넬', '보니 헌트'],
+    mainActors: [1, 6, 7, 8, 9, 10],
     actors: [
       { id: 5, name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { id: 6, name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', gender: '여', imageUrl: '/images/actor5.jpg' },
@@ -40,7 +40,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '조셉 코신스키', writer: '에렌 크루거',
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
     posterUrl: '/images/poster15.jpg', format: '단편',
-    mainActors: ['톰 크루즈', '마일스 텔러', '제니퍼 코넬리', '존 햄', '글렌 파월', '루이스 풀먼', '모니카 바르보사', '에드 해리스', '발 킬머'],
+    mainActors: [1, 12, 13, 14, 15, 16, 17, 18, 19],
     actors: [
       { id: 11, name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
       { id: 12, name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01', gender: '남', imageUrl: '/images/actor10.jpg' },
@@ -59,7 +59,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '토니 스콧', writer: '짐 캐시',
     ageRating: '12세', runtime: 110, releaseDate: '1986-05-16', country: '미국',
     posterUrl: '/images/poster13.jpg', format: '단편',
-    mainActors: ['톰 크루즈', '켈리 맥길리스', '발 킬머', '앤서니 에드워즈'],
+    mainActors: [1, 21, 19, 23],
     actors: [
       { id: 20, name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
       { id: 21, name: '켈리 맥길리스', role: '찰리', birthYear: 1957, nationality: '미국', debutDate: '1983-01-01', gender: '여', imageUrl: '/images/actor50.jpg' },
@@ -73,7 +73,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '스티븐 스필버그', writer: '스콧 프랭크',
     ageRating: '15세', runtime: 145, releaseDate: '2002-07-05', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
-    mainActors: ['톰 크루즈', '콜린 파렐', '사만다 모튼', '막스 폰 쉬도'],
+    mainActors: [1, 25, 26, 27],
     actors: [
       { id: 24, name: '톰 크루즈', role: '존 앤더튼', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
       { id: 25, name: '콜린 파렐', role: '대니 위트워', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', gender: '남', imageUrl: '/images/actor52.jpg' },
@@ -87,7 +87,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '크리스토퍼 놀란',
     ageRating: '12세', runtime: 148, releaseDate: '2010-07-21', country: '미국',
     posterUrl: '/images/poster1.jpg', format: '단편',
-    mainActors: ['레오나르도 디카프리오', '조셉 고든-레빗', '엘리엇 페이지', '톰 하디', '켄 와타나베', '디리프 라오', '킬리언 머피', '마리옹 코티야르'],
+    mainActors: [28, 29, 30, 31, 32, 33, 34, 35],
     actors: [
       { id: 28, name: '레오나르도 디카프리오', role: '돔 코브', birthYear: 1974, nationality: '미국', debutDate: '1989-01-01', gender: '남', imageUrl: '/images/actor18.jpg', roleImages: ['/images/poster1.jpg', '/images/actor19.jpg', '/images/actor20.jpg'] },
       { id: 29, name: '조셉 고든-레빗', role: '아서', birthYear: 1981, nationality: '미국', debutDate: '1988-01-01', gender: '남', imageUrl: '/images/actor19.jpg', roleImages: ['/images/actor18.jpg', '/images/poster1.jpg'] },
@@ -105,7 +105,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '전체', runtime: 169, releaseDate: '2014-11-06', country: '미국',
     posterUrl: '/images/poster2.jpg', format: '단편',
-    mainActors: ['매튜 맥커너히', '앤 해서웨이', '제시카 차스테인', '마이클 케인', '맷 데이먼'],
+    mainActors: [36, 37, 38, 39, 40],
     actors: [
       { id: 36, name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor26.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor28.jpg'] },
       { id: 37, name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01', gender: '여', imageUrl: '/images/actor27.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
@@ -120,7 +120,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '15세', runtime: 152, releaseDate: '2008-07-18', country: '미국',
     posterUrl: '/images/poster3.jpg', format: '단편',
-    mainActors: ['크리스찬 베일', '히스 레저', '아론 에크하트', '마이클 케인', '게리 올드만', '모건 프리먼', '매기 질런홀', '킬리언 머피'],
+    mainActors: [41, 42, 43, 39, 45, 46, 47, 34],
     actors: [
       { id: 41, name: '크리스찬 베일', role: '브루스 웨인', birthYear: 1974, nationality: '영국', debutDate: '1987-01-01', gender: '남', imageUrl: '/images/actor31.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg', '/images/actor33.jpg'] },
       { id: 42, name: '히스 레저', role: '조커', birthYear: 1979, nationality: '호주', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor32.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg', '/images/actor34.jpg'] },
@@ -138,7 +138,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '봉준호', writer: '봉준호',
     ageRating: '15세', runtime: 132, releaseDate: '2019-05-30', country: '한국',
     posterUrl: '/images/poster4.jpg', format: '단편',
-    mainActors: ['송강호', '이선균', '조여정', '최우식', '박소담', '이정은', '장혜진'],
+    mainActors: [49, 50, 51, 52, 53, 54, 55],
     actors: [
       { id: 49, name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01', gender: '남', imageUrl: '/images/actor37.jpg', roleImages: ['/images/poster4.jpg', '/images/actor38.jpg', '/images/actor39.jpg'] },
       { id: 50, name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01', gender: '남', imageUrl: '/images/actor38.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
@@ -155,7 +155,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '프란시스 포드 코폴라', writer: '마리오 푸조',
     ageRating: '15세', runtime: 175, releaseDate: '1972-03-24', country: '미국',
     posterUrl: '/images/poster5.jpg', format: '단편',
-    mainActors: ['말론 브란도', '알 파치노', '제임스 칸', '다이앤 키튼', '로버트 듀발', '리처드 카스텔라노', '알 레티에리', '다이앤 시레이토', '리처드 브라이트', '알렉스 로코'],
+    mainActors: [56, 57, 58, 59, 60, 61, 62, 63, 64, 65],
     actors: [
       { id: 56, name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01', gender: '남', imageUrl: '/images/actor44.jpg', roleImages: ['/images/poster5.jpg', '/images/actor45.jpg', '/images/actor46.jpg'] },
       { id: 57, name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01', gender: '남', imageUrl: '/images/actor45.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg', '/images/actor47.jpg'] },
@@ -175,7 +175,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '쿠엔틴 타란티노', writer: '쿠엔틴 타란티노',
     ageRating: '청소년불가', runtime: 154, releaseDate: '1994-10-14', country: '미국',
     posterUrl: '/images/poster6.jpg', format: '단편',
-    mainActors: ['존 트라볼타', '새뮤얼 L. 잭슨', '우마 서먼'],
+    mainActors: [66, 67, 68],
     actors: [
       { id: 66, name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor54.jpg', roleImages: ['/images/poster6.jpg', '/images/actor55.jpg', '/images/actor56.jpg'] },
       { id: 67, name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor55.jpg', roleImages: ['/images/actor54.jpg', '/images/poster6.jpg'] },
@@ -188,7 +188,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '라나 워쇼스키', writer: '릴리 워쇼스키',
     ageRating: '15세', runtime: 136, releaseDate: '1999-03-31', country: '미국',
     posterUrl: '/images/poster7.jpg', format: '단편',
-    mainActors: ['키아누 리브스', '로렌스 피시번', '캐리-앤 모스', '휴고 위빙', '글로리아 포스터', '조 팬톨리아노'],
+    mainActors: [69, 70, 71, 72, 73, 74],
     actors: [
       { id: 69, name: '키아누 리브스', role: '네오', birthYear: 1964, nationality: '캐나다', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor57.jpg', roleImages: ['/images/poster7.jpg', '/images/actor58.jpg', '/images/actor59.jpg'] },
       { id: 70, name: '로렌스 피시번', role: '모피어스', birthYear: 1961, nationality: '미국', debutDate: '1975-01-01', gender: '남', imageUrl: '/images/actor58.jpg', roleImages: ['/images/actor57.jpg', '/images/poster7.jpg'] },
@@ -204,7 +204,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '로버트 저메키스', writer: '에릭 로스',
     ageRating: '전체', runtime: 142, releaseDate: '1994-07-06', country: '미국',
     posterUrl: '/images/poster8.jpg', format: '단편',
-    mainActors: ['톰 행크스', '로빈 라이트', '게리 시니즈', '샐리 필드', '마이클 콘너 험프리스'],
+    mainActors: [75, 76, 77, 78, 79],
     actors: [
       { id: 75, name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01', gender: '남', imageUrl: '/images/actor63.jpg', roleImages: ['/images/poster8.jpg', '/images/actor64.jpg', '/images/actor65.jpg'] },
       { id: 76, name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01', gender: '여', imageUrl: '/images/actor64.jpg', roleImages: ['/images/actor63.jpg', '/images/poster8.jpg'] },
@@ -219,7 +219,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '스티븐 스필버그', writer: '스티븐 재일리안',
     ageRating: '15세', runtime: 195, releaseDate: '1993-12-15', country: '미국',
     posterUrl: '/images/poster9.jpg', format: '단편',
-    mainActors: ['리암 니슨', '벤 킹슬리', '랄프 파인즈', '캐롤라인 굿올'],
+    mainActors: [80, 81, 82, 83],
     actors: [
       { id: 80, name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01', gender: '남', imageUrl: '/images/actor68.jpg', roleImages: ['/images/poster9.jpg', '/images/actor69.jpg', '/images/actor70.jpg'] },
       { id: 81, name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor69.jpg', roleImages: ['/images/actor68.jpg', '/images/poster9.jpg'] },
@@ -233,7 +233,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '데이비드 핀처', writer: '짐 울스',
     ageRating: '청소년불가', runtime: 139, releaseDate: '1999-10-15', country: '미국',
     posterUrl: '/images/poster10.jpg', format: '단편',
-    mainActors: ['브래드 피트', '에드워드 노튼', '헬레나 본햄 카터', '미트 로프', '재러드 레토', '자이몬 혼수', '이언 베일리'],
+    mainActors: [84, 85, 86, 87, 88, 89, 90],
     actors: [
       { id: 84, name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01', gender: '남', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster10.jpg', '/images/actor73.jpg', '/images/actor74.jpg'] },
       { id: 85, name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01', gender: '남', imageUrl: '/images/actor73.jpg', roleImages: ['/images/poster10.jpg', '/images/actor72.jpg', '/images/actor74.jpg'] },
@@ -250,7 +250,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '마틴 스코세이지', writer: '니콜라스 필레기',
     ageRating: '청소년불가', runtime: 146, releaseDate: '1990-09-19', country: '미국',
     posterUrl: '/images/poster11.jpg', format: '단편',
-    mainActors: ['레이 리오타', '로버트 드 니로', '조 페시', '로레인 브라코', '폴 소르비노', '프랭크 빈센트', '마이클 임페리올리', '척 로우', '프랭크 디레오'],
+    mainActors: [91, 92, 93, 94, 95, 96, 97, 98, 99],
     actors: [
       { id: 91, name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01', gender: '남', imageUrl: '/images/actor79.jpg', roleImages: ['/images/poster11.jpg', '/images/actor80.jpg', '/images/actor81.jpg'] },
       { id: 92, name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01', gender: '남', imageUrl: '/images/actor80.jpg', roleImages: ['/images/actor79.jpg', '/images/poster11.jpg'] },
@@ -269,7 +269,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '조나단 드미', writer: '테드 탤리',
     ageRating: '청소년불가', runtime: 118, releaseDate: '1991-02-14', country: '미국',
     posterUrl: '/images/poster12.jpg', format: '단편',
-    mainActors: ['조디 포스터', '앤서니 홉킨스', '테드 레빈'],
+    mainActors: [100, 101, 102],
     actors: [
       { id: 100, name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01', gender: '여', imageUrl: '/images/actor88.jpg', roleImages: ['/images/poster12.jpg', '/images/actor89.jpg', '/images/actor90.jpg'] },
       { id: 101, name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01', gender: '남', imageUrl: '/images/actor89.jpg', roleImages: ['/images/poster12.jpg', '/images/actor88.jpg', '/images/actor90.jpg'] },
@@ -282,7 +282,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '사토 코노스케', writer: '오다 에이이치로',
     ageRating: '전체', runtime: 24, releaseDate: '1999-10-20', country: '일본',
     posterUrl: '/images/poster7.jpg', format: '시리즈', episode: 1122,
-    mainActors: ['타나카 마유미', '나카이 카즈야', '오키무라 아케미', '야마구치 캇페이', '히라타 히로아키'],
+    mainActors: [103, 104, 105, 106, 107],
     actors: [
       { id: 103, name: '타나카 마유미', role: '몽키 D. 루피', birthYear: 1955, nationality: '일본', debutDate: '1979-01-01', gender: '여', imageUrl: '/images/actor61.jpg', roleImages: ['/images/poster7.jpg', '/images/actor62.jpg', '/images/actor63.jpg'] },
       { id: 104, name: '나카이 카즈야', role: '롤로노아 조로', birthYear: 1967, nationality: '일본', debutDate: '1989-01-01', gender: '남', imageUrl: '/images/actor62.jpg', roleImages: ['/images/actor61.jpg', '/images/poster7.jpg'] },
@@ -297,7 +297,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '다테 하야토', writer: '키시모토 마사시',
     ageRating: '12세', runtime: 23, releaseDate: '2002-10-03', country: '일본',
     posterUrl: '/images/poster8.jpg', format: '시리즈', episode: 720,
-    mainActors: ['타케우치 준코', '노지마 히로시', '치바 치에코', '나미카와 다이스케', '야마구치 캇페이', '오리카사 후미코'],
+    mainActors: [108, 109, 110, 111, 106, 113],
     actors: [
       { id: 108, name: '타케우치 준코', role: '우즈마키 나루토', birthYear: 1972, nationality: '일본', debutDate: '1996-01-01', gender: '여', imageUrl: '/images/actor66.jpg', roleImages: ['/images/poster8.jpg', '/images/actor67.jpg', '/images/actor68.jpg'] },
       { id: 109, name: '노지마 히로시', role: '우치하 사스케', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor67.jpg', roleImages: ['/images/actor66.jpg', '/images/poster8.jpg'] },
@@ -313,7 +313,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '아베 노리유키', writer: '쿠보 타이토',
     ageRating: '15세', runtime: 24, releaseDate: '2004-10-05', country: '일본',
     posterUrl: '/images/poster9.jpg', format: '시리즈', episode: 366,
-    mainActors: ['모리타 마사카즈', '이토 켄타로', '오리카사 후미코', '이리노 미유'],
+    mainActors: [114, 115, 113, 117],
     actors: [
       { id: 114, name: '모리타 마사카즈', role: '쿠로사키 이치고', birthYear: 1981, nationality: '일본', debutDate: '2002-01-01', gender: '남', imageUrl: '/images/actor70.jpg', roleImages: ['/images/poster9.jpg', '/images/actor71.jpg', '/images/actor72.jpg'] },
       { id: 115, name: '이토 켄타로', role: '아바라이 렌지', birthYear: 1974, nationality: '일본', debutDate: '1997-01-01', gender: '남', imageUrl: '/images/actor71.jpg', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },

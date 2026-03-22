@@ -27,5 +27,5 @@ export interface Movie {
   format: '단편' | '시리즈'  // 작품 형식
   episode?: number           // 시리즈인 경우 에피소드 번호
   actors: Actor[]            // 출연 배우 전체 (배역 정보 포함)
-  mainActors: string[]       // 주연배우 이름 목록
+  mainActors: number[]       // 주연배우 id 목록
 }

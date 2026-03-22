@@ -6,16 +6,16 @@ import { img } from '../utils/image'
 export function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const actorName = searchParams.get('actor') ?? '톰 크루즈'
+  const actorId = Number(searchParams.get('actorId') ?? '1')
   const initialMovie = searchParams.get('movie') ?? ''
   const [movieSearchInput, setMovieSearchInput] = useState(initialMovie)
   const [movieSearch, setMovieSearch] = useState(initialMovie)
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
 
-  const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
+  const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.id === actorId)
 
-  const movies = SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.name === actorName))
+  const movies = SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.id === actorId))
 
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
@@ -60,7 +60,7 @@ export function ActorDetailPage() {
 
       {/* 영화 속 이미지 (영화별 그룹) */}
       <section className="result-section">
-          <div className="section-title">영화 속 이미지 · 이미지 {movies.reduce((sum, m) => sum + (m.actors.find((a) => a.name === actorName)?.roleImages?.length ?? 0), 0)}개 · 영화 {movies.length}개</div>
+          <div className="section-title">영화 속 이미지 · 이미지 {movies.reduce((sum, m) => sum + (m.actors.find((a) => a.id === actorId)?.roleImages?.length ?? 0), 0)}개 · 영화 {movies.length}개</div>
 
           {/* 검색 + 정렬 */}
           {movies.length === 0
@@ -98,7 +98,7 @@ export function ActorDetailPage() {
             : (
               <div className="detail-movie-role-groups">
                 {filteredMovies.map((m) => {
-                  const a = m.actors.find((a) => a.name === actorName)
+                  const a = m.actors.find((a) => a.id === actorId)
                   if (!a) return null
                   return (
                     <div key={m.id} className="detail-movie-role-group">
@@ -106,7 +106,7 @@ export function ActorDetailPage() {
                       <div className="detail-movie-role-group-header-wrap">
                         <button
                           className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
-                          onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(m.title)}`)}
+                          onClick={() => navigate(`/movie-detail?movieId=${m.id}`)}
                         >
                           <div className="detail-movie-role-group-poster">
                             {m.posterUrl

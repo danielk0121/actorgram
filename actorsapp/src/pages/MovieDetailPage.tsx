@@ -5,15 +5,15 @@ import { img } from '../utils/image'
 export function MovieDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const movieTitle = searchParams.get('title') ?? '미션 임파서블'
+  const movieId = Number(searchParams.get('movieId') ?? '19')
 
-  const movie = SAMPLE_MOVIES.find((m) => m.title === movieTitle)
+  const movie = SAMPLE_MOVIES.find((m) => m.id === movieId)
 
   if (!movie) {
     return <div className="empty-state">영화 정보를 찾을 수 없습니다.</div>
   }
 
-  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.name))
+  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.id))
 
   return (
     <>
@@ -54,7 +54,7 @@ export function MovieDetailPage() {
               <button
                 key={a.name}
                 className="movie-card-actor-row"
-                onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(a.name)}&movie=${encodeURIComponent(movie.title)}`)}
+                onClick={() => navigate(`/actor-detail?actorId=${a.id}&movie=${encodeURIComponent(movie.title)}`)}
               >
                 <div className="movie-card-actor-row-info">
                   <div className="movie-card-actor-profile">

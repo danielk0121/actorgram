@@ -22,7 +22,7 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
     <div className="actor-card">
       <button
         className="actor-card-top actor-card-top--clickable"
-        onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(actor.name)}`)}
+        onClick={() => navigate(`/actor-detail?actorId=${actor.id}`)}
       >
         <div className="actor-card-image">
           {actor.imageUrl
@@ -42,7 +42,7 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
             <button
               key={movie.id}
               className="actor-card-movie-role-row actor-card-movie-role-row--clickable"
-              onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(movie.title)}`)}
+              onClick={() => navigate(`/movie-detail?movieId=${movie.id}`)}
             >
               <div className="actor-card-movie-poster">
                 {movie.posterUrl
@@ -58,7 +58,7 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
                     <div
                       key={i}
                       className="actor-card-role-thumb"
-                      onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actor=${encodeURIComponent(actor.name)}`) }}
+                      onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actorId=${actor.id}`) }}
                     >
                       <img src={img(imgUrl)} alt={`${actorInMovie.role} ${i + 1}`} />
                     </div>

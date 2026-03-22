@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { SAMPLE_MOVIES } from '../data/movies'
 import { MovieCard } from '../components/MovieCard'
 
-export function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) => void }) {
+export function MovieSearchPage({ onActorClick }: { onActorClick: (actorId: number) => void }) {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const initialQ = searchParams.get('q') ?? ''
@@ -55,7 +55,7 @@ export function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: st
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className="movie-grid movie-grid--single">
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(movie.title)}`)} onActorClick={onActorClick} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => navigate(`/movie-detail?movieId=${movie.id}`)} onActorClick={onActorClick} />
             ))}
           </div>
         </section>

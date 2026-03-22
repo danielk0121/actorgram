@@ -10,9 +10,10 @@ import { MovieDetailPage } from './pages/MovieDetailPage'
 function App() {
   const navigate = useNavigate()
 
-  const handleActorClick = (actorName: string) => {
-    navigate(`/actor-detail?actor=${encodeURIComponent(actorName)}`)
+  const handleActorClick = (actorId: number) => {
+    navigate(`/actor-detail?actorId=${actorId}`)
   }
+
 
   return (
     <div className="app">

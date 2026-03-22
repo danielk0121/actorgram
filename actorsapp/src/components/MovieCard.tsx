@@ -6,7 +6,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
   search: string
   mode: 'actor' | 'movie'
   onClick: () => void
-  onActorClick?: (actorName: string) => void
+  onActorClick?: (actorId: number) => void
 }) {
   // 배우 화면: 검색어와 일치하는 배우의 배역만 표시
   const matchedActors = search
@@ -18,7 +18,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
     : []
 
   // 영화 화면: 주연배우 전체 표시
-  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.name))
+  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.id))
 
   // 영화 화면 배우 목록: 전체 표시
   const displayActors = mainActorDetails
@@ -51,7 +51,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
               <button
                 key={a.name}
                 className="movie-card-actor-row"
-                onClick={(e) => { e.stopPropagation(); onActorClick?.(a.name) }}
+                onClick={(e) => { e.stopPropagation(); onActorClick?.(a.id) }}
               >
                 <div className="movie-card-actor-row-info">
                   <div className="movie-card-actor-profile">
