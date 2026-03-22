@@ -808,7 +808,7 @@ function ActorDetailPage() {
       {/* 영화 속 이미지 (영화별 그룹) */}
       {movies.length > 0 && (
         <section className="result-section">
-          <div className="section-title">영화 속 이미지 ({movies.length})</div>
+          <div className="section-title">영화 속 이미지 · 이미지 {movies.reduce((sum, m) => sum + (m.actors.find((a) => a.name === actorName)?.roleImages?.length ?? 0), 0)}개 · 영화 {movies.length}개</div>
 
           {/* 검색 + 정렬 */}
           <div className="detail-movie-filter">
