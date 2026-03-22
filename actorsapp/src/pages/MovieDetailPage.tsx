@@ -71,7 +71,7 @@ export function MovieDetailPage() {
                     <div className="movie-card-actor-detail">{c.role} 역</div>
                   </div>
                   <div className="movie-card-actor-row-images">
-                    {(c.roleImages && c.roleImages.length > 0 ? c.roleImages : (actor.imageUrl ? [actor.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
+                    {(c.roleImages ?? []).slice(0, 3).map((imgUrl, i) => (
                       <div key={i} className="movie-card-actor-row-image">
                         <img src={img(imgUrl)} alt={`${c.role} ${i + 1}`} />
                       </div>
