@@ -391,24 +391,25 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
             <div className="movie-card-crew">개봉 {movie.releaseDate}</div>
           </div>
         </div>
-        {/* 2줄: 주연배우 2열 그리드 */}
+        {/* 배우 목록: 배우명+배역명+영화속 사진 3장, 1줄 */}
         {displayActors.length > 0 && (
-          <div className="movie-card-actors--grid">
+          <div className="movie-card-actors-list">
             {displayActors.map((a) => (
               <button
                 key={a.name}
-                className="movie-card-actor movie-card-actor--clickable"
+                className="movie-card-actor-row"
                 onClick={(e) => { e.stopPropagation(); onActorClick?.(a.name) }}
               >
-                <div className="movie-card-actor-profile">
-                  {a.imageUrl
-                    ? <img src={img(a.imageUrl!)} alt={a.name} />
-                    : <span>{a.name[0]}</span>
-                  }
-                </div>
-                <div>
+                <div className="movie-card-actor-row-info">
                   <div className="movie-card-actor-name">{a.name}</div>
                   <div className="movie-card-actor-detail">{a.role}</div>
+                </div>
+                <div className="movie-card-actor-row-images">
+                  {(a.roleImages ?? []).slice(0, 3).map((imgUrl, i) => (
+                    <div key={i} className="movie-card-actor-row-image">
+                      <img src={img(imgUrl)} alt={`${a.role} ${i + 1}`} />
+                    </div>
+                  ))}
                 </div>
               </button>
             ))}
