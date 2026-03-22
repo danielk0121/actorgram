@@ -280,9 +280,6 @@ const SAMPLE_MOVIES: Movie[] = [
   },
 ]
 
-// 배우 카드에서 기본 노출 이미지 수 (4개 2줄 = 8개)
-const ROLE_IMAGES_DEFAULT = 8
-
 function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
   // 배우가 출연한 영화 + 해당 배역 정보 (roleImages 있는 것만, 최대 3개)
   const movieRoles = allMovies
@@ -719,12 +716,6 @@ function ActorDetailPage() {
   const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
   const movies = SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.name === actorName))
-
-  const allRoleImages = SAMPLE_MOVIES.flatMap((m) => {
-    const a = m.actors.find((a) => a.name === actorName)
-    if (!a) return []
-    return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role, releaseDate: m.releaseDate }))
-  })
 
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
