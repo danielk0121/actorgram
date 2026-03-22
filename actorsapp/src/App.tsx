@@ -39,15 +39,12 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '미국 정보요원 이단 헌트는 동료들의 죽음에 대한 누명을 쓰고 조직에 숨어든 진짜 스파이를 밝혀내기 위해 독자적으로 움직인다.',
     director: '브라이언 드 팔마', writer: '데이비드 코엡',
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
-    mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니', '존 폴슨', '비나 리드', '크리스틴 스콧 토마스'],
+    mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니'],
     actors: [
       { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg'] },
       { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01' },
       { name: '엠마뉴엘 베아르', role: '클레어 펠프스', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01' },
       { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01' },
-      { name: '존 폴슨', role: '잭 도노반', birthYear: 1960, nationality: '미국', debutDate: '1985-01-01' },
-      { name: '비나 리드', role: '샨나', birthYear: 1968, nationality: '미국', debutDate: '1993-01-01' },
-      { name: '크리스틴 스콧 토마스', role: '사라 데이비스', birthYear: 1960, nationality: '영국', debutDate: '1984-01-01' },
     ],
   },
   {
@@ -55,12 +52,14 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '스포츠 에이전트 제리 맥과이어는 도덕적 각성 후 회사에서 해고되고, 단 한 명의 선수와 함께 자신만의 에이전시를 꾸려 나간다.',
     director: '카메론 크로', writer: '카메론 크로',
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
-    mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴'],
+    mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴', '제리 오코넬', '보니 헌트'],
     actors: [
       { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01' },
       { name: '쿠바 구딩 주니어', role: '로드 타이드웰', birthYear: 1968, nationality: '미국', debutDate: '1988-01-01' },
       { name: '켈리 프레스턴', role: '에이버리 비숍', birthYear: 1962, nationality: '미국', debutDate: '1985-01-01' },
+      { name: '제리 오코넬', role: '프랭크 롭', birthYear: 1974, nationality: '미국', debutDate: '1986-01-01' },
+      { name: '보니 헌트', role: '로리 보이드', birthYear: 1961, nationality: '미국', debutDate: '1988-01-01' },
     ],
   },
   {
