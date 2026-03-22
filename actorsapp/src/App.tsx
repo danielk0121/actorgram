@@ -342,8 +342,8 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
         </div>
         <div className="actor-card-body">
           <div className="actor-card-name">{actor.name}</div>
-          <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
-          <div className="actor-card-detail">영화 {totalMovieCount}개</div>
+          <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality}{actor.gender ? ` · ${actor.gender}` : ''}</div>
+          <div className="actor-card-detail">데뷔 {actor.debutDate} · 영화 {totalMovieCount}개</div>
         </div>
       </button>
       {movieRoles.length > 0 && (
@@ -803,6 +803,7 @@ function ActorDetailPage() {
           <div className="detail-actor-name">{actor.name}</div>
           <div className="detail-meta-row"><span className="detail-meta-label">출생연도</span><span>{actor.birthYear}년</span></div>
           <div className="detail-meta-row"><span className="detail-meta-label">국적</span><span>{actor.nationality}</span></div>
+          {actor.gender && <div className="detail-meta-row"><span className="detail-meta-label">성별</span><span>{actor.gender}</span></div>}
           <div className="detail-meta-row"><span className="detail-meta-label">데뷔일</span><span>{actor.debutDate}</span></div>
         </div>
       </div>
