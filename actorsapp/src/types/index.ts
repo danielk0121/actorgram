@@ -20,7 +20,6 @@ export interface Movie {
   title: string
   year: number
   genre: string
-  rating: number
   overview: string
   director: string
   writer: string
