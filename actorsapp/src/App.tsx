@@ -712,16 +712,6 @@ function PhotoSearchPage() {
         </section>
       )}
 
-      {filteredMovies.length > 0 && (
-        <section className="result-section">
-          <div className="section-title">영화 ({filteredMovies.length})</div>
-          <div className="movie-grid has-search">
-            {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={PHOTO_SEARCH_DUMMY_ACTOR} mode="actor" onClick={() => {}} />
-            ))}
-          </div>
-        </section>
-      )}
     </>
   )
 }
