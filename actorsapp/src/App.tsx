@@ -724,7 +724,8 @@ function ActorDetailPage() {
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
   const [movieSearchInput, setMovieSearchInput] = useState('')
   const [movieSearch, setMovieSearch] = useState('')
-  const [sortOrder, setSortOrder] = useState<'name' | 'year-asc' | 'year-desc'>('year-desc')
+  const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
 
   const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
@@ -734,15 +735,23 @@ function ActorDetailPage() {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
   }
 
+  const toggleSort = (key: 'year' | 'name') => {
+    if (sortKey === key) {
+      setSortDir((d) => d === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortKey(key)
+      setSortDir('asc')
+    }
+  }
+
   const filteredMovies = movies
     .filter((m) => m.title.includes(movieSearch))
-    .sort((a, b) =>
-      sortOrder === 'name'
+    .sort((a, b) => {
+      const cmp = sortKey === 'name'
         ? a.title.localeCompare(b.title, 'ko')
-        : sortOrder === 'year-asc'
-          ? a.year - b.year
-          : b.year - a.year
-    )
+        : a.year - b.year
+      return sortDir === 'asc' ? cmp : -cmp
+    })
 
   return (
     <>
@@ -785,17 +794,13 @@ function ActorDetailPage() {
             </div>
             <div className="detail-movie-sort">
               <button
-                className={`detail-movie-sort-btn${sortOrder === 'year-asc' ? ' detail-movie-sort-btn--active' : ''}`}
-                onClick={() => setSortOrder('year-asc')}
-              >연도↑</button>
+                className={`detail-movie-sort-btn${sortKey === 'year' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => toggleSort('year')}
+              >연도{sortKey === 'year' ? (sortDir === 'asc' ? '↑' : '↓') : ''}</button>
               <button
-                className={`detail-movie-sort-btn${sortOrder === 'year-desc' ? ' detail-movie-sort-btn--active' : ''}`}
-                onClick={() => setSortOrder('year-desc')}
-              >연도↓</button>
-              <button
-                className={`detail-movie-sort-btn${sortOrder === 'name' ? ' detail-movie-sort-btn--active' : ''}`}
-                onClick={() => setSortOrder('name')}
-              >영화제목순</button>
+                className={`detail-movie-sort-btn${sortKey === 'name' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => toggleSort('name')}
+              >영화제목{sortKey === 'name' ? (sortDir === 'asc' ? '↑' : '↓') : ''}</button>
             </div>
           </div>
 
