@@ -303,8 +303,8 @@ export const SAMPLE_MOVIES: Movie[] = [
       { name: '노지마 히로시', role: '우치하 사스케', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor67.jpg', roleImages: ['/images/actor66.jpg', '/images/poster8.jpg'] },
       { name: '치바 치에코', role: '하루노 사쿠라', birthYear: 1978, nationality: '일본', debutDate: '2000-01-01', gender: '여', imageUrl: '/images/actor68.jpg', roleImages: ['/images/poster8.jpg', '/images/actor66.jpg'] },
       { name: '나미카와 다이스케', role: '하타케 카카시', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor69.jpg' },
-      { name: '야마구치 캇페이', role: '자부자', birthYear: 1954, nationality: '일본', debutDate: '1978-01-01', gender: '남', imageUrl: '/images/actor64.jpg' },
-      { name: '오리카사 후미코', role: '야마토', birthYear: 1974, nationality: '일본', debutDate: '1995-01-01', gender: '여', imageUrl: '/images/actor72.jpg' },
+      { name: '야마구치 캇페이', role: '자부자', birthYear: 1954, nationality: '일본', debutDate: '1978-01-01', gender: '남', imageUrl: '/images/actor64.jpg', roleImages: ['/images/poster8.jpg', '/images/actor67.jpg'] },
+      { name: '오리카사 후미코', role: '야마토', birthYear: 1974, nationality: '일본', debutDate: '1995-01-01', gender: '여', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster8.jpg', '/images/actor66.jpg'] },
     ],
   },
   {
@@ -319,7 +319,7 @@ export const SAMPLE_MOVIES: Movie[] = [
       { name: '이토 켄타로', role: '아바라이 렌지', birthYear: 1974, nationality: '일본', debutDate: '1997-01-01', gender: '남', imageUrl: '/images/actor71.jpg', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },
       { name: '오리카사 후미코', role: '쿠치키 루키아', birthYear: 1974, nationality: '일본', debutDate: '1995-01-01', gender: '여', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster9.jpg', '/images/actor70.jpg'] },
       { name: '이리노 미유', role: '이노우에 오리히메', birthYear: 1988, nationality: '일본', debutDate: '2003-01-01', gender: '여', imageUrl: '/images/actor73.jpg' },
-      { name: '나미카와 다이스케', role: '울키오라', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor69.jpg' },
+      { name: '나미카와 다이스케', role: '울키오라', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor69.jpg', roleImages: ['/images/poster9.jpg', '/images/actor71.jpg'] },
     ],
   },
 ]
