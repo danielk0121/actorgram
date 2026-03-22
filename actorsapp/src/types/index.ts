@@ -23,6 +23,8 @@ export interface Movie {
   releaseDate: string    // 개봉일
   country: string        // 제작국가
   posterUrl?: string
-  actors: Actor[]        // 출연 배우 전체 (배역 정보 포함)
-  mainActors: string[]   // 주연배우 이름 목록
+  format: '단편' | '시리즈'  // 작품 형식
+  episode?: number           // 시리즈인 경우 에피소드 번호
+  actors: Actor[]            // 출연 배우 전체 (배역 정보 포함)
+  mainActors: string[]       // 주연배우 이름 목록
 }

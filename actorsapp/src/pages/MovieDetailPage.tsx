@@ -35,6 +35,7 @@ export function MovieDetailPage() {
           <div className="detail-meta-row"><span className="detail-meta-label">상영시간</span><span>{movie.runtime}분</span></div>
           <div className="detail-meta-row"><span className="detail-meta-label">개봉일</span><span>{movie.releaseDate}</span></div>
           <div className="detail-meta-row"><span className="detail-meta-label">제작국가</span><span>{movie.country}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">형식</span><span>{movie.format}{movie.episode != null ? ` · ${movie.episode}화` : ''}</span></div>
         </div>
       </div>
 

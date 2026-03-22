@@ -41,6 +41,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
             <div className="movie-card-crew">작가 {movie.writer}</div>
             <div className="movie-card-crew">{movie.ageRating} · {movie.runtime}분</div>
             <div className="movie-card-crew">개봉 {movie.releaseDate}</div>
+            <div className="movie-card-crew">{movie.format}{movie.episode != null ? ` · ${movie.episode}화` : ''}</div>
           </div>
         </div>
         {/* 배우 목록: 배우명+배역명+영화속 사진 3장, 1줄 */}
