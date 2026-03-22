@@ -408,7 +408,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                     }
                   </div>
                   <div className="movie-card-actor-name">{a.name}</div>
-                  <div className="movie-card-actor-detail">{a.role}</div>
+                  <div className="movie-card-actor-detail">{a.role} 역</div>
                 </div>
                 <div className="movie-card-actor-row-images">
                   {(a.roleImages && a.roleImages.length > 0 ? a.roleImages : (a.imageUrl ? [a.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
