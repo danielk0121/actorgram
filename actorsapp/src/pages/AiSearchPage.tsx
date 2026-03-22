@@ -17,7 +17,7 @@ export function AiSearchPage() {
   // TODO: API 서버 연동 시 실제 검색 결과로 교체
   const matchedActors: Actor[] = PHOTO_SEARCH_DUMMY_ACTORS.map((name) => {
     const found = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === name)
-    return found ?? { name, role: '', birthYear: 0, nationality: '', debutDate: '' }
+    return found ?? { id: 0, name, role: '', birthYear: 0, nationality: '', debutDate: '' }
   }).filter((a) => a.birthYear !== 0)
 
   const moviesByActor = (actorName: string) =>

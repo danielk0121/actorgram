@@ -118,8 +118,8 @@ export function ActorDetailPage() {
                       </button>
                       {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
                       <div className="detail-role-images-grid">
-                        {a.roleImages.slice(0, 9).map((imgUrl, i) => {
-                          const isLast = i === 8 && a.roleImages!.length > 9
+                        {(a.roleImages ?? []).slice(0, 9).map((imgUrl, i) => {
+                          const isLast = i === 8 && (a.roleImages?.length ?? 0) > 9
                           return (
                             <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
                               <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
