@@ -39,7 +39,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '미국 정보요원 이단 헌트는 동료들의 죽음에 대한 누명을 쓰고 조직에 숨어든 진짜 스파이를 밝혀내기 위해 독자적으로 움직인다.',
     director: '브라이언 드 팔마', writer: '데이비드 코엡',
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
-    mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니', '존 폴슨', '비나 리드'],
+    mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니', '존 폴슨', '비나 리드', '크리스틴 스콧 토마스'],
     actors: [
       { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg'] },
       { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01' },
@@ -47,6 +47,7 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01' },
       { name: '존 폴슨', role: '잭 도노반', birthYear: 1960, nationality: '미국', debutDate: '1985-01-01' },
       { name: '비나 리드', role: '샨나', birthYear: 1968, nationality: '미국', debutDate: '1993-01-01' },
+      { name: '크리스틴 스콧 토마스', role: '사라 데이비스', birthYear: 1960, nationality: '영국', debutDate: '1984-01-01' },
     ],
   },
   {
@@ -54,14 +55,12 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '스포츠 에이전트 제리 맥과이어는 도덕적 각성 후 회사에서 해고되고, 단 한 명의 선수와 함께 자신만의 에이전시를 꾸려 나간다.',
     director: '카메론 크로', writer: '카메론 크로',
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
-    mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴', '제리 오코넬', '보니 헌트'],
+    mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴'],
     actors: [
       { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01' },
       { name: '쿠바 구딩 주니어', role: '로드 타이드웰', birthYear: 1968, nationality: '미국', debutDate: '1988-01-01' },
       { name: '켈리 프레스턴', role: '에이버리 비숍', birthYear: 1962, nationality: '미국', debutDate: '1985-01-01' },
-      { name: '제리 오코넬', role: '프랭크 롭', birthYear: 1974, nationality: '미국', debutDate: '1986-01-01' },
-      { name: '보니 헌트', role: '로리 보이드', birthYear: 1961, nationality: '미국', debutDate: '1988-01-01' },
     ],
   },
   {
@@ -69,7 +68,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '30년이 지나도 현역 최고의 파일럿으로 활약하는 매버릭은 탑건 최정예 졸업생들을 이끌고 특수 임무에 나서며 과거의 유령과 마주한다.',
     director: '조셉 코신스키', writer: '에렌 크루거',
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
-    mainActors: ['톰 크루즈', '마일스 텔러', '제니퍼 코넬리', '존 햄', '글렌 파월', '루이스 풀먼'],
+    mainActors: ['톰 크루즈', '마일스 텔러', '제니퍼 코넬리', '존 햄', '글렌 파월', '루이스 풀먼', '모니카 바르보사', '에드 해리스', '발 킬머'],
     actors: [
       { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
       { name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01' },
@@ -77,6 +76,9 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '존 햄', role: '사이클론', birthYear: 1971, nationality: '미국', debutDate: '1996-01-01' },
       { name: '글렌 파월', role: '행맨', birthYear: 1988, nationality: '미국', debutDate: '2012-01-01' },
       { name: '루이스 풀먼', role: '바이퍼', birthYear: 1994, nationality: '미국', debutDate: '2016-01-01' },
+      { name: '모니카 바르보사', role: '피닉스', birthYear: 1991, nationality: '미국', debutDate: '2014-01-01' },
+      { name: '에드 해리스', role: '해군장관', birthYear: 1950, nationality: '미국', debutDate: '1975-01-01' },
+      { name: '발 킬머', role: '아이스맨', birthYear: 1959, nationality: '미국', debutDate: '1984-01-01' },
     ],
   },
   {
@@ -101,14 +103,13 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '지구 멸망의 위기 속에서 탐험대가 웜홀을 통해 우주로 떠나 인류의 새로운 터전을 찾아 나선다.',
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '전체', runtime: 169, releaseDate: '2014-11-06', country: '미국',
-    mainActors: ['매튜 맥커너히', '앤 해서웨이', '제시카 차스테인', '마이클 케인', '맷 데이먼', '케이시 애플렉'],
+    mainActors: ['매튜 맥커너히', '앤 해서웨이', '제시카 차스테인', '마이클 케인', '맷 데이먼'],
     actors: [
       { name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01' },
       { name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01' },
       { name: '제시카 차스테인', role: '머프', birthYear: 1977, nationality: '미국', debutDate: '2004-01-01' },
       { name: '마이클 케인', role: '브랜드 교수', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01' },
       { name: '맷 데이먼', role: '만 박사', birthYear: 1970, nationality: '미국', debutDate: '1988-01-01' },
-      { name: '케이시 애플렉', role: '톰 쿠퍼', birthYear: 1975, nationality: '미국', debutDate: '1995-01-01' },
     ],
   },
   {
@@ -133,7 +134,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '가난한 기택 가족이 부유한 박 사장 가족에게 접근하면서 두 가족 사이에 예상치 못한 사건이 벌어진다.',
     director: '봉준호', writer: '봉준호',
     ageRating: '15세', runtime: 132, releaseDate: '2019-05-30', country: '한국',
-    mainActors: ['송강호', '이선균', '조여정', '최우식', '박소담', '이정은'],
+    mainActors: ['송강호', '이선균', '조여정', '최우식', '박소담', '이정은', '장혜진'],
     actors: [
       { name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01' },
       { name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01' },
@@ -141,6 +142,7 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '최우식', role: '기우', birthYear: 1990, nationality: '한국', debutDate: '2012-01-01' },
       { name: '박소담', role: '기정', birthYear: 1991, nationality: '한국', debutDate: '2013-01-01' },
       { name: '이정은', role: '문광', birthYear: 1969, nationality: '한국', debutDate: '1997-01-01' },
+      { name: '장혜진', role: '충숙', birthYear: 1970, nationality: '한국', debutDate: '1998-01-01' },
     ],
   },
   {
@@ -148,7 +150,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '노령의 마피아 대부 비토 코를레오네가 제국을 마지막 아들 마이클에게 물려주며 벌어지는 권력 승계와 복수의 이야기.',
     director: '프란시스 포드 코폴라', writer: '마리오 푸조',
     ageRating: '15세', runtime: 175, releaseDate: '1972-03-24', country: '미국',
-    mainActors: ['말론 브란도', '알 파치노', '제임스 칸', '다이앤 키튼', '로버트 듀발', '리처드 카스텔라노'],
+    mainActors: ['말론 브란도', '알 파치노', '제임스 칸', '다이앤 키튼', '로버트 듀발', '리처드 카스텔라노', '알 레티에리', '다이앤 시레이토', '리처드 브라이트', '알렉스 로코'],
     actors: [
       { name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01' },
       { name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01' },
@@ -156,6 +158,10 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '다이앤 키튼', role: '케이 애덤스', birthYear: 1946, nationality: '미국', debutDate: '1970-01-01' },
       { name: '로버트 듀발', role: '톰 헤이건', birthYear: 1931, nationality: '미국', debutDate: '1962-01-01' },
       { name: '리처드 카스텔라노', role: '피터 클레멘자', birthYear: 1933, nationality: '미국', debutDate: '1960-01-01' },
+      { name: '알 레티에리', role: '솔로조', birthYear: 1928, nationality: '미국', debutDate: '1968-01-01' },
+      { name: '다이앤 시레이토', role: '코니 코를레오네', birthYear: 1948, nationality: '미국', debutDate: '1965-01-01' },
+      { name: '리처드 브라이트', role: '알', birthYear: 1937, nationality: '미국', debutDate: '1965-01-01' },
+      { name: '알렉스 로코', role: '모 그린', birthYear: 1936, nationality: '미국', debutDate: '1963-01-01' },
     ],
   },
   {
@@ -163,14 +169,11 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '두 킬러, 복서, 갱스터와 그의 아내의 삶이 폭력과 구원의 네 가지 이야기로 교차한다.',
     director: '쿠엔틴 타란티노', writer: '쿠엔틴 타란티노',
     ageRating: '청소년불가', runtime: 154, releaseDate: '1994-10-14', country: '미국',
-    mainActors: ['존 트라볼타', '새뮤얼 L. 잭슨', '우마 서먼', '브루스 윌리스', '하비 케이틀', '팀 로스'],
+    mainActors: ['존 트라볼타', '새뮤얼 L. 잭슨', '우마 서먼'],
     actors: [
       { name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01' },
       { name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01' },
       { name: '우마 서먼', role: '미아 월리스', birthYear: 1970, nationality: '미국', debutDate: '1987-01-01' },
-      { name: '브루스 윌리스', role: '부치 쿨리지', birthYear: 1955, nationality: '미국', debutDate: '1980-01-01' },
-      { name: '하비 케이틀', role: '울프', birthYear: 1939, nationality: '미국', debutDate: '1965-01-01' },
-      { name: '팀 로스', role: '펌킨', birthYear: 1961, nationality: '영국', debutDate: '1984-01-01' },
     ],
   },
   {
@@ -193,14 +196,13 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '지능지수 75의 앨라배마 청년 포레스트 검프의 시선으로 케네디 암살, 베트남 전쟁 등 미국 현대사가 펼쳐진다.',
     director: '로버트 저메키스', writer: '에릭 로스',
     ageRating: '전체', runtime: 142, releaseDate: '1994-07-06', country: '미국',
-    mainActors: ['톰 행크스', '로빈 라이트', '게리 시니즈', '마이클 콘너 험프리스', '샐리 필드', '해나 홀'],
+    mainActors: ['톰 행크스', '로빈 라이트', '게리 시니즈', '샐리 필드', '마이클 콘너 험프리스'],
     actors: [
       { name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01' },
       { name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01' },
       { name: '게리 시니즈', role: '댄 테일러 중위', birthYear: 1954, nationality: '미국', debutDate: '1981-01-01' },
-      { name: '마이클 콘너 험프리스', role: '어린 포레스트', birthYear: 1985, nationality: '미국', debutDate: '1994-01-01' },
       { name: '샐리 필드', role: '포레스트 어머니', birthYear: 1946, nationality: '미국', debutDate: '1967-01-01' },
-      { name: '해나 홀', role: '어린 제니', birthYear: 1984, nationality: '미국', debutDate: '1994-01-01' },
+      { name: '마이클 콘너 험프리스', role: '어린 포레스트', birthYear: 1985, nationality: '미국', debutDate: '1994-01-01' },
     ],
   },
   {
@@ -208,14 +210,12 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '2차 세계대전 중 독일 사업가 오스카 쉰들러가 나치의 박해를 피해 유대인 노동자들을 구하는 실화를 바탕으로 한 이야기.',
     director: '스티븐 스필버그', writer: '스티븐 재일리안',
     ageRating: '15세', runtime: 195, releaseDate: '1993-12-15', country: '미국',
-    mainActors: ['리암 니슨', '벤 킹슬리', '랄프 파인즈', '캐롤라인 굿올', '엠블러 데이비스', '조나단 사가르'],
+    mainActors: ['리암 니슨', '벤 킹슬리', '랄프 파인즈', '캐롤라인 굿올'],
     actors: [
       { name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01' },
       { name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01' },
       { name: '랄프 파인즈', role: '아몬 괴트', birthYear: 1962, nationality: '영국', debutDate: '1990-01-01' },
       { name: '캐롤라인 굿올', role: '에밀리 쉰들러', birthYear: 1959, nationality: '영국', debutDate: '1985-01-01' },
-      { name: '엠블러 데이비스', role: '헬렌 히르쉬', birthYear: 1974, nationality: '미국', debutDate: '1993-01-01' },
-      { name: '조나단 사가르', role: '레온 핀들링', birthYear: 1955, nationality: '영국', debutDate: '1982-01-01' },
     ],
   },
   {
@@ -223,7 +223,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '불면증에 시달리는 직장인과 비누 장수가 비밀 격투 클럽을 만들고 점점 더 극단적인 방향으로 치닫는다.',
     director: '데이비드 핀처', writer: '짐 울스',
     ageRating: '청소년불가', runtime: 139, releaseDate: '1999-10-15', country: '미국',
-    mainActors: ['브래드 피트', '에드워드 노튼', '헬레나 본햄 카터', '미트 로프', '재러드 레토', '자이몬 혼수'],
+    mainActors: ['브래드 피트', '에드워드 노튼', '헬레나 본햄 카터', '미트 로프', '재러드 레토', '자이몬 혼수', '이언 베일리'],
     actors: [
       { name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01' },
       { name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01' },
@@ -231,6 +231,7 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '미트 로프', role: '밥', birthYear: 1947, nationality: '미국', debutDate: '1975-01-01' },
       { name: '재러드 레토', role: '앤젤 페이스', birthYear: 1971, nationality: '미국', debutDate: '1992-01-01' },
       { name: '자이몬 혼수', role: '카를로스', birthYear: 1964, nationality: '시에라리온', debutDate: '1994-01-01' },
+      { name: '이언 베일리', role: '리처드', birthYear: 1965, nationality: '미국', debutDate: '1997-01-01' },
     ],
   },
   {
@@ -238,7 +239,7 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: '헨리 힐이 마피아 조직에 발을 들이며 겪는 성공과 배신, 몰락의 실화.',
     director: '마틴 스코세이지', writer: '니콜라스 필레기',
     ageRating: '청소년불가', runtime: 146, releaseDate: '1990-09-19', country: '미국',
-    mainActors: ['레이 리오타', '로버트 드 니로', '조 페시', '로레인 브라코', '폴 소르비노', '프랭크 빈센트'],
+    mainActors: ['레이 리오타', '로버트 드 니로', '조 페시', '로레인 브라코', '폴 소르비노', '프랭크 빈센트', '마이클 임페리올리', '척 로우', '프랭크 디레오'],
     actors: [
       { name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01' },
       { name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01' },
@@ -246,6 +247,9 @@ const SAMPLE_MOVIES: Movie[] = [
       { name: '로레인 브라코', role: '카렌 힐', birthYear: 1954, nationality: '미국', debutDate: '1979-01-01' },
       { name: '폴 소르비노', role: '폴리 치클로', birthYear: 1939, nationality: '미국', debutDate: '1970-01-01' },
       { name: '프랭크 빈센트', role: '빌리 바츠', birthYear: 1938, nationality: '미국', debutDate: '1980-01-01' },
+      { name: '마이클 임페리올리', role: '스파이더', birthYear: 1966, nationality: '미국', debutDate: '1989-01-01' },
+      { name: '척 로우', role: '해리 라이트', birthYear: 1952, nationality: '미국', debutDate: '1980-01-01' },
+      { name: '프랭크 디레오', role: '투디', birthYear: 1950, nationality: '미국', debutDate: '1990-01-01' },
     ],
   },
   {
@@ -253,14 +257,11 @@ const SAMPLE_MOVIES: Movie[] = [
     overview: 'FBI 수습 요원 클라리스는 연쇄살인범을 잡기 위해 수감 중인 식인 살인마 한니발 렉터의 도움을 받는다.',
     director: '조나단 드미', writer: '테드 탤리',
     ageRating: '청소년불가', runtime: 118, releaseDate: '1991-02-14', country: '미국',
-    mainActors: ['조디 포스터', '앤서니 홉킨스', '스콧 글렌', '테드 레빈', '앤서니 히얼드', '브룩 스미스'],
+    mainActors: ['조디 포스터', '앤서니 홉킨스', '테드 레빈'],
     actors: [
       { name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01' },
       { name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01' },
-      { name: '스콧 글렌', role: '잭 크로퍼드', birthYear: 1941, nationality: '미국', debutDate: '1962-01-01' },
       { name: '테드 레빈', role: '버팔로 빌', birthYear: 1952, nationality: '미국', debutDate: '1984-01-01' },
-      { name: '앤서니 히얼드', role: '칠턴 박사', birthYear: 1944, nationality: '영국', debutDate: '1968-01-01' },
-      { name: '브룩 스미스', role: '캐서린 마틴', birthYear: 1967, nationality: '미국', debutDate: '1988-01-01' },
     ],
   },
 ]
@@ -744,7 +745,7 @@ function App() {
         </Routes>
       </main>
 
-      <footer className="footer">actors — React + TypeScript + Vite</footer>
+      <footer className="footer">actors by danielk0121 — React + TypeScript + Vite</footer>
     </div>
   )
 }
