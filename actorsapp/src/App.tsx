@@ -863,7 +863,7 @@ function App() {
       <header className="header">
         <div className="header-row1">
           <NavLink to="/actors" className="header-left">
-            <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="actors 로고" className="header-favicon" />
             <div className="header-logo-wrap">
               <div className="header-logo">actors</div>
               <div className="header-version">v260322-1248</div>
