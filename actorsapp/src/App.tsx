@@ -787,7 +787,7 @@ function ActorDetailPage() {
               <button
                 className={`detail-movie-sort-btn${sortOrder === 'name' ? ' detail-movie-sort-btn--active' : ''}`}
                 onClick={() => setSortOrder('name')}
-              >이름순</button>
+              >영화제목순</button>
             </div>
           </div>
 
