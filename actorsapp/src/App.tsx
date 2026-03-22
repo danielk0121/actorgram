@@ -41,7 +41,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
     mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니', '존 폴슨', '비나 리드'],
     actors: [
-      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/mi1/200', 'https://picsum.photos/seed/mi2/200', 'https://picsum.photos/seed/mi3/200'] },
+      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg'] },
       { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01' },
       { name: '엠마뉴엘 베아르', role: '클레어 펠프스', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01' },
       { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01' },
@@ -56,7 +56,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
     mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴', '제리 오코넬', '보니 헌트'],
     actors: [
-      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/jm1/200', 'https://picsum.photos/seed/jm2/200', 'https://picsum.photos/seed/jm3/200'] },
+      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01' },
       { name: '쿠바 구딩 주니어', role: '로드 타이드웰', birthYear: 1968, nationality: '미국', debutDate: '1988-01-01' },
       { name: '켈리 프레스턴', role: '에이버리 비숍', birthYear: 1962, nationality: '미국', debutDate: '1985-01-01' },
@@ -71,7 +71,7 @@ const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
     mainActors: ['톰 크루즈', '마일스 텔러', '제니퍼 코넬리', '존 햄', '글렌 파월', '루이스 풀먼'],
     actors: [
-      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['https://picsum.photos/seed/tg1/200', 'https://picsum.photos/seed/tg2/200', 'https://picsum.photos/seed/tg3/200'] },
+      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
       { name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01' },
       { name: '제니퍼 코넬리', role: '페니 벤자민', birthYear: 1970, nationality: '미국', debutDate: '1984-01-01' },
       { name: '존 햄', role: '사이클론', birthYear: 1971, nationality: '미국', debutDate: '1996-01-01' },
@@ -557,7 +557,7 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
 
 // TODO: API 서버 연동 시 업로드 이미지 분석 결과로 교체
 const PHOTO_SEARCH_DUMMY_ACTOR = '톰 크루즈'
-const PHOTO_SEARCH_DUMMY_IMAGE = 'https://picsum.photos/seed/tomcruze/200'
+const PHOTO_SEARCH_DUMMY_IMAGE = '/images/tomcruze.jpg'
 
 function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
