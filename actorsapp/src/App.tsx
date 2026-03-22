@@ -333,8 +333,8 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
   // 영화 화면: 주연배우 전체 표시
   const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.name))
 
-  // 영화 화면 배우 목록: 최대 3명
-  const displayActors = mainActorDetails.slice(0, 3)
+  // 영화 화면 배우 목록: 전체 표시
+  const displayActors = mainActorDetails
 
   if (mode === 'movie') {
     return (
