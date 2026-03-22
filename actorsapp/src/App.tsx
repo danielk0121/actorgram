@@ -11,6 +11,7 @@ interface Actor {
   birthYear: number
   nationality: string
   debutDate: string
+  gender?: '남' | '여'
   imageUrl?: string
   roleImages?: string[]   // 영화 속 배역 이미지 3장
 }
@@ -45,10 +46,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster13.jpg',
     mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니'],
     actors: [
-      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
-      { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01', imageUrl: '/images/actor2.jpg' },
-      { name: '엠마뉴엘 베아르', role: '클레어 펠프스', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01', imageUrl: '/images/actor3.jpg' },
-      { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01', imageUrl: '/images/actor4.jpg' },
+      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
+      { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01', gender: '남', imageUrl: '/images/actor2.jpg' },
+      { name: '엠마뉴엘 베아르', role: '클레어 펠프스', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01', gender: '여', imageUrl: '/images/actor3.jpg' },
+      { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01', gender: '남', imageUrl: '/images/actor4.jpg' },
     ],
   },
   {
@@ -59,12 +60,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster14.jpg',
     mainActors: ['톰 크루즈', '르네 젤위거', '쿠바 구딩 주니어', '켈리 프레스턴', '제리 오코넬', '보니 헌트'],
     actors: [
-      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
-      { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor5.jpg' },
-      { name: '쿠바 구딩 주니어', role: '로드 타이드웰', birthYear: 1968, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor6.jpg' },
-      { name: '켈리 프레스턴', role: '에이버리 비숍', birthYear: 1962, nationality: '미국', debutDate: '1985-01-01', imageUrl: '/images/actor7.jpg' },
-      { name: '제리 오코넬', role: '프랭크 롭', birthYear: 1974, nationality: '미국', debutDate: '1986-01-01', imageUrl: '/images/actor8.jpg' },
-      { name: '보니 헌트', role: '로리 보이드', birthYear: 1961, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor9.jpg' },
+      { name: '톰 크루즈', role: '제리 맥과이어', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
+      { name: '르네 젤위거', role: '도로시 보이드', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', gender: '여', imageUrl: '/images/actor5.jpg' },
+      { name: '쿠바 구딩 주니어', role: '로드 타이드웰', birthYear: 1968, nationality: '미국', debutDate: '1988-01-01', gender: '남', imageUrl: '/images/actor6.jpg' },
+      { name: '켈리 프레스턴', role: '에이버리 비숍', birthYear: 1962, nationality: '미국', debutDate: '1985-01-01', gender: '여', imageUrl: '/images/actor7.jpg' },
+      { name: '제리 오코넬', role: '프랭크 롭', birthYear: 1974, nationality: '미국', debutDate: '1986-01-01', gender: '남', imageUrl: '/images/actor8.jpg' },
+      { name: '보니 헌트', role: '로리 보이드', birthYear: 1961, nationality: '미국', debutDate: '1988-01-01', gender: '여', imageUrl: '/images/actor9.jpg' },
     ],
   },
   {
@@ -75,15 +76,15 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster15.jpg',
     mainActors: ['톰 크루즈', '마일스 텔러', '제니퍼 코넬리', '존 햄', '글렌 파월', '루이스 풀먼', '모니카 바르보사', '에드 해리스', '발 킬머'],
     actors: [
-      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
-      { name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01', imageUrl: '/images/actor10.jpg' },
-      { name: '제니퍼 코넬리', role: '페니 벤자민', birthYear: 1970, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor11.jpg' },
-      { name: '존 햄', role: '사이클론', birthYear: 1971, nationality: '미국', debutDate: '1996-01-01', imageUrl: '/images/actor12.jpg' },
-      { name: '글렌 파월', role: '행맨', birthYear: 1988, nationality: '미국', debutDate: '2012-01-01', imageUrl: '/images/actor13.jpg' },
-      { name: '루이스 풀먼', role: '바이퍼', birthYear: 1994, nationality: '미국', debutDate: '2016-01-01', imageUrl: '/images/actor14.jpg' },
-      { name: '모니카 바르보사', role: '피닉스', birthYear: 1991, nationality: '미국', debutDate: '2014-01-01', imageUrl: '/images/actor15.jpg' },
-      { name: '에드 해리스', role: '해군장관', birthYear: 1950, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor16.jpg' },
-      { name: '발 킬머', role: '아이스맨', birthYear: 1959, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor17.jpg' },
+      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
+      { name: '마일스 텔러', role: '루스터', birthYear: 1987, nationality: '미국', debutDate: '2010-01-01', gender: '남', imageUrl: '/images/actor10.jpg' },
+      { name: '제니퍼 코넬리', role: '페니 벤자민', birthYear: 1970, nationality: '미국', debutDate: '1984-01-01', gender: '여', imageUrl: '/images/actor11.jpg' },
+      { name: '존 햄', role: '사이클론', birthYear: 1971, nationality: '미국', debutDate: '1996-01-01', gender: '남', imageUrl: '/images/actor12.jpg' },
+      { name: '글렌 파월', role: '행맨', birthYear: 1988, nationality: '미국', debutDate: '2012-01-01', gender: '남', imageUrl: '/images/actor13.jpg' },
+      { name: '루이스 풀먼', role: '바이퍼', birthYear: 1994, nationality: '미국', debutDate: '2016-01-01', gender: '남', imageUrl: '/images/actor14.jpg' },
+      { name: '모니카 바르보사', role: '피닉스', birthYear: 1991, nationality: '미국', debutDate: '2014-01-01', gender: '여', imageUrl: '/images/actor15.jpg' },
+      { name: '에드 해리스', role: '해군장관', birthYear: 1950, nationality: '미국', debutDate: '1975-01-01', gender: '남', imageUrl: '/images/actor16.jpg' },
+      { name: '발 킬머', role: '아이스맨', birthYear: 1959, nationality: '미국', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor17.jpg' },
     ],
   },
   {
@@ -94,10 +95,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster13.jpg',
     mainActors: ['톰 크루즈', '켈리 맥길리스', '발 킬머', '앤서니 에드워즈'],
     actors: [
-      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
-      { name: '켈리 맥길리스', role: '찰리', birthYear: 1957, nationality: '미국', debutDate: '1983-01-01', imageUrl: '/images/actor50.jpg' },
-      { name: '발 킬머', role: '아이스맨', birthYear: 1959, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor17.jpg' },
-      { name: '앤서니 에드워즈', role: '구스', birthYear: 1962, nationality: '미국', debutDate: '1982-01-01', imageUrl: '/images/actor51.jpg' },
+      { name: '톰 크루즈', role: '매버릭', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
+      { name: '켈리 맥길리스', role: '찰리', birthYear: 1957, nationality: '미국', debutDate: '1983-01-01', gender: '여', imageUrl: '/images/actor50.jpg' },
+      { name: '발 킬머', role: '아이스맨', birthYear: 1959, nationality: '미국', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor17.jpg' },
+      { name: '앤서니 에드워즈', role: '구스', birthYear: 1962, nationality: '미국', debutDate: '1982-01-01', gender: '남', imageUrl: '/images/actor51.jpg' },
     ],
   },
   {
@@ -108,10 +109,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster14.jpg',
     mainActors: ['톰 크루즈', '콜린 파렐', '사만다 모튼', '막스 폰 쉬도'],
     actors: [
-      { name: '톰 크루즈', role: '존 앤더튼', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
-      { name: '콜린 파렐', role: '대니 위트워', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor52.jpg' },
-      { name: '사만다 모튼', role: '아가사', birthYear: 1977, nationality: '영국', debutDate: '1993-01-01', imageUrl: '/images/actor53.jpg' },
-      { name: '막스 폰 쉬도', role: '라마르 버제스', birthYear: 1929, nationality: '스웨덴', debutDate: '1949-01-01', imageUrl: '/images/actor78.jpg' },
+      { name: '톰 크루즈', role: '존 앤더튼', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
+      { name: '콜린 파렐', role: '대니 위트워', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', gender: '남', imageUrl: '/images/actor52.jpg' },
+      { name: '사만다 모튼', role: '아가사', birthYear: 1977, nationality: '영국', debutDate: '1993-01-01', gender: '여', imageUrl: '/images/actor53.jpg' },
+      { name: '막스 폰 쉬도', role: '라마르 버제스', birthYear: 1929, nationality: '스웨덴', debutDate: '1949-01-01', gender: '남', imageUrl: '/images/actor78.jpg' },
     ],
   },
   {
@@ -122,14 +123,14 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster1.jpg',
     mainActors: ['레오나르도 디카프리오', '조셉 고든-레빗', '엘리엇 페이지', '톰 하디', '켄 와타나베', '디리프 라오', '킬리언 머피', '마리옹 코티야르'],
     actors: [
-      { name: '레오나르도 디카프리오', role: '돔 코브', birthYear: 1974, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor18.jpg', roleImages: ['/images/poster1.jpg', '/images/actor19.jpg', '/images/actor20.jpg'] },
-      { name: '조셉 고든-레빗', role: '아서', birthYear: 1981, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor19.jpg', roleImages: ['/images/actor18.jpg', '/images/poster1.jpg'] },
-      { name: '엘리엇 페이지', role: '아리아드네', birthYear: 1987, nationality: '캐나다', debutDate: '1997-01-01', imageUrl: '/images/actor20.jpg' },
-      { name: '톰 하디', role: '이임스', birthYear: 1977, nationality: '영국', debutDate: '2001-01-01', imageUrl: '/images/actor21.jpg', roleImages: ['/images/actor18.jpg', '/images/actor19.jpg', '/images/poster1.jpg'] },
-      { name: '켄 와타나베', role: '사이토', birthYear: 1959, nationality: '일본', debutDate: '1984-01-01', imageUrl: '/images/actor22.jpg' },
-      { name: '디리프 라오', role: '유수프', birthYear: 1975, nationality: '인도', debutDate: '2000-01-01', imageUrl: '/images/actor23.jpg' },
-      { name: '킬리언 머피', role: '로버트 피셔', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster1.jpg', '/images/actor21.jpg'] },
-      { name: '마리옹 코티야르', role: '맬', birthYear: 1975, nationality: '프랑스', debutDate: '1994-01-01', imageUrl: '/images/actor25.jpg', roleImages: ['/images/actor18.jpg'] },
+      { name: '레오나르도 디카프리오', role: '돔 코브', birthYear: 1974, nationality: '미국', debutDate: '1989-01-01', gender: '남', imageUrl: '/images/actor18.jpg', roleImages: ['/images/poster1.jpg', '/images/actor19.jpg', '/images/actor20.jpg'] },
+      { name: '조셉 고든-레빗', role: '아서', birthYear: 1981, nationality: '미국', debutDate: '1988-01-01', gender: '남', imageUrl: '/images/actor19.jpg', roleImages: ['/images/actor18.jpg', '/images/poster1.jpg'] },
+      { name: '엘리엇 페이지', role: '아리아드네', birthYear: 1987, nationality: '캐나다', debutDate: '1997-01-01', gender: '남', imageUrl: '/images/actor20.jpg' },
+      { name: '톰 하디', role: '이임스', birthYear: 1977, nationality: '영국', debutDate: '2001-01-01', gender: '남', imageUrl: '/images/actor21.jpg', roleImages: ['/images/actor18.jpg', '/images/actor19.jpg', '/images/poster1.jpg'] },
+      { name: '켄 와타나베', role: '사이토', birthYear: 1959, nationality: '일본', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor22.jpg' },
+      { name: '디리프 라오', role: '유수프', birthYear: 1975, nationality: '인도', debutDate: '2000-01-01', gender: '남', imageUrl: '/images/actor23.jpg' },
+      { name: '킬리언 머피', role: '로버트 피셔', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', gender: '남', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster1.jpg', '/images/actor21.jpg'] },
+      { name: '마리옹 코티야르', role: '맬', birthYear: 1975, nationality: '프랑스', debutDate: '1994-01-01', gender: '여', imageUrl: '/images/actor25.jpg', roleImages: ['/images/actor18.jpg'] },
     ],
   },
   {
@@ -140,11 +141,11 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster2.jpg',
     mainActors: ['매튜 맥커너히', '앤 해서웨이', '제시카 차스테인', '마이클 케인', '맷 데이먼'],
     actors: [
-      { name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor26.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor28.jpg'] },
-      { name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01', imageUrl: '/images/actor27.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
-      { name: '제시카 차스테인', role: '머프', birthYear: 1977, nationality: '미국', debutDate: '2004-01-01', imageUrl: '/images/actor28.jpg', roleImages: ['/images/poster2.jpg'] },
-      { name: '마이클 케인', role: '브랜드 교수', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
-      { name: '맷 데이먼', role: '만 박사', birthYear: 1970, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor30.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor29.jpg'] },
+      { name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor26.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor28.jpg'] },
+      { name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01', gender: '여', imageUrl: '/images/actor27.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
+      { name: '제시카 차스테인', role: '머프', birthYear: 1977, nationality: '미국', debutDate: '2004-01-01', gender: '여', imageUrl: '/images/actor28.jpg', roleImages: ['/images/poster2.jpg'] },
+      { name: '마이클 케인', role: '브랜드 교수', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', gender: '남', imageUrl: '/images/actor29.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
+      { name: '맷 데이먼', role: '만 박사', birthYear: 1970, nationality: '미국', debutDate: '1988-01-01', gender: '남', imageUrl: '/images/actor30.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor29.jpg'] },
     ],
   },
   {
@@ -155,14 +156,14 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster3.jpg',
     mainActors: ['크리스찬 베일', '히스 레저', '아론 에크하트', '마이클 케인', '게리 올드만', '모건 프리먼', '매기 질런홀', '킬리언 머피'],
     actors: [
-      { name: '크리스찬 베일', role: '브루스 웨인', birthYear: 1974, nationality: '영국', debutDate: '1987-01-01', imageUrl: '/images/actor31.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg', '/images/actor33.jpg'] },
-      { name: '히스 레저', role: '조커', birthYear: 1979, nationality: '호주', debutDate: '1992-01-01', imageUrl: '/images/actor32.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg', '/images/actor34.jpg'] },
-      { name: '아론 에크하트', role: '하비 덴트', birthYear: 1968, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor33.jpg', roleImages: ['/images/actor31.jpg', '/images/poster3.jpg'] },
-      { name: '마이클 케인', role: '알프레드', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg', roleImages: ['/images/poster3.jpg'] },
-      { name: '게리 올드만', role: '제임스 고든', birthYear: 1958, nationality: '영국', debutDate: '1982-01-01', imageUrl: '/images/actor34.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg'] },
-      { name: '모건 프리먼', role: '루셔스 폭스', birthYear: 1937, nationality: '미국', debutDate: '1964-01-01', imageUrl: '/images/actor35.jpg' },
-      { name: '매기 질런홀', role: '레이첼 도스', birthYear: 1977, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor36.jpg' },
-      { name: '킬리언 머피', role: '조나단 크레인', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg'] },
+      { name: '크리스찬 베일', role: '브루스 웨인', birthYear: 1974, nationality: '영국', debutDate: '1987-01-01', gender: '남', imageUrl: '/images/actor31.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg', '/images/actor33.jpg'] },
+      { name: '히스 레저', role: '조커', birthYear: 1979, nationality: '호주', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor32.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg', '/images/actor34.jpg'] },
+      { name: '아론 에크하트', role: '하비 덴트', birthYear: 1968, nationality: '미국', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor33.jpg', roleImages: ['/images/actor31.jpg', '/images/poster3.jpg'] },
+      { name: '마이클 케인', role: '알프레드', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', gender: '남', imageUrl: '/images/actor29.jpg', roleImages: ['/images/poster3.jpg'] },
+      { name: '게리 올드만', role: '제임스 고든', birthYear: 1958, nationality: '영국', debutDate: '1982-01-01', gender: '남', imageUrl: '/images/actor34.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg'] },
+      { name: '모건 프리먼', role: '루셔스 폭스', birthYear: 1937, nationality: '미국', debutDate: '1964-01-01', gender: '남', imageUrl: '/images/actor35.jpg' },
+      { name: '매기 질런홀', role: '레이첼 도스', birthYear: 1977, nationality: '미국', debutDate: '1992-01-01', gender: '여', imageUrl: '/images/actor36.jpg' },
+      { name: '킬리언 머피', role: '조나단 크레인', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', gender: '남', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg'] },
     ],
   },
   {
@@ -173,13 +174,13 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster4.jpg',
     mainActors: ['송강호', '이선균', '조여정', '최우식', '박소담', '이정은', '장혜진'],
     actors: [
-      { name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01', imageUrl: '/images/actor37.jpg', roleImages: ['/images/poster4.jpg', '/images/actor38.jpg', '/images/actor39.jpg'] },
-      { name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01', imageUrl: '/images/actor38.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
-      { name: '조여정', role: '연교', birthYear: 1981, nationality: '한국', debutDate: '2000-01-01', imageUrl: '/images/actor39.jpg', roleImages: ['/images/poster4.jpg', '/images/actor40.jpg', '/images/actor41.jpg'] },
-      { name: '최우식', role: '기우', birthYear: 1990, nationality: '한국', debutDate: '2012-01-01', imageUrl: '/images/actor40.jpg', roleImages: ['/images/poster4.jpg'] },
-      { name: '박소담', role: '기정', birthYear: 1991, nationality: '한국', debutDate: '2013-01-01', imageUrl: '/images/actor41.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
-      { name: '이정은', role: '문광', birthYear: 1969, nationality: '한국', debutDate: '1997-01-01', imageUrl: '/images/actor42.jpg', roleImages: ['/images/poster4.jpg'] },
-      { name: '장혜진', role: '충숙', birthYear: 1970, nationality: '한국', debutDate: '1998-01-01', imageUrl: '/images/actor43.jpg' },
+      { name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01', gender: '남', imageUrl: '/images/actor37.jpg', roleImages: ['/images/poster4.jpg', '/images/actor38.jpg', '/images/actor39.jpg'] },
+      { name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01', gender: '남', imageUrl: '/images/actor38.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
+      { name: '조여정', role: '연교', birthYear: 1981, nationality: '한국', debutDate: '2000-01-01', gender: '여', imageUrl: '/images/actor39.jpg', roleImages: ['/images/poster4.jpg', '/images/actor40.jpg', '/images/actor41.jpg'] },
+      { name: '최우식', role: '기우', birthYear: 1990, nationality: '한국', debutDate: '2012-01-01', gender: '남', imageUrl: '/images/actor40.jpg', roleImages: ['/images/poster4.jpg'] },
+      { name: '박소담', role: '기정', birthYear: 1991, nationality: '한국', debutDate: '2013-01-01', gender: '여', imageUrl: '/images/actor41.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
+      { name: '이정은', role: '문광', birthYear: 1969, nationality: '한국', debutDate: '1997-01-01', gender: '여', imageUrl: '/images/actor42.jpg', roleImages: ['/images/poster4.jpg'] },
+      { name: '장혜진', role: '충숙', birthYear: 1970, nationality: '한국', debutDate: '1998-01-01', gender: '여', imageUrl: '/images/actor43.jpg' },
     ],
   },
   {
@@ -190,12 +191,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster5.jpg',
     mainActors: ['말론 브란도', '알 파치노', '제임스 칸', '다이앤 키튼', '로버트 듀발', '리처드 카스텔라노', '알 레티에리', '다이앤 시레이토', '리처드 브라이트', '알렉스 로코'],
     actors: [
-      { name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01', imageUrl: '/images/actor44.jpg', roleImages: ['/images/poster5.jpg', '/images/actor45.jpg', '/images/actor46.jpg'] },
-      { name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01', imageUrl: '/images/actor45.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg', '/images/actor47.jpg'] },
-      { name: '제임스 칸', role: '소니 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor46.jpg', roleImages: ['/images/actor44.jpg', '/images/poster5.jpg'] },
-      { name: '다이앤 키튼', role: '케이 애덤스', birthYear: 1946, nationality: '미국', debutDate: '1970-01-01', imageUrl: '/images/actor47.jpg', roleImages: ['/images/poster5.jpg'] },
-      { name: '로버트 듀발', role: '톰 헤이건', birthYear: 1931, nationality: '미국', debutDate: '1962-01-01', imageUrl: '/images/actor48.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg'] },
-      { name: '리처드 카스텔라노', role: '피터 클레멘자', birthYear: 1933, nationality: '미국', debutDate: '1960-01-01', imageUrl: '/images/actor49.jpg' },
+      { name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01', gender: '남', imageUrl: '/images/actor44.jpg', roleImages: ['/images/poster5.jpg', '/images/actor45.jpg', '/images/actor46.jpg'] },
+      { name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01', gender: '남', imageUrl: '/images/actor45.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg', '/images/actor47.jpg'] },
+      { name: '제임스 칸', role: '소니 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1963-01-01', gender: '남', imageUrl: '/images/actor46.jpg', roleImages: ['/images/actor44.jpg', '/images/poster5.jpg'] },
+      { name: '다이앤 키튼', role: '케이 애덤스', birthYear: 1946, nationality: '미국', debutDate: '1970-01-01', gender: '여', imageUrl: '/images/actor47.jpg', roleImages: ['/images/poster5.jpg'] },
+      { name: '로버트 듀발', role: '톰 헤이건', birthYear: 1931, nationality: '미국', debutDate: '1962-01-01', gender: '남', imageUrl: '/images/actor48.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg'] },
+      { name: '리처드 카스텔라노', role: '피터 클레멘자', birthYear: 1933, nationality: '미국', debutDate: '1960-01-01', gender: '남', imageUrl: '/images/actor49.jpg' },
       { name: '알 레티에리', role: '솔로조', birthYear: 1928, nationality: '미국', debutDate: '1968-01-01', imageUrl: '/images/actor50.jpg' },
       { name: '다이앤 시레이토', role: '코니 코를레오네', birthYear: 1948, nationality: '미국', debutDate: '1965-01-01', imageUrl: '/images/actor51.jpg' },
       { name: '리처드 브라이트', role: '알', birthYear: 1937, nationality: '미국', debutDate: '1965-01-01', imageUrl: '/images/actor52.jpg' },
@@ -210,9 +211,9 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster6.jpg',
     mainActors: ['존 트라볼타', '새뮤얼 L. 잭슨', '우마 서먼'],
     actors: [
-      { name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor54.jpg', roleImages: ['/images/poster6.jpg', '/images/actor55.jpg', '/images/actor56.jpg'] },
-      { name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor55.jpg', roleImages: ['/images/actor54.jpg', '/images/poster6.jpg'] },
-      { name: '우마 서먼', role: '미아 월리스', birthYear: 1970, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor56.jpg', roleImages: ['/images/poster6.jpg', '/images/actor54.jpg', '/images/actor55.jpg'] },
+      { name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor54.jpg', roleImages: ['/images/poster6.jpg', '/images/actor55.jpg', '/images/actor56.jpg'] },
+      { name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor55.jpg', roleImages: ['/images/actor54.jpg', '/images/poster6.jpg'] },
+      { name: '우마 서먼', role: '미아 월리스', birthYear: 1970, nationality: '미국', debutDate: '1987-01-01', gender: '여', imageUrl: '/images/actor56.jpg', roleImages: ['/images/poster6.jpg', '/images/actor54.jpg', '/images/actor55.jpg'] },
     ],
   },
   {
@@ -223,12 +224,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster7.jpg',
     mainActors: ['키아누 리브스', '로렌스 피시번', '캐리-앤 모스', '휴고 위빙', '글로리아 포스터', '조 팬톨리아노'],
     actors: [
-      { name: '키아누 리브스', role: '네오', birthYear: 1964, nationality: '캐나다', debutDate: '1984-01-01', imageUrl: '/images/actor57.jpg', roleImages: ['/images/poster7.jpg', '/images/actor58.jpg', '/images/actor59.jpg'] },
-      { name: '로렌스 피시번', role: '모피어스', birthYear: 1961, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor58.jpg', roleImages: ['/images/actor57.jpg', '/images/poster7.jpg'] },
-      { name: '캐리-앤 모스', role: '트리니티', birthYear: 1967, nationality: '캐나다', debutDate: '1992-01-01', imageUrl: '/images/actor59.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg', '/images/actor60.jpg'] },
-      { name: '휴고 위빙', role: '에이전트 스미스', birthYear: 1959, nationality: '호주', debutDate: '1984-01-01', imageUrl: '/images/actor60.jpg', roleImages: ['/images/poster7.jpg'] },
-      { name: '글로리아 포스터', role: '오라클', birthYear: 1933, nationality: '미국', debutDate: '1964-01-01', imageUrl: '/images/actor61.jpg' },
-      { name: '조 팬톨리아노', role: '사이퍼', birthYear: 1951, nationality: '미국', debutDate: '1976-01-01', imageUrl: '/images/actor62.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg'] },
+      { name: '키아누 리브스', role: '네오', birthYear: 1964, nationality: '캐나다', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor57.jpg', roleImages: ['/images/poster7.jpg', '/images/actor58.jpg', '/images/actor59.jpg'] },
+      { name: '로렌스 피시번', role: '모피어스', birthYear: 1961, nationality: '미국', debutDate: '1975-01-01', gender: '남', imageUrl: '/images/actor58.jpg', roleImages: ['/images/actor57.jpg', '/images/poster7.jpg'] },
+      { name: '캐리-앤 모스', role: '트리니티', birthYear: 1967, nationality: '캐나다', debutDate: '1992-01-01', gender: '여', imageUrl: '/images/actor59.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg', '/images/actor60.jpg'] },
+      { name: '휴고 위빙', role: '에이전트 스미스', birthYear: 1959, nationality: '호주', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor60.jpg', roleImages: ['/images/poster7.jpg'] },
+      { name: '글로리아 포스터', role: '오라클', birthYear: 1933, nationality: '미국', debutDate: '1964-01-01', gender: '여', imageUrl: '/images/actor61.jpg' },
+      { name: '조 팬톨리아노', role: '사이퍼', birthYear: 1951, nationality: '미국', debutDate: '1976-01-01', gender: '남', imageUrl: '/images/actor62.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg'] },
     ],
   },
   {
@@ -239,10 +240,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster8.jpg',
     mainActors: ['톰 행크스', '로빈 라이트', '게리 시니즈', '샐리 필드', '마이클 콘너 험프리스'],
     actors: [
-      { name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor63.jpg', roleImages: ['/images/poster8.jpg', '/images/actor64.jpg', '/images/actor65.jpg'] },
-      { name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01', imageUrl: '/images/actor64.jpg', roleImages: ['/images/actor63.jpg', '/images/poster8.jpg'] },
-      { name: '게리 시니즈', role: '댄 테일러 중위', birthYear: 1954, nationality: '미국', debutDate: '1981-01-01', imageUrl: '/images/actor65.jpg', roleImages: ['/images/poster8.jpg'] },
-      { name: '샐리 필드', role: '포레스트 어머니', birthYear: 1946, nationality: '미국', debutDate: '1967-01-01', imageUrl: '/images/actor66.jpg' },
+      { name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01', gender: '남', imageUrl: '/images/actor63.jpg', roleImages: ['/images/poster8.jpg', '/images/actor64.jpg', '/images/actor65.jpg'] },
+      { name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01', gender: '여', imageUrl: '/images/actor64.jpg', roleImages: ['/images/actor63.jpg', '/images/poster8.jpg'] },
+      { name: '게리 시니즈', role: '댄 테일러 중위', birthYear: 1954, nationality: '미국', debutDate: '1981-01-01', gender: '남', imageUrl: '/images/actor65.jpg', roleImages: ['/images/poster8.jpg'] },
+      { name: '샐리 필드', role: '포레스트 어머니', birthYear: 1946, nationality: '미국', debutDate: '1967-01-01', gender: '여', imageUrl: '/images/actor66.jpg' },
       { name: '마이클 콘너 험프리스', role: '어린 포레스트', birthYear: 1985, nationality: '미국', debutDate: '1994-01-01', imageUrl: '/images/actor67.jpg' },
     ],
   },
@@ -254,10 +255,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster9.jpg',
     mainActors: ['리암 니슨', '벤 킹슬리', '랄프 파인즈', '캐롤라인 굿올'],
     actors: [
-      { name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01', imageUrl: '/images/actor68.jpg', roleImages: ['/images/poster9.jpg', '/images/actor69.jpg', '/images/actor70.jpg'] },
-      { name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01', imageUrl: '/images/actor69.jpg', roleImages: ['/images/actor68.jpg', '/images/poster9.jpg'] },
-      { name: '랄프 파인즈', role: '아몬 괴트', birthYear: 1962, nationality: '영국', debutDate: '1990-01-01', imageUrl: '/images/actor70.jpg', roleImages: ['/images/poster9.jpg', '/images/actor68.jpg', '/images/actor69.jpg'] },
-      { name: '캐롤라인 굿올', role: '에밀리 쉰들러', birthYear: 1959, nationality: '영국', debutDate: '1985-01-01', imageUrl: '/images/actor71.jpg', roleImages: ['/images/poster9.jpg'] },
+      { name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01', gender: '남', imageUrl: '/images/actor68.jpg', roleImages: ['/images/poster9.jpg', '/images/actor69.jpg', '/images/actor70.jpg'] },
+      { name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01', gender: '남', imageUrl: '/images/actor69.jpg', roleImages: ['/images/actor68.jpg', '/images/poster9.jpg'] },
+      { name: '랄프 파인즈', role: '아몬 괴트', birthYear: 1962, nationality: '영국', debutDate: '1990-01-01', gender: '남', imageUrl: '/images/actor70.jpg', roleImages: ['/images/poster9.jpg', '/images/actor68.jpg', '/images/actor69.jpg'] },
+      { name: '캐롤라인 굿올', role: '에밀리 쉰들러', birthYear: 1959, nationality: '영국', debutDate: '1985-01-01', gender: '여', imageUrl: '/images/actor71.jpg', roleImages: ['/images/poster9.jpg'] },
     ],
   },
   {
@@ -268,12 +269,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster10.jpg',
     mainActors: ['브래드 피트', '에드워드 노튼', '헬레나 본햄 카터', '미트 로프', '재러드 레토', '자이몬 혼수', '이언 베일리'],
     actors: [
-      { name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster10.jpg', '/images/actor73.jpg', '/images/actor74.jpg'] },
-      { name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01', imageUrl: '/images/actor73.jpg', roleImages: ['/images/poster10.jpg', '/images/actor72.jpg', '/images/actor74.jpg'] },
-      { name: '헬레나 본햄 카터', role: '말라 싱어', birthYear: 1966, nationality: '영국', debutDate: '1983-01-01', imageUrl: '/images/actor74.jpg', roleImages: ['/images/actor72.jpg', '/images/poster10.jpg'] },
-      { name: '미트 로프', role: '밥', birthYear: 1947, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor75.jpg' },
-      { name: '재러드 레토', role: '앤젤 페이스', birthYear: 1971, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor76.jpg', roleImages: ['/images/poster10.jpg'] },
-      { name: '자이몬 혼수', role: '카를로스', birthYear: 1964, nationality: '시에라리온', debutDate: '1994-01-01', imageUrl: '/images/actor77.jpg' },
+      { name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01', gender: '남', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster10.jpg', '/images/actor73.jpg', '/images/actor74.jpg'] },
+      { name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01', gender: '남', imageUrl: '/images/actor73.jpg', roleImages: ['/images/poster10.jpg', '/images/actor72.jpg', '/images/actor74.jpg'] },
+      { name: '헬레나 본햄 카터', role: '말라 싱어', birthYear: 1966, nationality: '영국', debutDate: '1983-01-01', gender: '여', imageUrl: '/images/actor74.jpg', roleImages: ['/images/actor72.jpg', '/images/poster10.jpg'] },
+      { name: '미트 로프', role: '밥', birthYear: 1947, nationality: '미국', debutDate: '1975-01-01', gender: '남', imageUrl: '/images/actor75.jpg' },
+      { name: '재러드 레토', role: '앤젤 페이스', birthYear: 1971, nationality: '미국', debutDate: '1992-01-01', gender: '남', imageUrl: '/images/actor76.jpg', roleImages: ['/images/poster10.jpg'] },
+      { name: '자이몬 혼수', role: '카를로스', birthYear: 1964, nationality: '시에라리온', debutDate: '1994-01-01', gender: '남', imageUrl: '/images/actor77.jpg' },
       { name: '이언 베일리', role: '리처드', birthYear: 1965, nationality: '미국', debutDate: '1997-01-01', imageUrl: '/images/actor78.jpg' },
     ],
   },
@@ -285,14 +286,14 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster11.jpg',
     mainActors: ['레이 리오타', '로버트 드 니로', '조 페시', '로레인 브라코', '폴 소르비노', '프랭크 빈센트', '마이클 임페리올리', '척 로우', '프랭크 디레오'],
     actors: [
-      { name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01', imageUrl: '/images/actor79.jpg', roleImages: ['/images/poster11.jpg', '/images/actor80.jpg', '/images/actor81.jpg'] },
-      { name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor80.jpg', roleImages: ['/images/actor79.jpg', '/images/poster11.jpg'] },
-      { name: '조 페시', role: '토미 드비토', birthYear: 1943, nationality: '미국', debutDate: '1961-01-01', imageUrl: '/images/actor81.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg', '/images/actor80.jpg'] },
-      { name: '로레인 브라코', role: '카렌 힐', birthYear: 1954, nationality: '미국', debutDate: '1979-01-01', imageUrl: '/images/actor82.jpg', roleImages: ['/images/poster11.jpg'] },
-      { name: '폴 소르비노', role: '폴리 치클로', birthYear: 1939, nationality: '미국', debutDate: '1970-01-01', imageUrl: '/images/actor83.jpg' },
-      { name: '프랭크 빈센트', role: '빌리 바츠', birthYear: 1938, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor84.jpg' },
-      { name: '마이클 임페리올리', role: '스파이더', birthYear: 1966, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor85.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg'] },
-      { name: '척 로우', role: '해리 라이트', birthYear: 1952, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor86.jpg' },
+      { name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01', gender: '남', imageUrl: '/images/actor79.jpg', roleImages: ['/images/poster11.jpg', '/images/actor80.jpg', '/images/actor81.jpg'] },
+      { name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01', gender: '남', imageUrl: '/images/actor80.jpg', roleImages: ['/images/actor79.jpg', '/images/poster11.jpg'] },
+      { name: '조 페시', role: '토미 드비토', birthYear: 1943, nationality: '미국', debutDate: '1961-01-01', gender: '남', imageUrl: '/images/actor81.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg', '/images/actor80.jpg'] },
+      { name: '로레인 브라코', role: '카렌 힐', birthYear: 1954, nationality: '미국', debutDate: '1979-01-01', gender: '여', imageUrl: '/images/actor82.jpg', roleImages: ['/images/poster11.jpg'] },
+      { name: '폴 소르비노', role: '폴리 치클로', birthYear: 1939, nationality: '미국', debutDate: '1970-01-01', gender: '남', imageUrl: '/images/actor83.jpg' },
+      { name: '프랭크 빈센트', role: '빌리 바츠', birthYear: 1938, nationality: '미국', debutDate: '1980-01-01', gender: '남', imageUrl: '/images/actor84.jpg' },
+      { name: '마이클 임페리올리', role: '스파이더', birthYear: 1966, nationality: '미국', debutDate: '1989-01-01', gender: '남', imageUrl: '/images/actor85.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg'] },
+      { name: '척 로우', role: '해리 라이트', birthYear: 1952, nationality: '미국', debutDate: '1980-01-01', gender: '남', imageUrl: '/images/actor86.jpg' },
       { name: '프랭크 디레오', role: '투디', birthYear: 1950, nationality: '미국', debutDate: '1990-01-01', imageUrl: '/images/actor87.jpg' },
     ],
   },
@@ -304,9 +305,9 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster12.jpg',
     mainActors: ['조디 포스터', '앤서니 홉킨스', '테드 레빈'],
     actors: [
-      { name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01', imageUrl: '/images/actor88.jpg', roleImages: ['/images/poster12.jpg', '/images/actor89.jpg', '/images/actor90.jpg'] },
-      { name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01', imageUrl: '/images/actor89.jpg', roleImages: ['/images/poster12.jpg', '/images/actor88.jpg', '/images/actor90.jpg'] },
-      { name: '테드 레빈', role: '버팔로 빌', birthYear: 1952, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor90.jpg', roleImages: ['/images/actor88.jpg', '/images/poster12.jpg'] },
+      { name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01', gender: '여', imageUrl: '/images/actor88.jpg', roleImages: ['/images/poster12.jpg', '/images/actor89.jpg', '/images/actor90.jpg'] },
+      { name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01', gender: '남', imageUrl: '/images/actor89.jpg', roleImages: ['/images/poster12.jpg', '/images/actor88.jpg', '/images/actor90.jpg'] },
+      { name: '테드 레빈', role: '버팔로 빌', birthYear: 1952, nationality: '미국', debutDate: '1984-01-01', gender: '남', imageUrl: '/images/actor90.jpg', roleImages: ['/images/actor88.jpg', '/images/poster12.jpg'] },
     ],
   },
 ]
@@ -754,6 +755,7 @@ function AiSearchPage() {
 
 function ActorDetailPage() {
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
   const initialMovie = searchParams.get('movie') ?? ''
   const [movieSearchInput, setMovieSearchInput] = useState(initialMovie)
@@ -847,8 +849,11 @@ function ActorDetailPage() {
                   if (!a || !a.roleImages || a.roleImages.length === 0) return null
                   return (
                     <div key={m.id} className="detail-movie-role-group">
-                      {/* 영화 정보 1줄 */}
-                      <div className="detail-movie-role-group-header">
+                      {/* 영화 정보 1줄 - 클릭 시 영화 상세로 이동 */}
+                      <button
+                        className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
+                        onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(m.title)}`)}
+                      >
                         <div className="detail-movie-role-group-poster">
                           {m.posterUrl
                             ? <img src={img(m.posterUrl!)} alt={m.title} />
@@ -859,7 +864,7 @@ function ActorDetailPage() {
                           <span className="detail-movie-role-group-title">{m.title}</span>
                           <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
                         </div>
-                      </div>
+                      </button>
                       {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
                       <div className="detail-role-images-grid">
                         {a.roleImages.slice(0, 9).map((imgUrl, i) => {

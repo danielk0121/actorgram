@@ -985,6 +985,23 @@
   gap: 10px;
 }
 
+.detail-movie-role-group-header--clickable {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 6px;
+  margin: -6px;
+  transition: background 0.15s;
+}
+
+.detail-movie-role-group-header--clickable:hover {
+  background: var(--color-border);
+}
+
 .detail-movie-role-group-poster {
   width: 40px;
   min-width: 40px;
