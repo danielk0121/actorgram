@@ -899,6 +899,12 @@
   margin-bottom: 20px;
 }
 
+.detail-movie-search-bar {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+
 .detail-movie-search {
   flex: 1;
   padding: 7px 12px;
@@ -913,6 +919,23 @@
 
 .detail-movie-search:focus {
   border-color: var(--color-accent);
+}
+
+.detail-movie-search-btn {
+  padding: 7px 12px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.detail-movie-search-btn:hover {
+  background: var(--color-accent-hover);
 }
 
 .detail-movie-sort {

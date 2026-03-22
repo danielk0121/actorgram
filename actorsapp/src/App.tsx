@@ -722,6 +722,7 @@ function AiSearchPage() {
 function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
+  const [movieSearchInput, setMovieSearchInput] = useState('')
   const [movieSearch, setMovieSearch] = useState('')
   const [sortOrder, setSortOrder] = useState<'name' | 'year-asc' | 'year-desc'>('year-asc')
 
@@ -768,13 +769,20 @@ function ActorDetailPage() {
 
           {/* 검색 + 정렬 */}
           <div className="detail-movie-filter">
-            <input
-              className="detail-movie-search"
-              type="text"
-              placeholder="영화 제목 검색..."
-              value={movieSearch}
-              onChange={(e) => setMovieSearch(e.target.value)}
-            />
+            <div className="detail-movie-search-bar">
+              <input
+                className="detail-movie-search"
+                type="text"
+                placeholder="영화 제목 검색..."
+                value={movieSearchInput}
+                onChange={(e) => setMovieSearchInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') setMovieSearch(movieSearchInput) }}
+              />
+              <button
+                className="detail-movie-search-btn"
+                onClick={() => setMovieSearch(movieSearchInput)}
+              >검색</button>
+            </div>
             <div className="detail-movie-sort">
               <button
                 className={`detail-movie-sort-btn${sortOrder === 'year-asc' ? ' detail-movie-sort-btn--active' : ''}`}
