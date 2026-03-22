@@ -880,6 +880,8 @@ function App() {
               <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
             </nav>
           </div>
+        </div>
+        <div className="header-row2-outer">
           <div className="header-row2">
             <nav className="header-nav">
               <NavLink to="/actor-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 상세</NavLink>
