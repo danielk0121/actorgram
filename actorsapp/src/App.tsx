@@ -441,6 +441,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
 
 function ActorSearchPage() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
   const initialQ = searchParams.get('q') ?? '톰 크루즈'
   const [query, setQuery] = useState(initialQ)
   const [search, setSearch] = useState(initialQ)
@@ -512,7 +513,7 @@ function ActorSearchPage() {
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className={`movie-grid${search ? ' has-search' : ''}`}>
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="actor" onClick={() => {}} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="actor" onClick={() => navigate(`/movies?q=${encodeURIComponent(movie.title)}`)} />
             ))}
           </div>
         </section>
@@ -522,8 +523,17 @@ function ActorSearchPage() {
 }
 
 function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) => void }) {
-  const [query, setQuery] = useState('')
-  const [search, setSearch] = useState('')
+  const [searchParams] = useSearchParams()
+  const initialQ = searchParams.get('q') ?? ''
+  const [query, setQuery] = useState(initialQ)
+  const [search, setSearch] = useState(initialQ)
+
+  // URL 쿼리 파라미터 변경 시 검색어 반영 (배우 화면 영화 클릭 등)
+  useEffect(() => {
+    const q = searchParams.get('q') ?? ''
+    setQuery(q)
+    setSearch(q)
+  }, [searchParams])
 
   const q = search.toLowerCase()
 
