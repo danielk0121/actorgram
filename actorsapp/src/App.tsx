@@ -411,7 +411,7 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                   <div className="movie-card-actor-detail">{a.role}</div>
                 </div>
                 <div className="movie-card-actor-row-images">
-                  {(a.roleImages ?? []).slice(0, 3).map((imgUrl, i) => (
+                  {(a.roleImages && a.roleImages.length > 0 ? a.roleImages : (a.imageUrl ? [a.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
                     <div key={i} className="movie-card-actor-row-image">
                       <img src={img(imgUrl)} alt={`${a.role} ${i + 1}`} />
                     </div>
