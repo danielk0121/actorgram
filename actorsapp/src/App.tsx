@@ -361,7 +361,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
               </div>
               <div className="actor-card-movie-role-info">
                 <div className="actor-card-movie-title">{movie.title}</div>
-                <div className="actor-card-movie-role-name">{movie.releaseDate} · {actorInMovie.role}</div>
+                <div className="actor-card-movie-role-name">{movie.year}년 · {actorInMovie.role}</div>
                 <div className="actor-card-role-thumbs">
                   {actorInMovie.roleImages!.slice(0, 3).map((imgUrl, i) => (
                     <div
