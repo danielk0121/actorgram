@@ -646,9 +646,13 @@ function ActorProfilePage() {
   const [searchParams] = useSearchParams()
   const actorName = searchParams.get('actor') ?? ''
 
-  // 해당 배우의 모든 roleImages 수집
+  // 해당 배우의 모든 roleImages 수집 (영화 제목, 배역 이름 포함)
   const allRoleImages = SAMPLE_MOVIES
-    .flatMap((m) => m.actors.find((a) => a.name === actorName)?.roleImages ?? [])
+    .flatMap((m) => {
+      const a = m.actors.find((a) => a.name === actorName)
+      if (!a) return []
+      return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role }))
+    })
 
   const actor = SAMPLE_MOVIES
     .flatMap((m) => m.actors)
@@ -688,9 +692,13 @@ function ActorProfilePage() {
         <section className="result-section">
           <div className="section-title">영화 속 이미지 ({allRoleImages.length})</div>
           <div className="actor-profile-images-grid">
-            {allRoleImages.map((img, i) => (
+            {allRoleImages.map((item, i) => (
               <div key={i} className="actor-profile-image-item">
-                <img src={img} alt={`${actor.name} ${i + 1}`} />
+                <img src={item.img} alt={`${actor.name} ${i + 1}`} />
+                <div className="actor-profile-image-caption">
+                  <span className="actor-profile-image-movie">{item.movieTitle}</span>
+                  <span className="actor-profile-image-role">{item.role}</span>
+                </div>
               </div>
             ))}
           </div>
