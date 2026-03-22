@@ -20,11 +20,13 @@ export function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: st
   const q = search.toLowerCase()
 
   // TODO: API 서버 연동 시 fetch 호출로 교체
-  const filteredMovies = SAMPLE_MOVIES.filter((m) =>
-    m.title.toLowerCase().includes(q) ||
-    m.genre.toLowerCase().includes(q) ||
-    m.director.toLowerCase().includes(q)
-  )
+  const filteredMovies = SAMPLE_MOVIES
+    .filter((m) =>
+      m.title.toLowerCase().includes(q) ||
+      m.genre.toLowerCase().includes(q) ||
+      m.director.toLowerCase().includes(q)
+    )
+    .sort((a, b) => b.id - a.id)
 
   const handleSearch = () => setSearch(query)
   const handleKeyDown = (e: React.KeyboardEvent) => {
