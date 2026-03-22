@@ -24,8 +24,8 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
         onClick={() => navigate(`/actor-detail?actorId=${actor.id}`)}
       >
         <div className="actor-card-image">
-          {actor.imageUrl
-            ? <img src={img(actor.imageUrl!)} alt={actor.name} />
+          {actor.profileImage
+            ? <img src={img(actor.profileImage!)} alt={actor.name} />
             : <span>이미지 없음</span>
           }
         </div>

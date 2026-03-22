@@ -129,7 +129,7 @@ Actor (배우)
 | 국적 | Nationality | `nationality` | 배우의 국적. Actor의 속성. |
 | 성별 | Gender | `gender` | 배우의 성별. `'남'` 또는 `'여'`. Actor의 속성. |
 | 데뷔일 | Debut Date | `debutDate` | 배우의 데뷔 날짜. Actor의 속성. |
-| 프로필 이미지 | Profile Image | `imageUrl` | 배우의 대표 사진. Actor의 속성. |
+| 프로필 이미지 | Profile Image | `profileImage` | 배우의 대표 사진. Actor의 속성. |
 | 배우 카드 | Actor Card | `ActorCard` | 배우 검색 결과에서 배우 1명의 정보와 출연 정보 카드 목록을 묶어 표시하는 UI 단위. |
 
 #### 영화 도메인

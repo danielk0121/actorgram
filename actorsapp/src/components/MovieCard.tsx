@@ -58,8 +58,8 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                 >
                   <div className="movie-card-actor-row-info">
                     <div className="movie-card-actor-profile">
-                      {actor.imageUrl
-                        ? <img src={img(actor.imageUrl!)} alt={actor.name} />
+                      {actor.profileImage
+                        ? <img src={img(actor.profileImage!)} alt={actor.name} />
                         : <span>{actor.name[0]}</span>
                       }
                     </div>

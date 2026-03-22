@@ -5,7 +5,7 @@ export interface Actor {
   nationality: string
   debutDate: string
   gender?: '남' | '여'
-  imageUrl?: string
+  profileImage?: string
 }
 
 export interface CastEntry {

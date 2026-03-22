@@ -45,8 +45,8 @@ export function ActorDetailPage() {
       {/* 배우 기본 정보 */}
       <div className="detail-actor-header">
         <div className="detail-actor-image">
-          {actor.imageUrl
-            ? <img src={img(actor.imageUrl!)} alt={actor.name} />
+          {actor.profileImage
+            ? <img src={img(actor.profileImage!)} alt={actor.name} />
             : <span>이미지 없음</span>
           }
         </div>
