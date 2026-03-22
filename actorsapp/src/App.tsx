@@ -723,7 +723,7 @@ function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
   const [movieSearch, setMovieSearch] = useState('')
-  const [sortOrder, setSortOrder] = useState<'name' | 'year'>('year')
+  const [sortOrder, setSortOrder] = useState<'name' | 'year-asc' | 'year-desc'>('year-asc')
 
   const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
@@ -738,7 +738,9 @@ function ActorDetailPage() {
     .sort((a, b) =>
       sortOrder === 'name'
         ? a.title.localeCompare(b.title, 'ko')
-        : a.year - b.year
+        : sortOrder === 'year-asc'
+          ? a.year - b.year
+          : b.year - a.year
     )
 
   return (
@@ -775,9 +777,13 @@ function ActorDetailPage() {
             />
             <div className="detail-movie-sort">
               <button
-                className={`detail-movie-sort-btn${sortOrder === 'year' ? ' detail-movie-sort-btn--active' : ''}`}
-                onClick={() => setSortOrder('year')}
-              >연도순</button>
+                className={`detail-movie-sort-btn${sortOrder === 'year-asc' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => setSortOrder('year-asc')}
+              >연도↑</button>
+              <button
+                className={`detail-movie-sort-btn${sortOrder === 'year-desc' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => setSortOrder('year-desc')}
+              >연도↓</button>
               <button
                 className={`detail-movie-sort-btn${sortOrder === 'name' ? ' detail-movie-sort-btn--active' : ''}`}
                 onClick={() => setSortOrder('name')}
