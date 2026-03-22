@@ -652,7 +652,7 @@ function ActorProfilePage() {
     .flatMap((m) => {
       const a = m.actors.find((a) => a.name === actorName)
       if (!a) return []
-      return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role }))
+      return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role, releaseDate: m.releaseDate }))
     })
 
   const actor = SAMPLE_MOVIES
@@ -699,6 +699,7 @@ function ActorProfilePage() {
                 <div className="actor-profile-image-caption">
                   <span className="actor-profile-image-movie">{item.movieTitle}</span>
                   <span className="actor-profile-image-role">{item.role}</span>
+                  <span className="actor-profile-image-date">{item.releaseDate}</span>
                 </div>
               </div>
             ))}
