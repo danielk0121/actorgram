@@ -303,6 +303,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
         </div>
         <div className="actor-card-body">
           <div className="actor-card-name">{actor.name}</div>
+          <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
         </div>
       </div>
       {roleImages.length > 0 && (
