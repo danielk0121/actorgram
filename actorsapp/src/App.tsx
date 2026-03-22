@@ -724,7 +724,7 @@ function ActorDetailPage() {
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
   const [movieSearchInput, setMovieSearchInput] = useState('')
   const [movieSearch, setMovieSearch] = useState('')
-  const [sortOrder, setSortOrder] = useState<'name' | 'year-asc' | 'year-desc'>('year-asc')
+  const [sortOrder, setSortOrder] = useState<'name' | 'year-asc' | 'year-desc'>('year-desc')
 
   const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
