@@ -798,6 +798,7 @@ function ActorDetailPage() {
 
 function MovieDetailPage() {
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const movieTitle = searchParams.get('title') ?? '미션 임파서블'
 
   const movie = SAMPLE_MOVIES.find((m) => m.title === movieTitle)
@@ -841,18 +842,31 @@ function MovieDetailPage() {
       {mainActorDetails.length > 0 && (
         <section className="result-section">
           <div className="section-title">주연배우 ({mainActorDetails.length})</div>
-          <div className="detail-cast-grid">
+          <div className="movie-card-actors-list">
             {mainActorDetails.map((a) => (
-              <div key={a.name} className="detail-cast-item">
-                <div className="detail-cast-image">
-                  {a.imageUrl
-                    ? <img src={img(a.imageUrl!)} alt={a.name} />
-                    : <span>{a.name[0]}</span>
-                  }
+              <button
+                key={a.name}
+                className="movie-card-actor-row"
+                onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(a.name)}`)}
+              >
+                <div className="movie-card-actor-row-info">
+                  <div className="movie-card-actor-profile">
+                    {a.imageUrl
+                      ? <img src={img(a.imageUrl!)} alt={a.name} />
+                      : <span>{a.name[0]}</span>
+                    }
+                  </div>
+                  <div className="movie-card-actor-name">{a.name}</div>
+                  <div className="movie-card-actor-detail">{a.role} 역</div>
                 </div>
-                <div className="detail-cast-name">{a.name}</div>
-                <div className="detail-cast-role">{a.role}</div>
-              </div>
+                <div className="movie-card-actor-row-images">
+                  {(a.roleImages && a.roleImages.length > 0 ? a.roleImages : (a.imageUrl ? [a.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
+                    <div key={i} className="movie-card-actor-row-image">
+                      <img src={img(imgUrl)} alt={`${a.role} ${i + 1}`} />
+                    </div>
+                  ))}
+                </div>
+              </button>
             ))}
           </div>
         </section>
