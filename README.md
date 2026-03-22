@@ -10,7 +10,24 @@ actorgram/
 │   └── PRD.md               # 전체 요구사항 문서
 ├── actorsapp/               # 배우/영화 탐색 앱
 │   ├── src/
-│   │   ├── App.tsx          # 메인 앱 컴포넌트 (라우팅, 전체 로직)
+│   │   ├── types/
+│   │   │   └── index.ts         # Actor, Movie 인터페이스
+│   │   ├── utils/
+│   │   │   └── image.ts         # img() 유틸 (BASE_URL 처리)
+│   │   ├── data/
+│   │   │   ├── movies.ts        # SAMPLE_MOVIES (API 교체 대상)
+│   │   │   └── photoSearch.ts   # PHOTO_SEARCH_DUMMY_ACTORS (API 교체 대상)
+│   │   ├── components/
+│   │   │   ├── ActorCard.tsx    # 배우 카드 컴포넌트
+│   │   │   └── MovieCard.tsx    # 영화 카드 컴포넌트
+│   │   ├── pages/
+│   │   │   ├── ActorSearchPage.tsx   # /actors
+│   │   │   ├── MovieSearchPage.tsx   # /movies
+│   │   │   ├── PhotoSearchPage.tsx   # /photos
+│   │   │   ├── AiSearchPage.tsx      # /ai
+│   │   │   ├── ActorDetailPage.tsx   # /actor-detail
+│   │   │   └── MovieDetailPage.tsx   # /movie-detail
+│   │   ├── App.tsx          # 라우팅 + 헤더/푸터
 │   │   ├── App.css          # 앱 전용 스타일
 │   │   ├── index.css        # 전역 스타일 및 CSS 변수
 │   │   └── main.tsx         # 진입점
