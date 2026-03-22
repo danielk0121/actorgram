@@ -24,7 +24,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '카메론 크로', writer: '카메론 크로',
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
-    mainActors: [1, 6, 7, 8, 9, 10],
+    mainActors: [1, 5, 6, 7, 8, 9],
     cast: [
       { id: 5, actorId: 1, role: '제리 맥과이어', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { id: 6, actorId: 5, role: '도로시 보이드' },
@@ -40,7 +40,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '조셉 코신스키', writer: '에렌 크루거',
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
     posterUrl: '/images/poster15.jpg', format: '단편',
-    mainActors: [1, 12, 13, 14, 15, 16, 17, 18, 19],
+    mainActors: [1, 10, 11, 12, 13, 14, 15, 16, 17],
     cast: [
       { id: 11, actorId: 1, role: '매버릭', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
       { id: 12, actorId: 10, role: '루스터' },
@@ -59,7 +59,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '토니 스콧', writer: '짐 캐시',
     ageRating: '12세', runtime: 110, releaseDate: '1986-05-16', country: '미국',
     posterUrl: '/images/poster13.jpg', format: '단편',
-    mainActors: [1, 21, 19, 23],
+    mainActors: [1, 18, 19, 19],
     cast: [
       { id: 20, actorId: 1, role: '매버릭', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
       { id: 21, actorId: 18, role: '찰리' },
@@ -73,7 +73,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '스티븐 스필버그', writer: '스콧 프랭크',
     ageRating: '15세', runtime: 145, releaseDate: '2002-07-05', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
-    mainActors: [1, 25, 26, 27],
+    mainActors: [1, 20, 21, 22],
     cast: [
       { id: 24, actorId: 1, role: '존 앤더튼', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
       { id: 25, actorId: 20, role: '대니 위트워' },
@@ -87,7 +87,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '크리스토퍼 놀란',
     ageRating: '12세', runtime: 148, releaseDate: '2010-07-21', country: '미국',
     posterUrl: '/images/poster1.jpg', format: '단편',
-    mainActors: [28, 29, 30, 31, 32, 33, 34, 35],
+    mainActors: [23, 24, 25, 26, 27, 28, 29, 30],
     cast: [
       { id: 28, actorId: 23, role: '돔 코브', roleImages: ['/images/poster1.jpg', '/images/actor19.jpg', '/images/actor20.jpg'] },
       { id: 29, actorId: 24, role: '아서', roleImages: ['/images/actor18.jpg', '/images/poster1.jpg'] },
@@ -105,7 +105,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '전체', runtime: 169, releaseDate: '2014-11-06', country: '미국',
     posterUrl: '/images/poster2.jpg', format: '단편',
-    mainActors: [36, 37, 38, 39, 40],
+    mainActors: [31, 32, 33, 34, 35],
     cast: [
       { id: 36, actorId: 31, role: '쿠퍼', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor28.jpg'] },
       { id: 37, actorId: 32, role: '브랜드 박사', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
@@ -120,7 +120,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '15세', runtime: 152, releaseDate: '2008-07-18', country: '미국',
     posterUrl: '/images/poster3.jpg', format: '단편',
-    mainActors: [41, 42, 43, 39, 45, 46, 47, 34],
+    mainActors: [36, 37, 38, 39, 39, 40, 41, 34],
     cast: [
       { id: 41, actorId: 36, role: '브루스 웨인', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg', '/images/actor33.jpg'] },
       { id: 42, actorId: 37, role: '조커', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg', '/images/actor34.jpg'] },
@@ -138,7 +138,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '봉준호', writer: '봉준호',
     ageRating: '15세', runtime: 132, releaseDate: '2019-05-30', country: '한국',
     posterUrl: '/images/poster4.jpg', format: '단편',
-    mainActors: [49, 50, 51, 52, 53, 54, 55],
+    mainActors: [42, 43, 44, 45, 46, 47, 48],
     cast: [
       { id: 49, actorId: 42, role: '기택', roleImages: ['/images/poster4.jpg', '/images/actor38.jpg', '/images/actor39.jpg'] },
       { id: 50, actorId: 43, role: '박동익', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
@@ -155,7 +155,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '프란시스 포드 코폴라', writer: '마리오 푸조',
     ageRating: '15세', runtime: 175, releaseDate: '1972-03-24', country: '미국',
     posterUrl: '/images/poster5.jpg', format: '단편',
-    mainActors: [56, 57, 58, 59, 60, 61, 62, 63, 64, 65],
+    mainActors: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58],
     cast: [
       { id: 56, actorId: 49, role: '비토 코를레오네', roleImages: ['/images/poster5.jpg', '/images/actor45.jpg', '/images/actor46.jpg'] },
       { id: 57, actorId: 50, role: '마이클 코를레오네', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg', '/images/actor47.jpg'] },
@@ -175,7 +175,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '쿠엔틴 타란티노', writer: '쿠엔틴 타란티노',
     ageRating: '청소년불가', runtime: 154, releaseDate: '1994-10-14', country: '미국',
     posterUrl: '/images/poster6.jpg', format: '단편',
-    mainActors: [66, 67, 68],
+    mainActors: [59, 60, 61],
     cast: [
       { id: 66, actorId: 59, role: '빈센트 베가', roleImages: ['/images/poster6.jpg', '/images/actor55.jpg', '/images/actor56.jpg'] },
       { id: 67, actorId: 60, role: '줄스 윈필드', roleImages: ['/images/actor54.jpg', '/images/poster6.jpg'] },
@@ -188,7 +188,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '라나 워쇼스키', writer: '릴리 워쇼스키',
     ageRating: '15세', runtime: 136, releaseDate: '1999-03-31', country: '미국',
     posterUrl: '/images/poster7.jpg', format: '단편',
-    mainActors: [69, 70, 71, 72, 73, 74],
+    mainActors: [62, 63, 64, 65, 66, 67],
     cast: [
       { id: 69, actorId: 62, role: '네오', roleImages: ['/images/poster7.jpg', '/images/actor58.jpg', '/images/actor59.jpg'] },
       { id: 70, actorId: 63, role: '모피어스', roleImages: ['/images/actor57.jpg', '/images/poster7.jpg'] },
@@ -204,7 +204,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '로버트 저메키스', writer: '에릭 로스',
     ageRating: '전체', runtime: 142, releaseDate: '1994-07-06', country: '미국',
     posterUrl: '/images/poster8.jpg', format: '단편',
-    mainActors: [75, 76, 77, 78, 79],
+    mainActors: [68, 69, 70, 71, 72],
     cast: [
       { id: 75, actorId: 68, role: '포레스트 검프', roleImages: ['/images/poster8.jpg', '/images/actor64.jpg', '/images/actor65.jpg'] },
       { id: 76, actorId: 69, role: '제니 커런', roleImages: ['/images/actor63.jpg', '/images/poster8.jpg'] },
@@ -219,7 +219,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '스티븐 스필버그', writer: '스티븐 재일리안',
     ageRating: '15세', runtime: 195, releaseDate: '1993-12-15', country: '미국',
     posterUrl: '/images/poster9.jpg', format: '단편',
-    mainActors: [80, 81, 82, 83],
+    mainActors: [73, 74, 75, 76],
     cast: [
       { id: 80, actorId: 73, role: '오스카 쉰들러', roleImages: ['/images/poster9.jpg', '/images/actor69.jpg', '/images/actor70.jpg'] },
       { id: 81, actorId: 74, role: '이차크 스턴', roleImages: ['/images/actor68.jpg', '/images/poster9.jpg'] },
@@ -233,7 +233,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '데이비드 핀처', writer: '짐 울스',
     ageRating: '청소년불가', runtime: 139, releaseDate: '1999-10-15', country: '미국',
     posterUrl: '/images/poster10.jpg', format: '단편',
-    mainActors: [84, 85, 86, 87, 88, 89, 90],
+    mainActors: [77, 78, 79, 80, 81, 82, 83],
     cast: [
       { id: 84, actorId: 77, role: '타일러 더든', roleImages: ['/images/poster10.jpg', '/images/actor73.jpg', '/images/actor74.jpg'] },
       { id: 85, actorId: 78, role: '내레이터', roleImages: ['/images/poster10.jpg', '/images/actor72.jpg', '/images/actor74.jpg'] },
@@ -250,7 +250,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '마틴 스코세이지', writer: '니콜라스 필레기',
     ageRating: '청소년불가', runtime: 146, releaseDate: '1990-09-19', country: '미국',
     posterUrl: '/images/poster11.jpg', format: '단편',
-    mainActors: [91, 92, 93, 94, 95, 96, 97, 98, 99],
+    mainActors: [84, 85, 86, 87, 88, 89, 90, 91, 92],
     cast: [
       { id: 91, actorId: 84, role: '헨리 힐', roleImages: ['/images/poster11.jpg', '/images/actor80.jpg', '/images/actor81.jpg'] },
       { id: 92, actorId: 85, role: '지미 콘웨이', roleImages: ['/images/actor79.jpg', '/images/poster11.jpg'] },
@@ -269,7 +269,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '조나단 드미', writer: '테드 탤리',
     ageRating: '청소년불가', runtime: 118, releaseDate: '1991-02-14', country: '미국',
     posterUrl: '/images/poster12.jpg', format: '단편',
-    mainActors: [100, 101, 102],
+    mainActors: [93, 94, 95],
     cast: [
       { id: 100, actorId: 93, role: '클라리스 스탈링', roleImages: ['/images/poster12.jpg', '/images/actor89.jpg', '/images/actor90.jpg'] },
       { id: 101, actorId: 94, role: '한니발 렉터', roleImages: ['/images/poster12.jpg', '/images/actor88.jpg', '/images/actor90.jpg'] },
@@ -282,7 +282,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '사토 코노스케', writer: '오다 에이이치로',
     ageRating: '전체', runtime: 24, releaseDate: '1999-10-20', country: '일본',
     posterUrl: '/images/poster7.jpg', format: '시리즈', episode: 1122,
-    mainActors: [103, 104, 105, 106, 107],
+    mainActors: [96, 97, 98, 99, 100],
     cast: [
       { id: 103, actorId: 96, role: '몽키 D. 루피', roleImages: ['/images/poster7.jpg', '/images/actor62.jpg', '/images/actor63.jpg'] },
       { id: 104, actorId: 97, role: '롤로노아 조로', roleImages: ['/images/actor61.jpg', '/images/poster7.jpg'] },
@@ -297,7 +297,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '다테 하야토', writer: '키시모토 마사시',
     ageRating: '12세', runtime: 23, releaseDate: '2002-10-03', country: '일본',
     posterUrl: '/images/poster8.jpg', format: '시리즈', episode: 720,
-    mainActors: [108, 109, 110, 111, 106, 113],
+    mainActors: [101, 102, 103, 104, 99, 105],
     cast: [
       { id: 108, actorId: 101, role: '우즈마키 나루토', roleImages: ['/images/poster8.jpg', '/images/actor67.jpg', '/images/actor68.jpg'] },
       { id: 109, actorId: 102, role: '우치하 사스케', roleImages: ['/images/actor66.jpg', '/images/poster8.jpg'] },
@@ -313,7 +313,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '아베 노리유키', writer: '쿠보 타이토',
     ageRating: '15세', runtime: 24, releaseDate: '2004-10-05', country: '일본',
     posterUrl: '/images/poster9.jpg', format: '시리즈', episode: 366,
-    mainActors: [114, 115, 113, 117],
+    mainActors: [106, 107, 105, 108],
     cast: [
       { id: 114, actorId: 106, role: '쿠로사키 이치고', roleImages: ['/images/poster9.jpg', '/images/actor71.jpg', '/images/actor72.jpg'] },
       { id: 115, actorId: 107, role: '아바라이 렌지', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },
