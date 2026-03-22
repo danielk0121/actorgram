@@ -287,7 +287,7 @@ export const SAMPLE_MOVIES: Movie[] = [
       { name: '타나카 마유미', role: '몽키 D. 루피', birthYear: 1955, nationality: '일본', debutDate: '1979-01-01', gender: '여', imageUrl: '/images/actor61.jpg', roleImages: ['/images/poster7.jpg', '/images/actor62.jpg', '/images/actor63.jpg'] },
       { name: '나카이 카즈야', role: '롤로노아 조로', birthYear: 1967, nationality: '일본', debutDate: '1989-01-01', gender: '남', imageUrl: '/images/actor62.jpg', roleImages: ['/images/actor61.jpg', '/images/poster7.jpg'] },
       { name: '오키무라 아케미', role: '나미', birthYear: 1967, nationality: '일본', debutDate: '1991-01-01', gender: '여', imageUrl: '/images/actor63.jpg', roleImages: ['/images/poster7.jpg', '/images/actor61.jpg'] },
-      { name: '야마구치 캇페이', role: '우솝', birthYear: 1954, nationality: '일본', debutDate: '1978-01-01', gender: '남', imageUrl: '/images/actor64.jpg' },
+      { name: '야마구치 캇페이', role: '우솝', birthYear: 1954, nationality: '일본', debutDate: '1978-01-01', gender: '남', imageUrl: '/images/actor64.jpg', roleImages: ['/images/poster7.jpg', '/images/actor61.jpg'] },
       { name: '히라타 히로아키', role: '상디', birthYear: 1973, nationality: '일본', debutDate: '1996-01-01', gender: '남', imageUrl: '/images/actor65.jpg' },
     ],
   },
