@@ -3,15 +3,14 @@ import type { Actor, Movie } from '../types'
 import { img } from '../utils/image'
 
 export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
-  // 배우가 출연한 전체 영화 수
-  const totalMovieCount = allMovies.filter((m) => m.actors.some((a) => a.name === actor.name)).length
+  const totalMovieCount = allMovies.filter((m) => m.cast.some((c) => c.actorId === actor.id)).length
 
-  // 배우가 출연한 영화 + 해당 배역 정보 (roleImages 있는 것만, 연도 내림차순, 최대 3개)
+  // 배역 이미지 있는 영화 최대 3개, 연도 내림차순
   const movieRoles = allMovies
     .flatMap((m) => {
-      const a = m.actors.find((a) => a.name === actor.name)
-      if (!a || !a.roleImages || a.roleImages.length === 0) return []
-      return [{ movie: m, actorInMovie: a }]
+      const c = m.cast.find((c) => c.actorId === actor.id)
+      if (!c || !c.roleImages || c.roleImages.length === 0) return []
+      return [{ movie: m, cast: c }]
     })
     .sort((a, b) => b.movie.year - a.movie.year)
     .slice(0, 3)
@@ -38,7 +37,7 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
       </button>
       {movieRoles.length > 0 && (
         <div className="actor-card-movie-roles">
-          {movieRoles.map(({ movie, actorInMovie }) => (
+          {movieRoles.map(({ movie, cast }) => (
             <button
               key={movie.id}
               className="actor-card-movie-role-row actor-card-movie-role-row--clickable"
@@ -52,15 +51,15 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
               </div>
               <div className="actor-card-movie-role-info">
                 <div className="actor-card-movie-title">{movie.title}</div>
-                <div className="actor-card-movie-role-name">{movie.year}년 · {actorInMovie.role} 역</div>
+                <div className="actor-card-movie-role-name">{movie.year}년 · {cast.role} 역</div>
                 <div className="actor-card-role-thumbs">
-                  {actorInMovie.roleImages!.slice(0, 3).map((imgUrl, i) => (
+                  {cast.roleImages!.slice(0, 3).map((imgUrl, i) => (
                     <div
                       key={i}
                       className="actor-card-role-thumb"
                       onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actorId=${actor.id}`) }}
                     >
-                      <img src={img(imgUrl)} alt={`${actorInMovie.role} ${i + 1}`} />
+                      <img src={img(imgUrl)} alt={`${cast.role} ${i + 1}`} />
                     </div>
                   ))}
                 </div>

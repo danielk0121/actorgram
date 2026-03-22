@@ -1,5 +1,6 @@
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { SAMPLE_MOVIES } from '../data/movies'
+import { SAMPLE_ACTORS } from '../data/actors'
 import { img } from '../utils/image'
 
 export function MovieDetailPage() {
@@ -13,7 +14,7 @@ export function MovieDetailPage() {
     return <div className="empty-state">영화 정보를 찾을 수 없습니다.</div>
   }
 
-  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.id))
+  const mainCast = movie.cast.filter((c) => movie.mainActors.includes(c.actorId))
 
   return (
     <>
@@ -46,35 +47,39 @@ export function MovieDetailPage() {
       </section>
 
       {/* 주연배우 */}
-      {mainActorDetails.length > 0 && (
+      {mainCast.length > 0 && (
         <section className="result-section">
-          <div className="section-title">주연배우 ({mainActorDetails.length})</div>
+          <div className="section-title">주연배우 ({mainCast.length})</div>
           <div className="movie-card-actors-list">
-            {mainActorDetails.map((a) => (
-              <button
-                key={a.name}
-                className="movie-card-actor-row"
-                onClick={() => navigate(`/actor-detail?actorId=${a.id}&movie=${encodeURIComponent(movie.title)}`)}
-              >
-                <div className="movie-card-actor-row-info">
-                  <div className="movie-card-actor-profile">
-                    {a.imageUrl
-                      ? <img src={img(a.imageUrl!)} alt={a.name} />
-                      : <span>{a.name[0]}</span>
-                    }
-                  </div>
-                  <div className="movie-card-actor-name">{a.name}</div>
-                  <div className="movie-card-actor-detail">{a.role} 역</div>
-                </div>
-                <div className="movie-card-actor-row-images">
-                  {(a.roleImages && a.roleImages.length > 0 ? a.roleImages : (a.imageUrl ? [a.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
-                    <div key={i} className="movie-card-actor-row-image">
-                      <img src={img(imgUrl)} alt={`${a.role} ${i + 1}`} />
+            {mainCast.map((c) => {
+              const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
+              if (!actor) return null
+              return (
+                <button
+                  key={c.id}
+                  className="movie-card-actor-row"
+                  onClick={() => navigate(`/actor-detail?actorId=${actor.id}&movie=${encodeURIComponent(movie.title)}`)}
+                >
+                  <div className="movie-card-actor-row-info">
+                    <div className="movie-card-actor-profile">
+                      {actor.imageUrl
+                        ? <img src={img(actor.imageUrl!)} alt={actor.name} />
+                        : <span>{actor.name[0]}</span>
+                      }
                     </div>
-                  ))}
-                </div>
-              </button>
-            ))}
+                    <div className="movie-card-actor-name">{actor.name}</div>
+                    <div className="movie-card-actor-detail">{c.role} 역</div>
+                  </div>
+                  <div className="movie-card-actor-row-images">
+                    {(c.roleImages && c.roleImages.length > 0 ? c.roleImages : (actor.imageUrl ? [actor.imageUrl] : [])).slice(0, 3).map((imgUrl, i) => (
+                      <div key={i} className="movie-card-actor-row-image">
+                        <img src={img(imgUrl)} alt={`${c.role} ${i + 1}`} />
+                      </div>
+                    ))}
+                  </div>
+                </button>
+              )
+            })}
           </div>
         </section>
       )}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { SAMPLE_MOVIES } from '../data/movies'
+import { SAMPLE_ACTORS } from '../data/actors'
 import { img } from '../utils/image'
 
 export function ActorDetailPage() {
@@ -13,9 +14,8 @@ export function ActorDetailPage() {
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
 
-  const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.id === actorId)
-
-  const movies = SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.id === actorId))
+  const actor = SAMPLE_ACTORS.find((a) => a.id === actorId)
+  const movies = SAMPLE_MOVIES.filter((m) => m.cast.some((c) => c.actorId === actorId))
 
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
@@ -29,6 +29,8 @@ export function ActorDetailPage() {
       setSortDir('asc')
     }
   }
+
+  const totalImageCount = movies.reduce((sum, m) => sum + (m.cast.find((c) => c.actorId === actorId)?.roleImages?.length ?? 0), 0)
 
   const filteredMovies = movies
     .filter((m) => m.title.includes(movieSearch))
@@ -60,12 +62,12 @@ export function ActorDetailPage() {
 
       {/* 영화 속 이미지 (영화별 그룹) */}
       <section className="result-section">
-          <div className="section-title">영화 속 이미지 · 이미지 {movies.reduce((sum, m) => sum + (m.actors.find((a) => a.id === actorId)?.roleImages?.length ?? 0), 0)}개 · 영화 {movies.length}개</div>
+        <div className="section-title">영화 속 이미지 · 이미지 {totalImageCount}개 · 영화 {movies.length}개</div>
 
+        {movies.length === 0
+          ? <div className="empty-state">출연 영화 정보가 없습니다.</div>
+          : <>
           {/* 검색 + 정렬 */}
-          {movies.length === 0
-            ? <div className="empty-state">출연 영화 정보가 없습니다.</div>
-            : <>
           <div className="detail-movie-filter">
             <div className="detail-movie-search-bar">
               <input
@@ -98,11 +100,10 @@ export function ActorDetailPage() {
             : (
               <div className="detail-movie-role-groups">
                 {filteredMovies.map((m) => {
-                  const a = m.actors.find((a) => a.id === actorId)
-                  if (!a) return null
+                  const c = m.cast.find((c) => c.actorId === actorId)
+                  if (!c) return null
                   return (
                     <div key={m.id} className="detail-movie-role-group">
-                      {/* 영화 정보 1줄 - 클릭 시 영화 상세로 이동 */}
                       <div className="detail-movie-role-group-header-wrap">
                         <button
                           className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
@@ -116,22 +117,21 @@ export function ActorDetailPage() {
                           </div>
                           <div className="detail-movie-role-group-info">
                             <span className="detail-movie-role-group-title">{m.title}</span>
-                            <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
+                            <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {c.role}</span>
                           </div>
                         </button>
                       </div>
-                      {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
                       <div className="detail-movie-role-group-images-wrap">
-                        {(!a.roleImages || a.roleImages.length === 0)
+                        {(!c.roleImages || c.roleImages.length === 0)
                           ? <div className="empty-state">이미지가 없어요</div>
                           : <div className="detail-role-images-grid">
-                            {(a.roleImages ?? []).slice(0, 9).map((imgUrl, i) => {
-                              const isLast = i === 8 && (a.roleImages?.length ?? 0) > 9
+                            {c.roleImages.slice(0, 9).map((imgUrl, i) => {
+                              const isLast = i === 8 && (c.roleImages?.length ?? 0) > 9
                               return (
                                 <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
                                   <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
                                   {isLast && (
-                                    <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
+                                    <div className="detail-role-image-more-overlay">+{c.roleImages!.length - 9}</div>
                                   )}
                                 </div>
                               )
@@ -145,7 +145,7 @@ export function ActorDetailPage() {
             )
           }
           </>}
-        </section>
+      </section>
     </>
   )
 }

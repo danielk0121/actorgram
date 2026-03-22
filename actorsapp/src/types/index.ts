@@ -1,13 +1,18 @@
 export interface Actor {
   id: number
   name: string
-  role: string
   birthYear: number
   nationality: string
   debutDate: string
   gender?: '남' | '여'
   imageUrl?: string
-  roleImages?: string[]   // 영화 속 배역 이미지 3장
+}
+
+export interface CastEntry {
+  id: number         // 배역 인스턴스 고유 id
+  actorId: number    // 배우 마스터 참조 id
+  role: string       // 배역명
+  roleImages?: string[]
 }
 
 export interface Movie {
@@ -26,6 +31,6 @@ export interface Movie {
   posterUrl?: string
   format: '단편' | '시리즈'  // 작품 형식
   episode?: number           // 시리즈인 경우 에피소드 번호
-  actors: Actor[]            // 출연 배우 전체 (배역 정보 포함)
-  mainActors: number[]       // 주연배우 id 목록
+  cast: CastEntry[]          // 출연 배역 목록
+  mainActors: number[]       // 주연배우 actorId 목록
 }

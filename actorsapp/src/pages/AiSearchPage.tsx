@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import type { Actor } from '../types'
 import { SAMPLE_MOVIES } from '../data/movies'
+import { SAMPLE_ACTORS } from '../data/actors'
 import { PHOTO_SEARCH_DUMMY_ACTORS } from '../data/photoSearch'
 import { ActorCard } from '../components/ActorCard'
 
@@ -15,13 +15,9 @@ export function AiSearchPage() {
   }
 
   // TODO: API 서버 연동 시 실제 검색 결과로 교체
-  const matchedActors: Actor[] = PHOTO_SEARCH_DUMMY_ACTORS.map((name) => {
-    const found = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === name)
-    return found ?? { id: 0, name, role: '', birthYear: 0, nationality: '', debutDate: '' }
-  }).filter((a) => a.birthYear !== 0)
-
-  const moviesByActor = (actorName: string) =>
-    SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.name === actorName))
+  const matchedActors = PHOTO_SEARCH_DUMMY_ACTORS
+    .map((name) => SAMPLE_ACTORS.find((a) => a.name === name))
+    .filter((a): a is NonNullable<typeof a> => a != null)
 
   return (
     <>
@@ -50,7 +46,7 @@ export function AiSearchPage() {
           <div className="section-title">배우</div>
           <div className="actor-list">
             {matchedActors.map((a) => (
-              <ActorCard key={a.name} actor={a} allMovies={moviesByActor(a.name)} />
+              <ActorCard key={a.id} actor={a} allMovies={SAMPLE_MOVIES} />
             ))}
           </div>
         </section>
