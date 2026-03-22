@@ -159,6 +159,7 @@ Actor (배우)
 | 출연 정보 | Cast Entry | `CastEntry` | 배우 1명 × 작품 1편의 출연 기록 1건. 출연진(cast)의 원소. 배역명과 배역 이미지를 포함한다. |
 | 주연배우 | Main Cast | `mainActors` | 작품의 주연 Actor id 목록. 배역(CastEntry)이 아닌 배우(Actor) 단위로 주연 여부를 결정한다. |
 | 배역 | Role | `role` | 배우가 작품에서 맡은 등장인물 이름. CastEntry의 속성. |
+| 배역 프로필 이미지 | Role Profile Image | `roleProfileImage` | 배역의 대표 이미지 1장. CastEntry의 속성. |
 | 배역 이미지 | Role Image | `roleImages` | 배우가 특정 작품에서 배역을 연기하는 장면 이미지 목록. CastEntry의 속성. |
 | 필모그래피 | Filmography | — | 특정 배우의 전체 출연 기록. 해당 Actor의 CastEntry를 작품을 가로질러 집계한 목록. |
 | 출연 정보 카드 | Cast Entry Card | `CastEntryCard` | 배우 카드 안에서 CastEntry 1건의 정보(포스터·제목·개봉연도·배역명·배역 이미지 썸네일)를 표시하는 UI 단위. |

@@ -12,6 +12,7 @@ export interface CastEntry {
   id: number         // 배역 인스턴스 고유 id
   actorId: number    // 배우 마스터 참조 id
   role: string       // 배역명
+  roleProfileImage?: string  // 배역 대표 이미지
   roleImages?: string[]
 }
 
