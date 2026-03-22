@@ -568,7 +568,7 @@ function ActorSearchPage() {
       )}
 
       <section className="result-section">
-        {search && <div className="section-title">배우 ({matchedActors.length})</div>}
+        <div className="section-title">{search ? `검색 배우 (${matchedActors.length})` : `전체 배우 (${matchedActors.length})`}</div>
         <div className="actor-list">
           {matchedActors.map((a) => (
             <ActorCard key={a.name} actor={a} allMovies={SAMPLE_MOVIES} />
