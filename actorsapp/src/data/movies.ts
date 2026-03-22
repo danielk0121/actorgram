@@ -297,7 +297,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '다테 하야토', writer: '키시모토 마사시',
     ageRating: '12세', runtime: 23, releaseDate: '2002-10-03', country: '일본',
     posterUrl: '/images/poster8.jpg', format: '시리즈', episode: 720,
-    mainActors: ['타케우치 준코', '노지마 히로시', '치바 치에코', '나미카와 다이스케'],
+    mainActors: ['타케우치 준코', '노지마 히로시', '치바 치에코', '나미카와 다이스케', '야마구치 캇페이', '오리카사 후미코'],
     actors: [
       { name: '타케우치 준코', role: '우즈마키 나루토', birthYear: 1972, nationality: '일본', debutDate: '1996-01-01', gender: '여', imageUrl: '/images/actor66.jpg', roleImages: ['/images/poster8.jpg', '/images/actor67.jpg', '/images/actor68.jpg'] },
       { name: '노지마 히로시', role: '우치하 사스케', birthYear: 1976, nationality: '일본', debutDate: '1999-01-01', gender: '남', imageUrl: '/images/actor67.jpg', roleImages: ['/images/actor66.jpg', '/images/poster8.jpg'] },
