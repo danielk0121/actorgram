@@ -1,4 +1,5 @@
 import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
+import { ScrollToTop } from './components/ScrollToTop'
 import './App.css'
 import { ActorSearchPage } from './pages/ActorSearchPage'
 import { MovieSearchPage } from './pages/MovieSearchPage'
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="app">
+      <ScrollToTop />
       <header className="header">
         <div className="header-inner">
           <div className="header-row1">
