@@ -100,6 +100,7 @@ Actor (배우)
 ### CastEntry 집합의 두 가지 관점
 
 > 영화 1개 관점에서 배우들 집합 > cast > 각 요소는 castEntry
+> 
 > 배우 1명 관점에서 영화 배역 정보 집합 > 필모그래피 > 각 요소는 castEntry
 
 같은 CastEntry를 어느 관점에서 바라보느냐에 따라 집합 이름만 달라진다. 원소(CastEntry)는 동일하다.
