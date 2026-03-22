@@ -284,13 +284,17 @@ const SAMPLE_MOVIES: Movie[] = [
 ]
 
 function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
-  // 배우가 출연한 영화 + 해당 배역 정보 (roleImages 있는 것만, 최대 3개)
+  // 배우가 출연한 전체 영화 수
+  const totalMovieCount = allMovies.filter((m) => m.actors.some((a) => a.name === actor.name)).length
+
+  // 배우가 출연한 영화 + 해당 배역 정보 (roleImages 있는 것만, 연도 내림차순, 최대 3개)
   const movieRoles = allMovies
     .flatMap((m) => {
       const a = m.actors.find((a) => a.name === actor.name)
       if (!a || !a.roleImages || a.roleImages.length === 0) return []
       return [{ movie: m, actorInMovie: a }]
     })
+    .sort((a, b) => b.movie.year - a.movie.year)
     .slice(0, 3)
 
   const navigate = useNavigate()
@@ -310,6 +314,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
         <div className="actor-card-body">
           <div className="actor-card-name">{actor.name}</div>
           <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
+          <div className="actor-card-detail">영화 {totalMovieCount}개</div>
         </div>
       </button>
       {movieRoles.length > 0 && (
