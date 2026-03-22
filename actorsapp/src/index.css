@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+img {
+  color: transparent;
+}
+
 :root {
   --color-bg: #f4f4f4;
   --color-surface: #ffffff;

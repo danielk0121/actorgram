@@ -91,14 +91,14 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster1.jpg',
     mainActors: ['레오나르도 디카프리오', '조셉 고든-레빗', '엘리엇 페이지', '톰 하디', '켄 와타나베', '디리프 라오', '킬리언 머피', '마리옹 코티야르'],
     actors: [
-      { name: '레오나르도 디카프리오', role: '돔 코브', birthYear: 1974, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor18.jpg' },
-      { name: '조셉 고든-레빗', role: '아서', birthYear: 1981, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor19.jpg' },
+      { name: '레오나르도 디카프리오', role: '돔 코브', birthYear: 1974, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor18.jpg', roleImages: ['/images/poster1.jpg', '/images/actor19.jpg', '/images/actor20.jpg'] },
+      { name: '조셉 고든-레빗', role: '아서', birthYear: 1981, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor19.jpg', roleImages: ['/images/actor18.jpg', '/images/poster1.jpg'] },
       { name: '엘리엇 페이지', role: '아리아드네', birthYear: 1987, nationality: '캐나다', debutDate: '1997-01-01', imageUrl: '/images/actor20.jpg' },
-      { name: '톰 하디', role: '이임스', birthYear: 1977, nationality: '영국', debutDate: '2001-01-01', imageUrl: '/images/actor21.jpg' },
+      { name: '톰 하디', role: '이임스', birthYear: 1977, nationality: '영국', debutDate: '2001-01-01', imageUrl: '/images/actor21.jpg', roleImages: ['/images/actor18.jpg', '/images/actor19.jpg', '/images/poster1.jpg'] },
       { name: '켄 와타나베', role: '사이토', birthYear: 1959, nationality: '일본', debutDate: '1984-01-01', imageUrl: '/images/actor22.jpg' },
       { name: '디리프 라오', role: '유수프', birthYear: 1975, nationality: '인도', debutDate: '2000-01-01', imageUrl: '/images/actor23.jpg' },
-      { name: '킬리언 머피', role: '로버트 피셔', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg' },
-      { name: '마리옹 코티야르', role: '맬', birthYear: 1975, nationality: '프랑스', debutDate: '1994-01-01', imageUrl: '/images/actor25.jpg' },
+      { name: '킬리언 머피', role: '로버트 피셔', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster1.jpg', '/images/actor21.jpg'] },
+      { name: '마리옹 코티야르', role: '맬', birthYear: 1975, nationality: '프랑스', debutDate: '1994-01-01', imageUrl: '/images/actor25.jpg', roleImages: ['/images/actor18.jpg'] },
     ],
   },
   {
@@ -109,11 +109,11 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster2.jpg',
     mainActors: ['매튜 맥커너히', '앤 해서웨이', '제시카 차스테인', '마이클 케인', '맷 데이먼'],
     actors: [
-      { name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor26.jpg' },
-      { name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01', imageUrl: '/images/actor27.jpg' },
-      { name: '제시카 차스테인', role: '머프', birthYear: 1977, nationality: '미국', debutDate: '2004-01-01', imageUrl: '/images/actor28.jpg' },
-      { name: '마이클 케인', role: '브랜드 교수', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg' },
-      { name: '맷 데이먼', role: '만 박사', birthYear: 1970, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor30.jpg' },
+      { name: '매튜 맥커너히', role: '쿠퍼', birthYear: 1969, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor26.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor28.jpg'] },
+      { name: '앤 해서웨이', role: '브랜드 박사', birthYear: 1982, nationality: '미국', debutDate: '1999-01-01', imageUrl: '/images/actor27.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
+      { name: '제시카 차스테인', role: '머프', birthYear: 1977, nationality: '미국', debutDate: '2004-01-01', imageUrl: '/images/actor28.jpg', roleImages: ['/images/poster2.jpg'] },
+      { name: '마이클 케인', role: '브랜드 교수', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg', roleImages: ['/images/actor26.jpg', '/images/poster2.jpg'] },
+      { name: '맷 데이먼', role: '만 박사', birthYear: 1970, nationality: '미국', debutDate: '1988-01-01', imageUrl: '/images/actor30.jpg', roleImages: ['/images/poster2.jpg', '/images/actor27.jpg', '/images/actor29.jpg'] },
     ],
   },
   {
@@ -124,14 +124,14 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster3.jpg',
     mainActors: ['크리스찬 베일', '히스 레저', '아론 에크하트', '마이클 케인', '게리 올드만', '모건 프리먼', '매기 질런홀', '킬리언 머피'],
     actors: [
-      { name: '크리스찬 베일', role: '브루스 웨인', birthYear: 1974, nationality: '영국', debutDate: '1987-01-01', imageUrl: '/images/actor31.jpg' },
-      { name: '히스 레저', role: '조커', birthYear: 1979, nationality: '호주', debutDate: '1992-01-01', imageUrl: '/images/actor32.jpg' },
-      { name: '아론 에크하트', role: '하비 덴트', birthYear: 1968, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor33.jpg' },
-      { name: '마이클 케인', role: '알프레드', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg' },
-      { name: '게리 올드만', role: '제임스 고든', birthYear: 1958, nationality: '영국', debutDate: '1982-01-01', imageUrl: '/images/actor34.jpg' },
+      { name: '크리스찬 베일', role: '브루스 웨인', birthYear: 1974, nationality: '영국', debutDate: '1987-01-01', imageUrl: '/images/actor31.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg', '/images/actor33.jpg'] },
+      { name: '히스 레저', role: '조커', birthYear: 1979, nationality: '호주', debutDate: '1992-01-01', imageUrl: '/images/actor32.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg', '/images/actor34.jpg'] },
+      { name: '아론 에크하트', role: '하비 덴트', birthYear: 1968, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor33.jpg', roleImages: ['/images/actor31.jpg', '/images/poster3.jpg'] },
+      { name: '마이클 케인', role: '알프레드', birthYear: 1933, nationality: '영국', debutDate: '1956-01-01', imageUrl: '/images/actor29.jpg', roleImages: ['/images/poster3.jpg'] },
+      { name: '게리 올드만', role: '제임스 고든', birthYear: 1958, nationality: '영국', debutDate: '1982-01-01', imageUrl: '/images/actor34.jpg', roleImages: ['/images/poster3.jpg', '/images/actor31.jpg'] },
       { name: '모건 프리먼', role: '루셔스 폭스', birthYear: 1937, nationality: '미국', debutDate: '1964-01-01', imageUrl: '/images/actor35.jpg' },
       { name: '매기 질런홀', role: '레이첼 도스', birthYear: 1977, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor36.jpg' },
-      { name: '킬리언 머피', role: '조나단 크레인', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg' },
+      { name: '킬리언 머피', role: '조나단 크레인', birthYear: 1976, nationality: '아일랜드', debutDate: '1998-01-01', imageUrl: '/images/actor24.jpg', roleImages: ['/images/poster3.jpg', '/images/actor32.jpg'] },
     ],
   },
   {
@@ -142,12 +142,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster4.jpg',
     mainActors: ['송강호', '이선균', '조여정', '최우식', '박소담', '이정은', '장혜진'],
     actors: [
-      { name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01', imageUrl: '/images/actor37.jpg' },
-      { name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01', imageUrl: '/images/actor38.jpg' },
-      { name: '조여정', role: '연교', birthYear: 1981, nationality: '한국', debutDate: '2000-01-01', imageUrl: '/images/actor39.jpg' },
-      { name: '최우식', role: '기우', birthYear: 1990, nationality: '한국', debutDate: '2012-01-01', imageUrl: '/images/actor40.jpg' },
-      { name: '박소담', role: '기정', birthYear: 1991, nationality: '한국', debutDate: '2013-01-01', imageUrl: '/images/actor41.jpg' },
-      { name: '이정은', role: '문광', birthYear: 1969, nationality: '한국', debutDate: '1997-01-01', imageUrl: '/images/actor42.jpg' },
+      { name: '송강호', role: '기택', birthYear: 1967, nationality: '한국', debutDate: '1996-01-01', imageUrl: '/images/actor37.jpg', roleImages: ['/images/poster4.jpg', '/images/actor38.jpg', '/images/actor39.jpg'] },
+      { name: '이선균', role: '박동익', birthYear: 1975, nationality: '한국', debutDate: '2001-01-01', imageUrl: '/images/actor38.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
+      { name: '조여정', role: '연교', birthYear: 1981, nationality: '한국', debutDate: '2000-01-01', imageUrl: '/images/actor39.jpg', roleImages: ['/images/poster4.jpg', '/images/actor40.jpg', '/images/actor41.jpg'] },
+      { name: '최우식', role: '기우', birthYear: 1990, nationality: '한국', debutDate: '2012-01-01', imageUrl: '/images/actor40.jpg', roleImages: ['/images/poster4.jpg'] },
+      { name: '박소담', role: '기정', birthYear: 1991, nationality: '한국', debutDate: '2013-01-01', imageUrl: '/images/actor41.jpg', roleImages: ['/images/actor37.jpg', '/images/poster4.jpg'] },
+      { name: '이정은', role: '문광', birthYear: 1969, nationality: '한국', debutDate: '1997-01-01', imageUrl: '/images/actor42.jpg', roleImages: ['/images/poster4.jpg'] },
       { name: '장혜진', role: '충숙', birthYear: 1970, nationality: '한국', debutDate: '1998-01-01', imageUrl: '/images/actor43.jpg' },
     ],
   },
@@ -159,11 +159,11 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster5.jpg',
     mainActors: ['말론 브란도', '알 파치노', '제임스 칸', '다이앤 키튼', '로버트 듀발', '리처드 카스텔라노', '알 레티에리', '다이앤 시레이토', '리처드 브라이트', '알렉스 로코'],
     actors: [
-      { name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01', imageUrl: '/images/actor44.jpg' },
-      { name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01', imageUrl: '/images/actor45.jpg' },
-      { name: '제임스 칸', role: '소니 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor46.jpg' },
-      { name: '다이앤 키튼', role: '케이 애덤스', birthYear: 1946, nationality: '미국', debutDate: '1970-01-01', imageUrl: '/images/actor47.jpg' },
-      { name: '로버트 듀발', role: '톰 헤이건', birthYear: 1931, nationality: '미국', debutDate: '1962-01-01', imageUrl: '/images/actor48.jpg' },
+      { name: '말론 브란도', role: '비토 코를레오네', birthYear: 1924, nationality: '미국', debutDate: '1950-01-01', imageUrl: '/images/actor44.jpg', roleImages: ['/images/poster5.jpg', '/images/actor45.jpg', '/images/actor46.jpg'] },
+      { name: '알 파치노', role: '마이클 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1969-01-01', imageUrl: '/images/actor45.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg', '/images/actor47.jpg'] },
+      { name: '제임스 칸', role: '소니 코를레오네', birthYear: 1940, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor46.jpg', roleImages: ['/images/actor44.jpg', '/images/poster5.jpg'] },
+      { name: '다이앤 키튼', role: '케이 애덤스', birthYear: 1946, nationality: '미국', debutDate: '1970-01-01', imageUrl: '/images/actor47.jpg', roleImages: ['/images/poster5.jpg'] },
+      { name: '로버트 듀발', role: '톰 헤이건', birthYear: 1931, nationality: '미국', debutDate: '1962-01-01', imageUrl: '/images/actor48.jpg', roleImages: ['/images/poster5.jpg', '/images/actor44.jpg'] },
       { name: '리처드 카스텔라노', role: '피터 클레멘자', birthYear: 1933, nationality: '미국', debutDate: '1960-01-01', imageUrl: '/images/actor49.jpg' },
       { name: '알 레티에리', role: '솔로조', birthYear: 1928, nationality: '미국', debutDate: '1968-01-01', imageUrl: '/images/actor50.jpg' },
       { name: '다이앤 시레이토', role: '코니 코를레오네', birthYear: 1948, nationality: '미국', debutDate: '1965-01-01', imageUrl: '/images/actor51.jpg' },
@@ -179,9 +179,9 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster6.jpg',
     mainActors: ['존 트라볼타', '새뮤얼 L. 잭슨', '우마 서먼'],
     actors: [
-      { name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor54.jpg' },
-      { name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor55.jpg' },
-      { name: '우마 서먼', role: '미아 월리스', birthYear: 1970, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor56.jpg' },
+      { name: '존 트라볼타', role: '빈센트 베가', birthYear: 1954, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor54.jpg', roleImages: ['/images/poster6.jpg', '/images/actor55.jpg', '/images/actor56.jpg'] },
+      { name: '새뮤얼 L. 잭슨', role: '줄스 윈필드', birthYear: 1948, nationality: '미국', debutDate: '1972-01-01', imageUrl: '/images/actor55.jpg', roleImages: ['/images/actor54.jpg', '/images/poster6.jpg'] },
+      { name: '우마 서먼', role: '미아 월리스', birthYear: 1970, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor56.jpg', roleImages: ['/images/poster6.jpg', '/images/actor54.jpg', '/images/actor55.jpg'] },
     ],
   },
   {
@@ -192,12 +192,12 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster7.jpg',
     mainActors: ['키아누 리브스', '로렌스 피시번', '캐리-앤 모스', '휴고 위빙', '글로리아 포스터', '조 팬톨리아노'],
     actors: [
-      { name: '키아누 리브스', role: '네오', birthYear: 1964, nationality: '캐나다', debutDate: '1984-01-01', imageUrl: '/images/actor57.jpg' },
-      { name: '로렌스 피시번', role: '모피어스', birthYear: 1961, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor58.jpg' },
-      { name: '캐리-앤 모스', role: '트리니티', birthYear: 1967, nationality: '캐나다', debutDate: '1992-01-01', imageUrl: '/images/actor59.jpg' },
-      { name: '휴고 위빙', role: '에이전트 스미스', birthYear: 1959, nationality: '호주', debutDate: '1984-01-01', imageUrl: '/images/actor60.jpg' },
+      { name: '키아누 리브스', role: '네오', birthYear: 1964, nationality: '캐나다', debutDate: '1984-01-01', imageUrl: '/images/actor57.jpg', roleImages: ['/images/poster7.jpg', '/images/actor58.jpg', '/images/actor59.jpg'] },
+      { name: '로렌스 피시번', role: '모피어스', birthYear: 1961, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor58.jpg', roleImages: ['/images/actor57.jpg', '/images/poster7.jpg'] },
+      { name: '캐리-앤 모스', role: '트리니티', birthYear: 1967, nationality: '캐나다', debutDate: '1992-01-01', imageUrl: '/images/actor59.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg', '/images/actor60.jpg'] },
+      { name: '휴고 위빙', role: '에이전트 스미스', birthYear: 1959, nationality: '호주', debutDate: '1984-01-01', imageUrl: '/images/actor60.jpg', roleImages: ['/images/poster7.jpg'] },
       { name: '글로리아 포스터', role: '오라클', birthYear: 1933, nationality: '미국', debutDate: '1964-01-01', imageUrl: '/images/actor61.jpg' },
-      { name: '조 팬톨리아노', role: '사이퍼', birthYear: 1951, nationality: '미국', debutDate: '1976-01-01', imageUrl: '/images/actor62.jpg' },
+      { name: '조 팬톨리아노', role: '사이퍼', birthYear: 1951, nationality: '미국', debutDate: '1976-01-01', imageUrl: '/images/actor62.jpg', roleImages: ['/images/poster7.jpg', '/images/actor57.jpg'] },
     ],
   },
   {
@@ -208,9 +208,9 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster8.jpg',
     mainActors: ['톰 행크스', '로빈 라이트', '게리 시니즈', '샐리 필드', '마이클 콘너 험프리스'],
     actors: [
-      { name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor63.jpg' },
-      { name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01', imageUrl: '/images/actor64.jpg' },
-      { name: '게리 시니즈', role: '댄 테일러 중위', birthYear: 1954, nationality: '미국', debutDate: '1981-01-01', imageUrl: '/images/actor65.jpg' },
+      { name: '톰 행크스', role: '포레스트 검프', birthYear: 1956, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor63.jpg', roleImages: ['/images/poster8.jpg', '/images/actor64.jpg', '/images/actor65.jpg'] },
+      { name: '로빈 라이트', role: '제니 커런', birthYear: 1966, nationality: '미국', debutDate: '1986-01-01', imageUrl: '/images/actor64.jpg', roleImages: ['/images/actor63.jpg', '/images/poster8.jpg'] },
+      { name: '게리 시니즈', role: '댄 테일러 중위', birthYear: 1954, nationality: '미국', debutDate: '1981-01-01', imageUrl: '/images/actor65.jpg', roleImages: ['/images/poster8.jpg'] },
       { name: '샐리 필드', role: '포레스트 어머니', birthYear: 1946, nationality: '미국', debutDate: '1967-01-01', imageUrl: '/images/actor66.jpg' },
       { name: '마이클 콘너 험프리스', role: '어린 포레스트', birthYear: 1985, nationality: '미국', debutDate: '1994-01-01', imageUrl: '/images/actor67.jpg' },
     ],
@@ -223,10 +223,10 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster9.jpg',
     mainActors: ['리암 니슨', '벤 킹슬리', '랄프 파인즈', '캐롤라인 굿올'],
     actors: [
-      { name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01', imageUrl: '/images/actor68.jpg' },
-      { name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01', imageUrl: '/images/actor69.jpg' },
-      { name: '랄프 파인즈', role: '아몬 괴트', birthYear: 1962, nationality: '영국', debutDate: '1990-01-01', imageUrl: '/images/actor70.jpg' },
-      { name: '캐롤라인 굿올', role: '에밀리 쉰들러', birthYear: 1959, nationality: '영국', debutDate: '1985-01-01', imageUrl: '/images/actor71.jpg' },
+      { name: '리암 니슨', role: '오스카 쉰들러', birthYear: 1952, nationality: '영국', debutDate: '1976-01-01', imageUrl: '/images/actor68.jpg', roleImages: ['/images/poster9.jpg', '/images/actor69.jpg', '/images/actor70.jpg'] },
+      { name: '벤 킹슬리', role: '이차크 스턴', birthYear: 1943, nationality: '영국', debutDate: '1972-01-01', imageUrl: '/images/actor69.jpg', roleImages: ['/images/actor68.jpg', '/images/poster9.jpg'] },
+      { name: '랄프 파인즈', role: '아몬 괴트', birthYear: 1962, nationality: '영국', debutDate: '1990-01-01', imageUrl: '/images/actor70.jpg', roleImages: ['/images/poster9.jpg', '/images/actor68.jpg', '/images/actor69.jpg'] },
+      { name: '캐롤라인 굿올', role: '에밀리 쉰들러', birthYear: 1959, nationality: '영국', debutDate: '1985-01-01', imageUrl: '/images/actor71.jpg', roleImages: ['/images/poster9.jpg'] },
     ],
   },
   {
@@ -237,11 +237,11 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster10.jpg',
     mainActors: ['브래드 피트', '에드워드 노튼', '헬레나 본햄 카터', '미트 로프', '재러드 레토', '자이몬 혼수', '이언 베일리'],
     actors: [
-      { name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor72.jpg' },
-      { name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01', imageUrl: '/images/actor73.jpg' },
-      { name: '헬레나 본햄 카터', role: '말라 싱어', birthYear: 1966, nationality: '영국', debutDate: '1983-01-01', imageUrl: '/images/actor74.jpg' },
+      { name: '브래드 피트', role: '타일러 더든', birthYear: 1963, nationality: '미국', debutDate: '1987-01-01', imageUrl: '/images/actor72.jpg', roleImages: ['/images/poster10.jpg', '/images/actor73.jpg', '/images/actor74.jpg'] },
+      { name: '에드워드 노튼', role: '내레이터', birthYear: 1969, nationality: '미국', debutDate: '1993-01-01', imageUrl: '/images/actor73.jpg', roleImages: ['/images/poster10.jpg', '/images/actor72.jpg', '/images/actor74.jpg'] },
+      { name: '헬레나 본햄 카터', role: '말라 싱어', birthYear: 1966, nationality: '영국', debutDate: '1983-01-01', imageUrl: '/images/actor74.jpg', roleImages: ['/images/actor72.jpg', '/images/poster10.jpg'] },
       { name: '미트 로프', role: '밥', birthYear: 1947, nationality: '미국', debutDate: '1975-01-01', imageUrl: '/images/actor75.jpg' },
-      { name: '재러드 레토', role: '앤젤 페이스', birthYear: 1971, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor76.jpg' },
+      { name: '재러드 레토', role: '앤젤 페이스', birthYear: 1971, nationality: '미국', debutDate: '1992-01-01', imageUrl: '/images/actor76.jpg', roleImages: ['/images/poster10.jpg'] },
       { name: '자이몬 혼수', role: '카를로스', birthYear: 1964, nationality: '시에라리온', debutDate: '1994-01-01', imageUrl: '/images/actor77.jpg' },
       { name: '이언 베일리', role: '리처드', birthYear: 1965, nationality: '미국', debutDate: '1997-01-01', imageUrl: '/images/actor78.jpg' },
     ],
@@ -254,13 +254,13 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster11.jpg',
     mainActors: ['레이 리오타', '로버트 드 니로', '조 페시', '로레인 브라코', '폴 소르비노', '프랭크 빈센트', '마이클 임페리올리', '척 로우', '프랭크 디레오'],
     actors: [
-      { name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01', imageUrl: '/images/actor79.jpg' },
-      { name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor80.jpg' },
-      { name: '조 페시', role: '토미 드비토', birthYear: 1943, nationality: '미국', debutDate: '1961-01-01', imageUrl: '/images/actor81.jpg' },
-      { name: '로레인 브라코', role: '카렌 힐', birthYear: 1954, nationality: '미국', debutDate: '1979-01-01', imageUrl: '/images/actor82.jpg' },
+      { name: '레이 리오타', role: '헨리 힐', birthYear: 1954, nationality: '미국', debutDate: '1983-01-01', imageUrl: '/images/actor79.jpg', roleImages: ['/images/poster11.jpg', '/images/actor80.jpg', '/images/actor81.jpg'] },
+      { name: '로버트 드 니로', role: '지미 콘웨이', birthYear: 1943, nationality: '미국', debutDate: '1963-01-01', imageUrl: '/images/actor80.jpg', roleImages: ['/images/actor79.jpg', '/images/poster11.jpg'] },
+      { name: '조 페시', role: '토미 드비토', birthYear: 1943, nationality: '미국', debutDate: '1961-01-01', imageUrl: '/images/actor81.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg', '/images/actor80.jpg'] },
+      { name: '로레인 브라코', role: '카렌 힐', birthYear: 1954, nationality: '미국', debutDate: '1979-01-01', imageUrl: '/images/actor82.jpg', roleImages: ['/images/poster11.jpg'] },
       { name: '폴 소르비노', role: '폴리 치클로', birthYear: 1939, nationality: '미국', debutDate: '1970-01-01', imageUrl: '/images/actor83.jpg' },
       { name: '프랭크 빈센트', role: '빌리 바츠', birthYear: 1938, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor84.jpg' },
-      { name: '마이클 임페리올리', role: '스파이더', birthYear: 1966, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor85.jpg' },
+      { name: '마이클 임페리올리', role: '스파이더', birthYear: 1966, nationality: '미국', debutDate: '1989-01-01', imageUrl: '/images/actor85.jpg', roleImages: ['/images/poster11.jpg', '/images/actor79.jpg'] },
       { name: '척 로우', role: '해리 라이트', birthYear: 1952, nationality: '미국', debutDate: '1980-01-01', imageUrl: '/images/actor86.jpg' },
       { name: '프랭크 디레오', role: '투디', birthYear: 1950, nationality: '미국', debutDate: '1990-01-01', imageUrl: '/images/actor87.jpg' },
     ],
@@ -273,9 +273,9 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster12.jpg',
     mainActors: ['조디 포스터', '앤서니 홉킨스', '테드 레빈'],
     actors: [
-      { name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01', imageUrl: '/images/actor88.jpg' },
-      { name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01', imageUrl: '/images/actor89.jpg' },
-      { name: '테드 레빈', role: '버팔로 빌', birthYear: 1952, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor90.jpg' },
+      { name: '조디 포스터', role: '클라리스 스탈링', birthYear: 1962, nationality: '미국', debutDate: '1968-01-01', imageUrl: '/images/actor88.jpg', roleImages: ['/images/poster12.jpg', '/images/actor89.jpg', '/images/actor90.jpg'] },
+      { name: '앤서니 홉킨스', role: '한니발 렉터', birthYear: 1937, nationality: '영국', debutDate: '1960-01-01', imageUrl: '/images/actor89.jpg', roleImages: ['/images/poster12.jpg', '/images/actor88.jpg', '/images/actor90.jpg'] },
+      { name: '테드 레빈', role: '버팔로 빌', birthYear: 1952, nationality: '미국', debutDate: '1984-01-01', imageUrl: '/images/actor90.jpg', roleImages: ['/images/actor88.jpg', '/images/poster12.jpg'] },
     ],
   },
 ]
@@ -284,17 +284,23 @@ const SAMPLE_MOVIES: Movie[] = [
 const ROLE_IMAGES_DEFAULT = 8
 
 function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
+  // 배우가 출연한 영화 + 해당 배역 정보 (roleImages 있는 것만, 최대 3개)
+  const movieRoles = allMovies
+    .flatMap((m) => {
+      const a = m.actors.find((a) => a.name === actor.name)
+      if (!a || !a.roleImages || a.roleImages.length === 0) return []
+      return [{ movie: m, actorInMovie: a }]
+    })
+    .slice(0, 3)
+
   const navigate = useNavigate()
-
-  const roleImages = allMovies
-    .flatMap((m) => m.actors.find((a) => a.name === actor.name)?.roleImages ?? [])
-
-  const visibleImages = roleImages.slice(0, ROLE_IMAGES_DEFAULT)
-  const hasMore = roleImages.length > ROLE_IMAGES_DEFAULT
 
   return (
     <div className="actor-card">
-      <div className="actor-card-top">
+      <button
+        className="actor-card-top actor-card-top--clickable"
+        onClick={() => navigate(`/actor-detail?actor=${encodeURIComponent(actor.name)}`)}
+      >
         <div className="actor-card-image">
           {actor.imageUrl
             ? <img src={actor.imageUrl} alt={actor.name} />
@@ -305,24 +311,38 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
           <div className="actor-card-name">{actor.name}</div>
           <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
         </div>
-      </div>
-      {roleImages.length > 0 && (
-        <div className="actor-card-role-images-wrap">
-          <div className="actor-card-role-images-grid">
-            {visibleImages.map((img, i) => (
-              <div key={i} className="actor-card-role-thumb">
-                <img src={img} alt={`${actor.name} 배역 ${i + 1}`} />
-              </div>
-            ))}
-          </div>
-          {hasMore && (
+      </button>
+      {movieRoles.length > 0 && (
+        <div className="actor-card-movie-roles">
+          {movieRoles.map(({ movie, actorInMovie }) => (
             <button
-              className="actor-card-more-btn-below"
-              onClick={() => navigate(`/profiles?actor=${encodeURIComponent(actor.name)}`)}
+              key={movie.id}
+              className="actor-card-movie-role-row actor-card-movie-role-row--clickable"
+              onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(movie.title)}`)}
             >
-              더보기
+              <div className="actor-card-movie-poster">
+                {movie.posterUrl
+                  ? <img src={movie.posterUrl} alt={movie.title} />
+                  : <span>없음</span>
+                }
+              </div>
+              <div className="actor-card-movie-role-info">
+                <div className="actor-card-movie-title">{movie.title}</div>
+                <div className="actor-card-movie-role-name">{movie.releaseDate} · {actorInMovie.role}</div>
+                <div className="actor-card-role-thumbs">
+                  {actorInMovie.roleImages!.map((img, i) => (
+                    <div
+                      key={i}
+                      className="actor-card-role-thumb"
+                      onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actor=${encodeURIComponent(actor.name)}`) }}
+                    >
+                      <img src={img} alt={`${actorInMovie.role} ${i + 1}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </button>
-          )}
+          ))}
         </div>
       )}
     </div>
@@ -441,14 +461,13 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
 
 function ActorSearchPage() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const navigate = useNavigate()
-  const initialQ = searchParams.get('q') ?? '톰 크루즈'
+  const initialQ = searchParams.get('q') ?? ''
   const [query, setQuery] = useState(initialQ)
   const [search, setSearch] = useState(initialQ)
 
   // URL 쿼리 파라미터 변경 시 검색어 반영 (영화 화면 배우 클릭 등)
   useEffect(() => {
-    const q = searchParams.get('q') ?? '톰 크루즈'
+    const q = searchParams.get('q') ?? ''
     setQuery(q)
     setSearch(q)
   }, [searchParams])
@@ -456,21 +475,32 @@ function ActorSearchPage() {
   const q = search.toLowerCase()
 
   // TODO: API 서버 연동 시 fetch 호출로 교체
-  const filteredMovies = SAMPLE_MOVIES.filter((m) =>
-    m.title.toLowerCase().includes(q) ||
-    m.actors.some((a) => a.name.toLowerCase().includes(q) || a.role.toLowerCase().includes(q))
+  // 배우별 전체 roleImages 수 계산 (영화 중복 출연 합산)
+  const getRoleImageCount = (actorName: string) =>
+    SAMPLE_MOVIES.flatMap((m) => m.actors.find((a) => a.name === actorName)?.roleImages ?? []).length
+
+  const sortByImages = (actors: Actor[]) =>
+    [...actors].sort((a, b) => getRoleImageCount(b.name) - getRoleImageCount(a.name))
+
+  // 검색어가 있으면 배우명/배역명 필터, 없으면 전체 배우
+  const allActors: Actor[] = Array.from(
+    new Map(
+      SAMPLE_MOVIES.flatMap((m) => m.actors).map((a) => [a.name, a])
+    ).values()
   )
 
-  const matchedActors: Actor[] = search
-    ? Array.from(
-        new Map(
-          filteredMovies
-            .flatMap((m) => m.actors)
-            .filter((a) => a.name.toLowerCase().includes(q) || a.role.toLowerCase().includes(q))
-            .map((a) => [a.name, a])
-        ).values()
-      )
-    : []
+  const matchedActors: Actor[] = sortByImages(
+    search
+      ? Array.from(
+          new Map(
+            SAMPLE_MOVIES
+              .flatMap((m) => m.actors)
+              .filter((a) => a.name.toLowerCase().includes(q) || a.role.toLowerCase().includes(q))
+              .map((a) => [a.name, a])
+          ).values()
+        )
+      : allActors
+  )
 
   const handleSearch = () => {
     setSearch(query)
@@ -493,36 +523,24 @@ function ActorSearchPage() {
         <button onClick={handleSearch}>검색</button>
       </div>
 
-      {search && filteredMovies.length === 0 && (
+      {search && matchedActors.length === 0 && (
         <div className="empty-state">검색 결과가 없습니다.</div>
       )}
 
-      {search && matchedActors.length > 0 && (
-        <section className="result-section">
-          <div className="section-title">배우</div>
-          <div className="actor-list">
-            {matchedActors.map((a) => (
-              <ActorCard key={a.name} actor={a} allMovies={filteredMovies} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {filteredMovies.length > 0 && (
-        <section className="result-section">
-          <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
-          <div className={`movie-grid${search ? ' has-search' : ''}`}>
-            {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="actor" onClick={() => navigate(`/movies?q=${encodeURIComponent(movie.title)}`)} />
-            ))}
-          </div>
-        </section>
-      )}
+      <section className="result-section">
+        {search && <div className="section-title">배우 ({matchedActors.length})</div>}
+        <div className="actor-list">
+          {matchedActors.map((a) => (
+            <ActorCard key={a.name} actor={a} allMovies={SAMPLE_MOVIES} />
+          ))}
+        </div>
+      </section>
     </>
   )
 }
 
 function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) => void }) {
+  const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const initialQ = searchParams.get('q') ?? ''
   const [query, setQuery] = useState(initialQ)
@@ -571,7 +589,7 @@ function MovieSearchPage({ onActorClick }: { onActorClick: (actorName: string) =
           <div className="section-title">{search ? `영화 (${filteredMovies.length})` : `전체 영화 (${filteredMovies.length})`}</div>
           <div className="movie-grid movie-grid--single">
             {filteredMovies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => {}} onActorClick={onActorClick} />
+              <MovieCard key={movie.id} movie={movie} search={search} mode="movie" onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(movie.title)}`)} onActorClick={onActorClick} />
             ))}
           </div>
         </section>
@@ -667,21 +685,46 @@ function PhotoSearchPage() {
   )
 }
 
-function ActorProfilePage() {
+function AiSearchPage() {
+  const [query, setQuery] = useState('')
+
+  const handleSearch = () => {
+    // TODO: AI 프롬프트 API 연동
+  }
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && e.ctrlKey) handleSearch()
+  }
+
+  return (
+    <div className="ai-search-wrap">
+      <div className="ai-search-bar">
+        <textarea
+          className="ai-search-textarea"
+          rows={4}
+          placeholder="배우나 영화에 대해 자유롭게 질문하세요..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button className="ai-search-btn" onClick={handleSearch}>검색</button>
+      </div>
+    </div>
+  )
+}
+
+function ActorDetailPage() {
   const [searchParams] = useSearchParams()
-  const actorName = searchParams.get('actor') ?? ''
+  const actorName = searchParams.get('actor') ?? '톰 크루즈'
 
-  // 해당 배우의 모든 roleImages 수집 (영화 제목, 배역 이름 포함)
-  const allRoleImages = SAMPLE_MOVIES
-    .flatMap((m) => {
-      const a = m.actors.find((a) => a.name === actorName)
-      if (!a) return []
-      return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role, releaseDate: m.releaseDate }))
-    })
+  const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
-  const actor = SAMPLE_MOVIES
-    .flatMap((m) => m.actors)
-    .find((a) => a.name === actorName)
+  const movies = SAMPLE_MOVIES.filter((m) => m.actors.some((a) => a.name === actorName))
+
+  const allRoleImages = SAMPLE_MOVIES.flatMap((m) => {
+    const a = m.actors.find((a) => a.name === actorName)
+    if (!a) return []
+    return (a.roleImages ?? []).map((img) => ({ img, movieTitle: m.title, role: a.role, releaseDate: m.releaseDate }))
+  })
 
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
@@ -689,41 +732,33 @@ function ActorProfilePage() {
 
   return (
     <>
-      <div className="actor-profile-header">
-        <div className="actor-profile-image">
+      {/* 배우 기본 정보 */}
+      <div className="detail-actor-header">
+        <div className="detail-actor-image">
           {actor.imageUrl
             ? <img src={actor.imageUrl} alt={actor.name} />
             : <span>이미지 없음</span>
           }
         </div>
-        <div className="actor-profile-info">
-          <div className="actor-profile-name">{actor.name}</div>
-          <div className="actor-profile-meta">
-            <span className="actor-profile-meta-label">출생연도</span>
-            <span>{actor.birthYear}년</span>
-          </div>
-          <div className="actor-profile-meta">
-            <span className="actor-profile-meta-label">국적</span>
-            <span>{actor.nationality}</span>
-          </div>
-          <div className="actor-profile-meta">
-            <span className="actor-profile-meta-label">데뷔일</span>
-            <span>{actor.debutDate}</span>
-          </div>
+        <div className="detail-actor-info">
+          <div className="detail-actor-name">{actor.name}</div>
+          <div className="detail-meta-row"><span className="detail-meta-label">출생연도</span><span>{actor.birthYear}년</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">국적</span><span>{actor.nationality}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">데뷔일</span><span>{actor.debutDate}</span></div>
         </div>
       </div>
 
+      {/* 영화 속 이미지 */}
       {allRoleImages.length > 0 && (
         <section className="result-section">
           <div className="section-title">영화 속 이미지 ({allRoleImages.length})</div>
-          <div className="actor-profile-images-grid">
+          <div className="detail-role-images-grid">
             {allRoleImages.map((item, i) => (
-              <div key={i} className="actor-profile-image-item">
+              <div key={i} className="detail-role-image-item">
                 <img src={item.img} alt={`${actor.name} ${i + 1}`} />
-                <div className="actor-profile-image-caption">
-                  <span className="actor-profile-image-movie">{item.movieTitle}</span>
-                  <span className="actor-profile-image-role">{item.role}</span>
-                  <span className="actor-profile-image-date">{item.releaseDate}</span>
+                <div className="detail-role-image-caption">
+                  <span className="detail-role-image-movie">{item.movieTitle}</span>
+                  <span className="detail-role-image-role">{item.role}</span>
                 </div>
               </div>
             ))}
@@ -731,8 +766,97 @@ function ActorProfilePage() {
         </section>
       )}
 
-      {allRoleImages.length === 0 && (
-        <div className="empty-state">등록된 이미지가 없습니다.</div>
+      {/* 출연 영화 목록 */}
+      {movies.length > 0 && (
+        <section className="result-section">
+          <div className="section-title">출연 영화 ({movies.length})</div>
+          <div className="detail-movie-list">
+            {movies.map((m) => {
+              const role = m.actors.find((a) => a.name === actorName)?.role ?? ''
+              return (
+                <div key={m.id} className="detail-movie-row">
+                  <div className="detail-movie-poster">
+                    {m.posterUrl
+                      ? <img src={m.posterUrl} alt={m.title} />
+                      : <span>이미지 없음</span>
+                    }
+                  </div>
+                  <div className="detail-movie-info">
+                    <div className="detail-movie-title">{m.title}</div>
+                    <div className="detail-movie-meta">{m.year} · {m.genre} · {m.country}</div>
+                    <div className="detail-movie-meta">감독 {m.director}</div>
+                    <div className="detail-movie-role">배역: {role}</div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
+    </>
+  )
+}
+
+function MovieDetailPage() {
+  const [searchParams] = useSearchParams()
+  const movieTitle = searchParams.get('title') ?? '미션 임파서블'
+
+  const movie = SAMPLE_MOVIES.find((m) => m.title === movieTitle)
+
+  if (!movie) {
+    return <div className="empty-state">영화 정보를 찾을 수 없습니다.</div>
+  }
+
+  const mainActorDetails = movie.actors.filter((a) => movie.mainActors.includes(a.name))
+
+  return (
+    <>
+      {/* 영화 기본 정보 */}
+      <div className="detail-movie-header">
+        <div className="detail-movie-header-poster">
+          {movie.posterUrl
+            ? <img src={movie.posterUrl} alt={movie.title} />
+            : <span>이미지 없음</span>
+          }
+        </div>
+        <div className="detail-movie-header-info">
+          <div className="detail-movie-header-title">{movie.title}</div>
+          <div className="detail-meta-row"><span className="detail-meta-label">연도</span><span>{movie.year}년</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">장르</span><span>{movie.genre}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">감독</span><span>{movie.director}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">작가</span><span>{movie.writer}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">관람등급</span><span>{movie.ageRating}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">상영시간</span><span>{movie.runtime}분</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">개봉일</span><span>{movie.releaseDate}</span></div>
+          <div className="detail-meta-row"><span className="detail-meta-label">제작국가</span><span>{movie.country}</span></div>
+        </div>
+      </div>
+
+      {/* 줄거리 */}
+      <section className="result-section">
+        <div className="section-title">줄거리</div>
+        <p className="detail-overview">{movie.overview}</p>
+      </section>
+
+      {/* 주연배우 */}
+      {mainActorDetails.length > 0 && (
+        <section className="result-section">
+          <div className="section-title">주연배우 ({mainActorDetails.length})</div>
+          <div className="detail-cast-grid">
+            {mainActorDetails.map((a) => (
+              <div key={a.name} className="detail-cast-item">
+                <div className="detail-cast-image">
+                  {a.imageUrl
+                    ? <img src={a.imageUrl} alt={a.name} />
+                    : <span>{a.name[0]}</span>
+                  }
+                </div>
+                <div className="detail-cast-name">{a.name}</div>
+                <div className="detail-cast-role">{a.role}</div>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </>
   )
@@ -742,22 +866,30 @@ function App() {
   const navigate = useNavigate()
 
   const handleActorClick = (actorName: string) => {
-    navigate(`/actors?q=${encodeURIComponent(actorName)}`)
+    navigate(`/actor-detail?actor=${encodeURIComponent(actorName)}`)
   }
 
   return (
     <div className="app">
       <header className="header">
-        <NavLink to="/actors" className="header-left">
-          <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
-          <div className="header-logo">actors</div>
-        </NavLink>
-        <nav className="header-nav">
-          <NavLink to="/actors" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우</NavLink>
-          <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
-          <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
-          <NavLink to="/profiles" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 프로필</NavLink>
-        </nav>
+        <div className="header-row1">
+          <NavLink to="/actors" className="header-left">
+            <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
+            <div className="header-logo">actors</div>
+          </NavLink>
+          <nav className="header-nav">
+            <NavLink to="/actors" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우</NavLink>
+            <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
+            <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
+            <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
+          </nav>
+        </div>
+        <div className="header-row2">
+          <nav className="header-nav">
+            <NavLink to="/actor-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 상세</NavLink>
+            <NavLink to="/movie-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화 상세</NavLink>
+          </nav>
+        </div>
       </header>
 
       <main className="main">
@@ -766,7 +898,10 @@ function App() {
           <Route path="/actors" element={<ActorSearchPage />} />
           <Route path="/movies" element={<MovieSearchPage onActorClick={handleActorClick} />} />
           <Route path="/photos" element={<PhotoSearchPage />} />
-          <Route path="/profiles" element={<ActorProfilePage />} />
+          <Route path="/ai" element={<AiSearchPage />} />
+          <Route path="/actor-detail" element={<ActorDetailPage />} />
+          <Route path="/movie-detail" element={<MovieDetailPage />} />
+          <Route path="/profiles" element={<ActorDetailPage />} />
         </Routes>
       </main>
 
