@@ -891,6 +891,58 @@
   font-size: 13px;
 }
 
+/* 배우 상세 - 영화 검색/정렬 */
+.detail-movie-filter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.detail-movie-search {
+  flex: 1;
+  padding: 7px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.detail-movie-search:focus {
+  border-color: var(--color-accent);
+}
+
+.detail-movie-sort {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.detail-movie-sort-btn {
+  padding: 7px 12px;
+  font-size: 12px;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.detail-movie-sort-btn + .detail-movie-sort-btn {
+  border-left: 1px solid var(--color-border);
+}
+
+.detail-movie-sort-btn--active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 /* 영화별 이미지 그룹 */
 .detail-movie-role-groups {
   display: flex;

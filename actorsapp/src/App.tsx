@@ -722,6 +722,8 @@ function AiSearchPage() {
 function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const actorName = searchParams.get('actor') ?? '톰 크루즈'
+  const [movieSearch, setMovieSearch] = useState('')
+  const [sortOrder, setSortOrder] = useState<'name' | 'year'>('year')
 
   const actor = SAMPLE_MOVIES.flatMap((m) => m.actors).find((a) => a.name === actorName)
 
@@ -730,6 +732,14 @@ function ActorDetailPage() {
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>
   }
+
+  const filteredMovies = movies
+    .filter((m) => m.title.includes(movieSearch))
+    .sort((a, b) =>
+      sortOrder === 'name'
+        ? a.title.localeCompare(b.title, 'ko')
+        : a.year - b.year
+    )
 
   return (
     <>
@@ -753,43 +763,70 @@ function ActorDetailPage() {
       {movies.length > 0 && (
         <section className="result-section">
           <div className="section-title">영화 속 이미지</div>
-          <div className="detail-movie-role-groups">
-            {movies.map((m) => {
-              const a = m.actors.find((a) => a.name === actorName)
-              if (!a || !a.roleImages || a.roleImages.length === 0) return null
-              return (
-                <div key={m.id} className="detail-movie-role-group">
-                  {/* 영화 정보 1줄 */}
-                  <div className="detail-movie-role-group-header">
-                    <div className="detail-movie-role-group-poster">
-                      {m.posterUrl
-                        ? <img src={img(m.posterUrl!)} alt={m.title} />
-                        : <span>이미지 없음</span>
-                      }
-                    </div>
-                    <div className="detail-movie-role-group-info">
-                      <span className="detail-movie-role-group-title">{m.title}</span>
-                      <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
-                    </div>
-                  </div>
-                  {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
-                  <div className="detail-role-images-grid">
-                    {a.roleImages.slice(0, 9).map((imgUrl, i) => {
-                      const isLast = i === 8 && a.roleImages!.length > 9
-                      return (
-                        <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
-                          <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
-                          {isLast && (
-                            <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
-                          )}
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            })}
+
+          {/* 검색 + 정렬 */}
+          <div className="detail-movie-filter">
+            <input
+              className="detail-movie-search"
+              type="text"
+              placeholder="영화 제목 검색..."
+              value={movieSearch}
+              onChange={(e) => setMovieSearch(e.target.value)}
+            />
+            <div className="detail-movie-sort">
+              <button
+                className={`detail-movie-sort-btn${sortOrder === 'year' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => setSortOrder('year')}
+              >연도순</button>
+              <button
+                className={`detail-movie-sort-btn${sortOrder === 'name' ? ' detail-movie-sort-btn--active' : ''}`}
+                onClick={() => setSortOrder('name')}
+              >이름순</button>
+            </div>
           </div>
+
+          {filteredMovies.length === 0
+            ? <div className="empty-state">검색 결과가 없습니다.</div>
+            : (
+              <div className="detail-movie-role-groups">
+                {filteredMovies.map((m) => {
+                  const a = m.actors.find((a) => a.name === actorName)
+                  if (!a || !a.roleImages || a.roleImages.length === 0) return null
+                  return (
+                    <div key={m.id} className="detail-movie-role-group">
+                      {/* 영화 정보 1줄 */}
+                      <div className="detail-movie-role-group-header">
+                        <div className="detail-movie-role-group-poster">
+                          {m.posterUrl
+                            ? <img src={img(m.posterUrl!)} alt={m.title} />
+                            : <span>이미지 없음</span>
+                          }
+                        </div>
+                        <div className="detail-movie-role-group-info">
+                          <span className="detail-movie-role-group-title">{m.title}</span>
+                          <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
+                        </div>
+                      </div>
+                      {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
+                      <div className="detail-role-images-grid">
+                        {a.roleImages.slice(0, 9).map((imgUrl, i) => {
+                          const isLast = i === 8 && a.roleImages!.length > 9
+                          return (
+                            <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
+                              <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
+                              {isLast && (
+                                <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
+                              )}
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )
+          }
         </section>
       )}
     </>
