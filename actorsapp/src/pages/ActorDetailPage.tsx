@@ -117,7 +117,9 @@ export function ActorDetailPage() {
                         </div>
                       </button>
                       {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
-                      <div className="detail-role-images-grid">
+                      {(!a.roleImages || a.roleImages.length === 0)
+                        ? <div className="empty-state">이미지가 없어요</div>
+                        : <div className="detail-role-images-grid">
                         {(a.roleImages ?? []).slice(0, 9).map((imgUrl, i) => {
                           const isLast = i === 8 && (a.roleImages?.length ?? 0) > 9
                           return (
@@ -129,7 +131,7 @@ export function ActorDetailPage() {
                             </div>
                           )
                         })}
-                      </div>
+                      </div>}
                     </div>
                   )
                 })}
