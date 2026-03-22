@@ -303,7 +303,6 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
         </div>
         <div className="actor-card-body">
           <div className="actor-card-name">{actor.name}</div>
-          <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality} · 데뷔 {actor.debutDate}</div>
         </div>
       </div>
       {roleImages.length > 0 && (
@@ -418,8 +417,8 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
           <div className="movie-card-actors">
             {matchedActors.map((a) => (
               <div key={a.name} className="movie-card-actor">
-                <div className="movie-card-actor-name">{a.name} · {a.role}</div>
-                <div className="movie-card-actor-detail">{a.birthYear}년생 · {a.nationality} · 데뷔 {a.debutDate}</div>
+                <div className="movie-card-actor-name">{a.name}</div>
+                <div className="movie-card-actor-detail">{a.role}</div>
                 {a.roleImages && a.roleImages.length > 0 && (
                   <div className="movie-card-role-images">
                     {a.roleImages.map((img, i) => (
