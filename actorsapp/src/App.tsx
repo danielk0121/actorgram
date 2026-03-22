@@ -42,7 +42,7 @@ const SAMPLE_MOVIES: Movie[] = [
     posterUrl: '/images/poster13.jpg',
     mainActors: ['톰 크루즈', '존 보이트', '엠마뉴엘 베아르', '헨리 체르니'],
     actors: [
-      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg'] },
+      { name: '톰 크루즈', role: '이단 헌트', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', imageUrl: '/images/actor1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
       { name: '존 보이트', role: '짐 펠프스', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01', imageUrl: '/images/actor2.jpg' },
       { name: '엠마뉴엘 베아르', role: '클레어 펠프스', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01', imageUrl: '/images/actor3.jpg' },
       { name: '헨리 체르니', role: '유진 킷트리지', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01', imageUrl: '/images/actor4.jpg' },
@@ -330,7 +330,7 @@ function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie[] }) {
                 <div className="actor-card-movie-title">{movie.title}</div>
                 <div className="actor-card-movie-role-name">{movie.releaseDate} · {actorInMovie.role}</div>
                 <div className="actor-card-role-thumbs">
-                  {actorInMovie.roleImages!.map((img, i) => (
+                  {actorInMovie.roleImages!.slice(0, 3).map((img, i) => (
                     <div
                       key={i}
                       className="actor-card-role-thumb"
@@ -748,44 +748,42 @@ function ActorDetailPage() {
         </div>
       </div>
 
-      {/* 영화 속 이미지 */}
-      {allRoleImages.length > 0 && (
-        <section className="result-section">
-          <div className="section-title">영화 속 이미지 ({allRoleImages.length})</div>
-          <div className="detail-role-images-grid">
-            {allRoleImages.map((item, i) => (
-              <div key={i} className="detail-role-image-item">
-                <img src={item.img} alt={`${actor.name} ${i + 1}`} />
-                <div className="detail-role-image-caption">
-                  <span className="detail-role-image-movie">{item.movieTitle}</span>
-                  <span className="detail-role-image-role">{item.role}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* 출연 영화 목록 */}
+      {/* 영화 속 이미지 (영화별 그룹) */}
       {movies.length > 0 && (
         <section className="result-section">
-          <div className="section-title">출연 영화 ({movies.length})</div>
-          <div className="detail-movie-list">
+          <div className="section-title">영화 속 이미지</div>
+          <div className="detail-movie-role-groups">
             {movies.map((m) => {
-              const role = m.actors.find((a) => a.name === actorName)?.role ?? ''
+              const a = m.actors.find((a) => a.name === actorName)
+              if (!a || !a.roleImages || a.roleImages.length === 0) return null
               return (
-                <div key={m.id} className="detail-movie-row">
-                  <div className="detail-movie-poster">
-                    {m.posterUrl
-                      ? <img src={m.posterUrl} alt={m.title} />
-                      : <span>이미지 없음</span>
-                    }
+                <div key={m.id} className="detail-movie-role-group">
+                  {/* 영화 정보 1줄 */}
+                  <div className="detail-movie-role-group-header">
+                    <div className="detail-movie-role-group-poster">
+                      {m.posterUrl
+                        ? <img src={m.posterUrl} alt={m.title} />
+                        : <span>이미지 없음</span>
+                      }
+                    </div>
+                    <div className="detail-movie-role-group-info">
+                      <span className="detail-movie-role-group-title">{m.title}</span>
+                      <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
+                    </div>
                   </div>
-                  <div className="detail-movie-info">
-                    <div className="detail-movie-title">{m.title}</div>
-                    <div className="detail-movie-meta">{m.year} · {m.genre} · {m.country}</div>
-                    <div className="detail-movie-meta">감독 {m.director}</div>
-                    <div className="detail-movie-role">배역: {role}</div>
+                  {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
+                  <div className="detail-role-images-grid">
+                    {a.roleImages.slice(0, 9).map((img, i) => {
+                      const isLast = i === 8 && a.roleImages!.length > 9
+                      return (
+                        <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
+                          <img src={img} alt={`${actor.name} ${i + 1}`} />
+                          {isLast && (
+                            <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
+                          )}
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               )
@@ -875,7 +873,10 @@ function App() {
         <div className="header-row1">
           <NavLink to="/actors" className="header-left">
             <img src="/favicon.svg" alt="actors 로고" className="header-favicon" />
-            <div className="header-logo">actors</div>
+            <div className="header-logo-wrap">
+              <div className="header-logo">actors</div>
+              <div className="header-version">v260322-1248</div>
+            </div>
           </NavLink>
           <nav className="header-nav">
             <NavLink to="/actors" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우</NavLink>
