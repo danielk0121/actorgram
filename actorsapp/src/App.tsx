@@ -400,6 +400,12 @@ function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                 className="movie-card-actor-row"
                 onClick={(e) => { e.stopPropagation(); onActorClick?.(a.name) }}
               >
+                <div className="movie-card-actor-profile">
+                  {a.imageUrl
+                    ? <img src={img(a.imageUrl!)} alt={a.name} />
+                    : <span>{a.name[0]}</span>
+                  }
+                </div>
                 <div className="movie-card-actor-row-info">
                   <div className="movie-card-actor-name">{a.name}</div>
                   <div className="movie-card-actor-detail">{a.role}</div>
