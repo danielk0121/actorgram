@@ -746,7 +746,7 @@ function App() {
         </Routes>
       </main>
 
-      <footer className="footer">actors by danielk0121 — React + TypeScript + Vite</footer>
+      <footer className="footer">actors by danielk0121</footer>
     </div>
   )
 }
