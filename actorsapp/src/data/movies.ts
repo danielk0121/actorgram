@@ -5,7 +5,7 @@ import type { Movie } from '../types'
 
 export const SAMPLE_MOVIES: Movie[] = [
   {
-    id: 1, title: '미션 임파서블', year: 1996, genre: '액션', rating: 7.1,
+    id: 19, title: '미션 임파서블', year: 1996, genre: '액션', rating: 7.1,
     overview: '미국 정보요원 이단 헌트는 동료들의 죽음에 대한 누명을 쓰고 조직에 숨어든 진짜 스파이를 밝혀내기 위해 독자적으로 움직인다.',
     director: '브라이언 드 팔마', writer: '데이비드 코엡',
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
@@ -19,7 +19,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 2, title: '제리 맥과이어', year: 1996, genre: '드라마', rating: 7.3,
+    id: 1, title: '제리 맥과이어', year: 1996, genre: '드라마', rating: 7.3,
     overview: '스포츠 에이전트 제리 맥과이어는 도덕적 각성 후 회사에서 해고되고, 단 한 명의 선수와 함께 자신만의 에이전시를 꾸려 나간다.',
     director: '카메론 크로', writer: '카메론 크로',
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
@@ -35,7 +35,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 3, title: '탑건: 매버릭', year: 2022, genre: '액션', rating: 8.3,
+    id: 2, title: '탑건: 매버릭', year: 2022, genre: '액션', rating: 8.3,
     overview: '30년이 지나도 현역 최고의 파일럿으로 활약하는 매버릭은 탑건 최정예 졸업생들을 이끌고 특수 임무에 나서며 과거의 유령과 마주한다.',
     director: '조셉 코신스키', writer: '에렌 크루거',
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
@@ -54,7 +54,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 4, title: '탑건', year: 1986, genre: '액션', rating: 6.9,
+    id: 3, title: '탑건', year: 1986, genre: '액션', rating: 6.9,
     overview: '해군 최정예 파일럿 훈련학교 탑건에 입학한 매버릭은 라이벌과 경쟁하고 사랑에 빠지며 진정한 전사로 성장한다.',
     director: '토니 스콧', writer: '짐 캐시',
     ageRating: '12세', runtime: 110, releaseDate: '1986-05-16', country: '미국',
@@ -68,7 +68,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 5, title: '마이너리티 리포트', year: 2002, genre: 'SF', rating: 7.6,
+    id: 4, title: '마이너리티 리포트', year: 2002, genre: 'SF', rating: 7.6,
     overview: '2054년 살인을 예측해 범죄를 막는 프리크라임 부서의 책임자 앤더튼은 자신이 미래 살인자로 지목되자 진실을 파헤치기 위해 도주한다.',
     director: '스티븐 스필버그', writer: '스콧 프랭크',
     ageRating: '15세', runtime: 145, releaseDate: '2002-07-05', country: '미국',
@@ -82,7 +82,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 6, title: '인셉션', year: 2010, genre: 'SF', rating: 8.8,
+    id: 5, title: '인셉션', year: 2010, genre: 'SF', rating: 8.8,
     overview: '타인의 꿈에 침투해 기업 비밀을 훔치는 도둑 코브는 누명을 벗기 위해 꿈속에 아이디어를 심는 불가능한 임무를 맡는다.',
     director: '크리스토퍼 놀란', writer: '크리스토퍼 놀란',
     ageRating: '12세', runtime: 148, releaseDate: '2010-07-21', country: '미국',
@@ -100,7 +100,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 7, title: '인터스텔라', year: 2014, genre: 'SF', rating: 8.6,
+    id: 6, title: '인터스텔라', year: 2014, genre: 'SF', rating: 8.6,
     overview: '지구 멸망의 위기 속에서 탐험대가 웜홀을 통해 우주로 떠나 인류의 새로운 터전을 찾아 나선다.',
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '전체', runtime: 169, releaseDate: '2014-11-06', country: '미국',
@@ -115,7 +115,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 8, title: '다크 나이트', year: 2008, genre: '액션', rating: 9.0,
+    id: 7, title: '다크 나이트', year: 2008, genre: '액션', rating: 9.0,
     overview: '조커의 혼돈 속에서 배트맨은 고담 시민을 지키기 위해 심리적·육체적 한계에 부딪히며 정의의 의미를 시험받는다.',
     director: '크리스토퍼 놀란', writer: '조나단 놀란',
     ageRating: '15세', runtime: 152, releaseDate: '2008-07-18', country: '미국',
@@ -133,7 +133,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 9, title: '기생충', year: 2019, genre: '스릴러', rating: 8.5,
+    id: 8, title: '기생충', year: 2019, genre: '스릴러', rating: 8.5,
     overview: '가난한 기택 가족이 부유한 박 사장 가족에게 접근하면서 두 가족 사이에 예상치 못한 사건이 벌어진다.',
     director: '봉준호', writer: '봉준호',
     ageRating: '15세', runtime: 132, releaseDate: '2019-05-30', country: '한국',
@@ -150,7 +150,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 10, title: '대부', year: 1972, genre: '드라마', rating: 9.2,
+    id: 9, title: '대부', year: 1972, genre: '드라마', rating: 9.2,
     overview: '노령의 마피아 대부 비토 코를레오네가 제국을 마지막 아들 마이클에게 물려주며 벌어지는 권력 승계와 복수의 이야기.',
     director: '프란시스 포드 코폴라', writer: '마리오 푸조',
     ageRating: '15세', runtime: 175, releaseDate: '1972-03-24', country: '미국',
@@ -170,7 +170,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 11, title: '펄프 픽션', year: 1994, genre: '범죄', rating: 8.9,
+    id: 10, title: '펄프 픽션', year: 1994, genre: '범죄', rating: 8.9,
     overview: '두 킬러, 복서, 갱스터와 그의 아내의 삶이 폭력과 구원의 네 가지 이야기로 교차한다.',
     director: '쿠엔틴 타란티노', writer: '쿠엔틴 타란티노',
     ageRating: '청소년불가', runtime: 154, releaseDate: '1994-10-14', country: '미국',
@@ -183,7 +183,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 12, title: '매트릭스', year: 1999, genre: 'SF', rating: 8.7,
+    id: 11, title: '매트릭스', year: 1999, genre: 'SF', rating: 8.7,
     overview: '컴퓨터 해커 네오는 자신이 살아온 세계가 거대한 가상현실임을 알게 되고 인류를 지배하는 기계에 맞서 싸운다.',
     director: '라나 워쇼스키', writer: '릴리 워쇼스키',
     ageRating: '15세', runtime: 136, releaseDate: '1999-03-31', country: '미국',
@@ -199,7 +199,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 13, title: '포레스트 검프', year: 1994, genre: '드라마', rating: 8.8,
+    id: 12, title: '포레스트 검프', year: 1994, genre: '드라마', rating: 8.8,
     overview: '지능지수 75의 앨라배마 청년 포레스트 검프의 시선으로 케네디 암살, 베트남 전쟁 등 미국 현대사가 펼쳐진다.',
     director: '로버트 저메키스', writer: '에릭 로스',
     ageRating: '전체', runtime: 142, releaseDate: '1994-07-06', country: '미국',
@@ -214,7 +214,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 14, title: '쉰들러 리스트', year: 1993, genre: '드라마', rating: 9.0,
+    id: 13, title: '쉰들러 리스트', year: 1993, genre: '드라마', rating: 9.0,
     overview: '2차 세계대전 중 독일 사업가 오스카 쉰들러가 나치의 박해를 피해 유대인 노동자들을 구하는 실화를 바탕으로 한 이야기.',
     director: '스티븐 스필버그', writer: '스티븐 재일리안',
     ageRating: '15세', runtime: 195, releaseDate: '1993-12-15', country: '미국',
@@ -228,7 +228,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 15, title: '파이트 클럽', year: 1999, genre: '드라마', rating: 8.8,
+    id: 14, title: '파이트 클럽', year: 1999, genre: '드라마', rating: 8.8,
     overview: '불면증에 시달리는 직장인과 비누 장수가 비밀 격투 클럽을 만들고 점점 더 극단적인 방향으로 치닫는다.',
     director: '데이비드 핀처', writer: '짐 울스',
     ageRating: '청소년불가', runtime: 139, releaseDate: '1999-10-15', country: '미국',
@@ -245,7 +245,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 16, title: '좋은 친구들', year: 1990, genre: '범죄', rating: 8.7,
+    id: 15, title: '좋은 친구들', year: 1990, genre: '범죄', rating: 8.7,
     overview: '헨리 힐이 마피아 조직에 발을 들이며 겪는 성공과 배신, 몰락의 실화.',
     director: '마틴 스코세이지', writer: '니콜라스 필레기',
     ageRating: '청소년불가', runtime: 146, releaseDate: '1990-09-19', country: '미국',
@@ -264,7 +264,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 17, title: '양들의 침묵', year: 1991, genre: '스릴러', rating: 8.6,
+    id: 16, title: '양들의 침묵', year: 1991, genre: '스릴러', rating: 8.6,
     overview: 'FBI 수습 요원 클라리스는 연쇄살인범을 잡기 위해 수감 중인 식인 살인마 한니발 렉터의 도움을 받는다.',
     director: '조나단 드미', writer: '테드 탤리',
     ageRating: '청소년불가', runtime: 118, releaseDate: '1991-02-14', country: '미국',
@@ -277,7 +277,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 18, title: '원피스', year: 1999, genre: '애니메이션', rating: 9.0,
+    id: 17, title: '원피스', year: 1999, genre: '애니메이션', rating: 9.0,
     overview: '고무고무 열매를 먹어 고무인간이 된 몽키 D. 루피는 "해적왕"이 되겠다는 꿈을 품고 동료들과 함께 위대한 항로를 향해 나아간다.',
     director: '사토 코노스케', writer: '오다 에이이치로',
     ageRating: '전체', runtime: 24, releaseDate: '1999-10-20', country: '일본',
@@ -292,7 +292,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 19, title: '나루토', year: 2002, genre: '애니메이션', rating: 8.4,
+    id: 18, title: '나루토', year: 2002, genre: '애니메이션', rating: 8.4,
     overview: '꼬리 달린 괴수 구미호를 몸 안에 봉인한 채 태어난 우즈마키 나루토는 마을의 인정을 받고 최강의 닌자 호카게가 되는 것을 목표로 성장해 나간다.',
     director: '다테 하야토', writer: '키시모토 마사시',
     ageRating: '12세', runtime: 23, releaseDate: '2002-10-03', country: '일본',
