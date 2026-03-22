@@ -103,37 +103,41 @@ export function ActorDetailPage() {
                   return (
                     <div key={m.id} className="detail-movie-role-group">
                       {/* 영화 정보 1줄 - 클릭 시 영화 상세로 이동 */}
-                      <button
-                        className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
-                        onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(m.title)}`)}
-                      >
-                        <div className="detail-movie-role-group-poster">
-                          {m.posterUrl
-                            ? <img src={img(m.posterUrl!)} alt={m.title} />
-                            : <span>이미지 없음</span>
-                          }
-                        </div>
-                        <div className="detail-movie-role-group-info">
-                          <span className="detail-movie-role-group-title">{m.title}</span>
-                          <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
-                        </div>
-                      </button>
+                      <div className="detail-movie-role-group-header-wrap">
+                        <button
+                          className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
+                          onClick={() => navigate(`/movie-detail?title=${encodeURIComponent(m.title)}`)}
+                        >
+                          <div className="detail-movie-role-group-poster">
+                            {m.posterUrl
+                              ? <img src={img(m.posterUrl!)} alt={m.title} />
+                              : <span>이미지 없음</span>
+                            }
+                          </div>
+                          <div className="detail-movie-role-group-info">
+                            <span className="detail-movie-role-group-title">{m.title}</span>
+                            <span className="detail-movie-role-group-meta">{m.year} · {m.genre} · 배역: {a.role}</span>
+                          </div>
+                        </button>
+                      </div>
                       {/* 이미지 바둑판 (최대 9장, 초과 시 마지막 칸에 +N 표시) */}
-                      {(!a.roleImages || a.roleImages.length === 0)
-                        ? <div className="empty-state">이미지가 없어요</div>
-                        : <div className="detail-role-images-grid">
-                        {(a.roleImages ?? []).slice(0, 9).map((imgUrl, i) => {
-                          const isLast = i === 8 && (a.roleImages?.length ?? 0) > 9
-                          return (
-                            <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
-                              <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
-                              {isLast && (
-                                <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
-                              )}
-                            </div>
-                          )
-                        })}
-                      </div>}
+                      <div className="detail-movie-role-group-images-wrap">
+                        {(!a.roleImages || a.roleImages.length === 0)
+                          ? <div className="empty-state">이미지가 없어요</div>
+                          : <div className="detail-role-images-grid">
+                            {(a.roleImages ?? []).slice(0, 9).map((imgUrl, i) => {
+                              const isLast = i === 8 && (a.roleImages?.length ?? 0) > 9
+                              return (
+                                <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
+                                  <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
+                                  {isLast && (
+                                    <div className="detail-role-image-more-overlay">+{a.roleImages!.length - 9}</div>
+                                  )}
+                                </div>
+                              )
+                            })}
+                          </div>}
+                      </div>
                     </div>
                   )
                 })}
