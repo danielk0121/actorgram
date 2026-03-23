@@ -39,6 +39,11 @@ Table CastEntry {
   roleProfileImage varchar  [note: "배역 대표 이미지 URL"]
 }
 
+Table ActorStats {
+  actorId     int  [pk, ref: - Actor.id, note: "배우 참조 (1:1)"]
+  movieCount  int  [not null, default: 0, note: "출연 작품 수 (CastEntry 집계)"]
+}
+
 Table RoleImage {
   id           int     [pk, note: "배역 이미지 고유 ID"]
   castEntryId  int     [not null, ref: > CastEntry.id, note: "출연 정보 참조"]

@@ -60,6 +60,7 @@ Movie ──── CastEntry (출연 정보, 주연 여부 포함) ──┘
 | `Movie` | 작품 마스터 |
 | `CastEntry` | 배우 × 작품 출연 기록. `isMain`으로 주연 여부 구분 |
 | `RoleImage` | 배역 이미지 목록 (`CastEntry`의 `roleImages[]`를 정규화) |
+| `ActorStats` | 배우 집계 통계 (Actor 1:1). `movieCount` 등 집계값을 미리 계산해 저장 |
 
 ## 프로젝트 구조
 
