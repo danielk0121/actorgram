@@ -1316,6 +1316,23 @@
     padding: 0 12px;
   }
 
+  .detail-movie-filter {
+    flex-wrap: wrap;
+  }
+
+  .detail-movie-search-bar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .detail-movie-sort {
+    flex-shrink: 1;
+  }
+
+  .detail-movie-role-group-header--clickable {
+    margin: 0;
+  }
+
   .header-favicon {
     width: 20px;
     height: 20px;
