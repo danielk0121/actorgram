@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { getActorDetail } from '../data/bff-api'
+import type { ActorDetailResponse } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function ActorDetailPage() {
@@ -11,8 +12,20 @@ export function ActorDetailPage() {
   const [movieSearch, setMovieSearch] = useState('')
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
+  const [actor, setActor] = useState<ActorDetailResponse | null>(null)
+  const [loading, setLoading] = useState(true)
 
-  const actor = getActorDetail(actorId)
+  useEffect(() => {
+    setLoading(true)
+    getActorDetail(actorId).then((result) => {
+      setActor(result)
+      setLoading(false)
+    })
+  }, [actorId])
+
+  if (loading) {
+    return <div className="spinner-wrap"><div className="spinner" /></div>
+  }
 
   if (!actor) {
     return <div className="empty-state">배우 정보를 찾을 수 없습니다.</div>

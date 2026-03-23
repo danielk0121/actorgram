@@ -222,8 +222,9 @@ export async function getActors(params: {
  * 배우 상세 + 필모그래피 (연도 내림차순).
  * cast 조인 완료 — 프론트는 역방향 조회 불필요.
  */
-export function getActorDetail(actorId: number): ActorDetailResponse | null {
+export async function getActorDetail(actorId: number): Promise<ActorDetailResponse | null> {
   const startedAt = Date.now()
+  await sleep(50)
   const actor = SAMPLE_ACTORS.find((a) => a.id === actorId)
   if (!actor) return null
 
@@ -329,8 +330,9 @@ export async function getMovies(params: {
  * 영화 상세 + 전체 출연진 조인.
  * 프론트는 SAMPLE_ACTORS.find 불필요.
  */
-export function getMovieDetail(movieId: number): MovieDetailResponse | null {
+export async function getMovieDetail(movieId: number): Promise<MovieDetailResponse | null> {
   const startedAt = Date.now()
+  await sleep(50)
   const movie = SAMPLE_MOVIES.find((m) => m.id === movieId)
   if (!movie) return null
 

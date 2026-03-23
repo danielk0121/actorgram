@@ -1,13 +1,27 @@
+import { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { getMovieDetail } from '../data/bff-api'
+import type { MovieDetailResponse } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function MovieDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const movieId = Number(searchParams.get('movieId') ?? '19')
+  const [movie, setMovie] = useState<MovieDetailResponse | null>(null)
+  const [loading, setLoading] = useState(true)
 
-  const movie = getMovieDetail(movieId)
+  useEffect(() => {
+    setLoading(true)
+    getMovieDetail(movieId).then((result) => {
+      setMovie(result)
+      setLoading(false)
+    })
+  }, [movieId])
+
+  if (loading) {
+    return <div className="spinner-wrap"><div className="spinner" /></div>
+  }
 
   if (!movie) {
     return <div className="empty-state">영화 정보를 찾을 수 없습니다.</div>
