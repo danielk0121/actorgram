@@ -204,6 +204,15 @@ export function getMovies(params: {
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 
+  // 배우별 출연 영화 수 집계
+  const actorStats = new Map<number, { movieCount: number }>()
+  for (const movie of SAMPLE_MOVIES) {
+    for (const c of movie.cast) {
+      const prev = actorStats.get(c.actorId) ?? { movieCount: 0 }
+      actorStats.set(c.actorId, { movieCount: prev.movieCount + 1 })
+    }
+  }
+
   const filtered = SAMPLE_MOVIES.filter((m) => {
     if (!q) return true
     return (
