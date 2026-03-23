@@ -109,4 +109,26 @@ export const SAMPLE_ACTORS: Actor[] = [
   { id: 106, name: '모리타 마사카즈', birthYear: 1981, nationality: '일본', debutDate: '2002-01-01', gender: '남', profileImage: '/images/actor70.jpg' },
   { id: 107, name: '이토 켄타로', birthYear: 1974, nationality: '일본', debutDate: '1997-01-01', gender: '남', profileImage: '/images/actor71.jpg' },
   { id: 108, name: '이리노 미유', birthYear: 1988, nationality: '일본', debutDate: '2003-01-01', gender: '여', profileImage: '/images/actor73.jpg' },
+  // 진격의 거인
+  { id: 109, name: '카지 유우키', birthYear: 1985, nationality: '일본', debutDate: '2004-01-01', gender: '남', profileImage: '/images/actor109.jpg' },
+  { id: 110, name: '이시카와 유이', birthYear: 1989, nationality: '일본', debutDate: '2007-01-01', gender: '여', profileImage: '/images/actor110.jpg' },
+  { id: 111, name: '이노우에 마리나', birthYear: 1985, nationality: '일본', debutDate: '2004-01-01', gender: '여', profileImage: '/images/actor111.jpg' },
+  { id: 112, name: '카미야 히로시', birthYear: 1975, nationality: '일본', debutDate: '1994-01-01', gender: '남', profileImage: '/images/actor112.jpg' },
+  { id: 113, name: '미즈키 나나', birthYear: 1980, nationality: '일본', debutDate: '1998-01-01', gender: '여', profileImage: '/images/actor113.jpg' },
+  // 귀멸의 칼날
+  { id: 114, name: '하나에 나츠키', birthYear: 1991, nationality: '일본', debutDate: '2011-01-01', gender: '남', profileImage: '/images/actor114.jpg' },
+  { id: 115, name: '키토 아카리', birthYear: 1994, nationality: '일본', debutDate: '2017-01-01', gender: '여', profileImage: '/images/actor115.jpg' },
+  { id: 116, name: '시모노 히로', birthYear: 1980, nationality: '일본', debutDate: '2001-01-01', gender: '남', profileImage: '/images/actor116.jpg' },
+  { id: 117, name: '마쓰오카 요시츠구', birthYear: 1986, nationality: '일본', debutDate: '2009-01-01', gender: '남', profileImage: '/images/actor117.jpg' },
+  // 케이팝 데몬 헌터스
+  { id: 118, name: '최유리', birthYear: 1998, nationality: '한국', debutDate: '2022-01-01', gender: '여', profileImage: '/images/actor118.jpg' },
+  { id: 119, name: '김나림', birthYear: 2000, nationality: '한국', debutDate: '2022-01-01', gender: '여', profileImage: '/images/actor119.jpg' },
+  { id: 120, name: '박민서', birthYear: 1999, nationality: '한국', debutDate: '2022-01-01', gender: '여', profileImage: '/images/actor120.jpg' },
+  { id: 121, name: '이한솔', birthYear: 1997, nationality: '한국', debutDate: '2022-01-01', gender: '여', profileImage: '/images/actor121.jpg' },
+  // 장송의 프리렌
+  { id: 122, name: '야마자키 하루카', birthYear: 1991, nationality: '일본', debutDate: '2014-01-01', gender: '여', profileImage: '/images/actor122.jpg' },
+  { id: 123, name: '오카모토 노부히코', birthYear: 1986, nationality: '일본', debutDate: '2006-01-01', gender: '남', profileImage: '/images/actor123.jpg' },
+  { id: 124, name: '이치노세 카나', birthYear: 1996, nationality: '일본', debutDate: '2018-01-01', gender: '여', profileImage: '/images/actor124.jpg' },
+  { id: 125, name: '우에다 요우지', birthYear: 1982, nationality: '일본', debutDate: '2007-01-01', gender: '남', profileImage: '/images/actor125.jpg' },
+  { id: 126, name: '타나카 아츠코', birthYear: 1962, nationality: '일본', debutDate: '1984-01-01', gender: '여', profileImage: '/images/actor126.jpg' },
 ]
