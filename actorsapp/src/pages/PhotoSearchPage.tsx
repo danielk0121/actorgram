@@ -27,7 +27,7 @@ export function PhotoSearchPage() {
     <>
       <div className="photo-search-wrap">
         <div
-          className="photo-search-dropzone"
+          className={`photo-search-dropzone${preview ? ' photo-search-dropzone--preview' : ''}`}
           onDrop={handleDrop}
           onDragOver={(e) => e.preventDefault()}
         >
