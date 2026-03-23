@@ -7,7 +7,7 @@ import { img } from '../utils/image'
 export function MovieDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const movieId = Number(searchParams.get('movieId') ?? '19')
+  const movieId = Number(searchParams.get('movieId') ?? '9998')
   const [movie, setMovie] = useState<MovieDetailResponse | null>(null)
   const [loading, setLoading] = useState(true)
 

@@ -7,7 +7,7 @@ import { img } from '../utils/image'
 export function ActorDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const actorId = Number(searchParams.get('actorId') ?? '1')
+  const actorId = Number(searchParams.get('actorId') ?? '9999')
   const [movieSearchInput, setMovieSearchInput] = useState('')
   const [movieSearch, setMovieSearch] = useState('')
   const [sortKey, setSortKey] = useState<'year' | 'name'>('year')

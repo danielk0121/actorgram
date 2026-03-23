@@ -27,7 +27,7 @@ function App() {
               <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="actors 로고" className="header-favicon" />
               <div className="header-logo-wrap">
                 <div className="header-logo">actors</div>
-                <div className="header-version">v260323-1550</div>
+                <div className="header-version">v260323-1600</div>
               </div>
             </NavLink>
             <nav className="header-nav">
