@@ -7,6 +7,7 @@ import { PhotoSearchPage } from './pages/PhotoSearchPage'
 import { AiSearchPage } from './pages/AiSearchPage'
 import { ActorDetailPage } from './pages/ActorDetailPage'
 import { MovieDetailPage } from './pages/MovieDetailPage'
+import { AboutPage } from './pages/AboutPage'
 
 function App() {
   const navigate = useNavigate()
@@ -34,6 +35,7 @@ function App() {
               <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
               <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
               <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
+              <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>!</NavLink>
             </nav>
           </div>
         </div>
@@ -57,6 +59,7 @@ function App() {
           <Route path="/actor-detail" element={<ActorDetailPage />} />
           <Route path="/movie-detail" element={<MovieDetailPage />} />
           <Route path="/profiles" element={<ActorDetailPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
 

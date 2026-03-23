@@ -101,6 +101,112 @@
   font-weight: 600;
 }
 
+.nav-item--about {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-border);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* About 페이지 */
+.about-wrap {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-text {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-list {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.about-license-table-wrap {
+  overflow-x: auto;
+}
+
+.about-license-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.about-license-table th,
+.about-license-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.about-license-table th {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.about-notice {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-notice strong {
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+.about-notice p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* Search */
 .search-bar {
   display: flex;
