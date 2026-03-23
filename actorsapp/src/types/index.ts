@@ -12,6 +12,7 @@ export interface CastEntry {
   id: number         // 배역 인스턴스 고유 id
   actorId: number    // 배우 마스터 참조 id
   role: string       // 배역명
+  isMain: boolean    // 주연 여부
   roleProfileImage?: string  // 배역 대표 이미지
   roleImages?: string[]
 }
@@ -32,5 +33,4 @@ export interface Movie {
   format: '단편' | '시리즈'  // 작품 형식
   episode?: number           // 시리즈인 경우 에피소드 번호
   cast: CastEntry[]          // 출연 배역 목록
-  mainActors: number[]       // 주연배우 actorId 목록
 }

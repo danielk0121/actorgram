@@ -278,9 +278,9 @@ export function getMovies(params: {
     posterUrl: m.posterUrl,
     format: m.format,
     episode: m.episode,
-    // BFF 조인: 주연배우 actorId → Actor 정보 포함
+    // BFF 조인: 주연배우 → Actor 정보 포함
     mainCast: m.cast
-      .filter((c) => m.mainActors.includes(c.actorId))
+      .filter((c) => c.isMain)
       .map((c) => {
         const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
         return {
@@ -333,7 +333,7 @@ export function getMovieDetail(movieId: number): MovieDetailResponse | null {
         role: c.role,
         roleProfileImage: c.roleProfileImage,
         roleImages: c.roleImages ?? [],
-        isMain: movie.mainActors.includes(c.actorId),
+        isMain: c.isMain,
       },
     }
   })
