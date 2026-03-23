@@ -35,7 +35,7 @@ function App() {
               <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
               <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
               <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
-              <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>!</NavLink>
+              <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>?</NavLink>
             </nav>
           </div>
         </div>
