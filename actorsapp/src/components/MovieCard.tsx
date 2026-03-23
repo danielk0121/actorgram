@@ -49,11 +49,14 @@ export function MovieCard({ movie, onClick, onActorClick }: {
                 <div className="movie-card-actor-detail">{c.castEntry.role} 역</div>
               </div>
               <div className="movie-card-actor-row-images">
-                {c.castEntry.roleImages.slice(0, 3).map((imgUrl, i) => (
-                  <div key={i} className="movie-card-actor-row-image">
-                    <img src={img(imgUrl)} alt={`${c.castEntry.role} ${i + 1}`} />
-                  </div>
-                ))}
+                {c.castEntry.roleImages.length === 0
+                  ? <span className="movie-card-actor-row-no-image">사진없음</span>
+                  : c.castEntry.roleImages.slice(0, 3).map((imgUrl, i) => (
+                      <div key={i} className="movie-card-actor-row-image">
+                        <img src={img(imgUrl)} alt={`${c.castEntry.role} ${i + 1}`} />
+                      </div>
+                    ))
+                }
               </div>
             </button>
           ))}
