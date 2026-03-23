@@ -13,8 +13,12 @@
 
 ```
 claude_test/                  # 프로젝트 루트
+├── specs/
+│   ├── PRD.md               # 전체 요구사항 문서
+│   ├── erd.dbml             # ERD (DBML 형식, 도메인 모델 기준)
+│   └── openapi.yaml         # BFF API 명세
 ├── docs/
-│   └── PRD.md               # 전체 요구사항 문서
+│   └── todo.md              # 작업 목록
 ├── actorsapp/               # 배우/영화 탐색 앱
 │   ├── src/
 │   │   ├── App.tsx          # 메인 앱 컴포넌트
@@ -39,12 +43,12 @@ claude_test/                  # 프로젝트 루트
 - CSS 라이브러리(Tailwind, MUI 등) 사용 금지
 - 무채색 톤 유지 (`var(--color-*)` CSS 변수 활용)
 - 모바일 브레이크포인트: 420px 이하
-- 유스케이스 요구사항은 `docs/PRD.md`에 기록 (기술 스택/개요 등은 README에 기록)
+- 유스케이스 요구사항은 `specs/PRD.md`에 기록 (기술 스택/개요 등은 README에 기록)
 
 ## 작업 흐름
 
 1. 사용자가 PRD 명세를 전달
-2. `docs/PRD.md`에 요구사항 기록
+2. `specs/PRD.md`에 요구사항 기록
 3. 해당 앱에 반영
 4. 변경사항 커밋 후 즉시 푸시 (커밋과 푸시는 항상 함께)
 
