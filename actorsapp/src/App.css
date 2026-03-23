@@ -97,11 +97,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .nav-item {
   padding: 6px 12px;
   font-size: 14px;
+  white-space: nowrap;
   color: var(--color-text-secondary);
   text-decoration: none;
   border-radius: var(--radius);
