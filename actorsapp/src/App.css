@@ -1444,12 +1444,12 @@
   }
 
   .detail-movie-search-bar {
-    width: 100%;
+    flex-basis: 100%;
     min-width: 0;
   }
 
   .detail-movie-sort {
-    flex-shrink: 1;
+    flex-shrink: 0;
   }
 
   .detail-movie-role-group-header--clickable {
