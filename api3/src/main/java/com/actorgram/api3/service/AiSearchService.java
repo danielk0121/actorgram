@@ -54,12 +54,21 @@ public class AiSearchService {
     }
 
     public AiSearchResponse search(AiSearchRequest request) {
-        String rawResponse = callGeminiApi(request.getQuery());
+        // 요청에 apiKey가 있으면 우선 사용, 없으면 서버 설정값 사용
+        String key = (request.getApiKey() != null && !request.getApiKey().isBlank())
+                ? request.getApiKey()
+                : apiKey;
+
+        if (key == null || key.isBlank()) {
+            throw new RuntimeException("Gemini API 키가 설정되지 않았습니다. 요청에 apiKey를 포함하거나 /api/config/gemini-key로 먼저 설정하세요.");
+        }
+
+        String rawResponse = callGeminiApi(request.getQuery(), key);
         return parseGeminiResponse(rawResponse);
     }
 
-    private String callGeminiApi(String userQuery) {
-        String url = GEMINI_URL + apiKey;
+    private String callGeminiApi(String userQuery, String key) {
+        String url = GEMINI_URL + key;
 
         // Gemini generateContent 요청 바디 구성
         String requestBody = buildRequestBody(userQuery);
