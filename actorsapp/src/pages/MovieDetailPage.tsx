@@ -63,7 +63,7 @@ export function MovieDetailPage() {
       {mainCast.length > 0 && (
         <section className="result-section">
           <div className="section-title">주연배우 ({mainCast.length})</div>
-          <div className="movie-card-actors-list">
+          <div className="movie-card-actors-list detail-actors-list">
             {mainCast.map((c) => (
               <button
                 key={c.actor.id}

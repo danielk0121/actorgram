@@ -482,6 +482,32 @@
   border-top: 1px solid var(--color-border);
 }
 
+/* 영화 상세 페이지 전용: depth 구분 */
+.detail-actors-list {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-sunken);
+  padding: 8px;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.detail-actors-list .movie-card-actor-row {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
+.detail-actors-list .movie-card-actor-row:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-actors-list .movie-card-actor-row:hover {
+  background: #f5f5f5;
+}
+
 .movie-card-actor-row {
   display: flex;
   align-items: center;
