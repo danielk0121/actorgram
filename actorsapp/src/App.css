@@ -894,6 +894,7 @@
 /* 배우 상세 - 영화 검색/정렬 */
 .detail-movie-filter {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
   margin-bottom: 20px;
@@ -901,6 +902,7 @@
 
 .detail-movie-search-bar {
   flex: 1;
+  min-width: 0;
   display: flex;
   gap: 6px;
 }
