@@ -313,9 +313,10 @@ components:
           items:
             $ref: '#/components/schemas/BffActorFilmographyEntry'
 
-    MovieBase:
+    MovieSummary:
       type: object
-      required: [id, title, year, genre, director, writer, ageRating, runtime, releaseDate, country, format]
+      description: 영화 목록 항목
+      required: [id, title, year, genre, director, writer, ageRating, runtime, releaseDate, country, format, mainCast]
       properties:
         id:
           type: integer
@@ -347,32 +348,52 @@ components:
         episode:
           type: integer
           description: 시리즈 총 에피소드 수
-
-    MovieSummary:
-      description: 영화 목록 항목
-      allOf:
-        - $ref: '#/components/schemas/MovieBase'
-        - type: object
-          required: [mainCast]
-          properties:
-            mainCast:
-              type: array
-              description: 주연배우 목록 (BFF 조인)
-              items:
-                $ref: '#/components/schemas/BffMovieCastEntry'
+        mainCast:
+          type: array
+          description: 주연배우 목록 (BFF 조인)
+          items:
+            $ref: '#/components/schemas/BffMovieCastEntry'
 
     MovieDetailResponse:
+      type: object
       description: GET /movies/:id 응답
-      allOf:
-        - $ref: '#/components/schemas/MovieBase'
-        - type: object
-          required: [overview, cast]
-          properties:
-            overview:
-              type: string
-              description: 줄거리
-            cast:
-              type: array
-              description: 전체 출연진 (BFF 조인, castEntry.isMain으로 주연 구분)
-              items:
-                $ref: '#/components/schemas/BffMovieCastEntry'
+      required: [id, title, year, genre, overview, director, writer, ageRating, runtime, releaseDate, country, format, cast]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        year:
+          type: integer
+        genre:
+          type: string
+        overview:
+          type: string
+          description: 줄거리
+        director:
+          type: string
+        writer:
+          type: string
+        ageRating:
+          type: string
+        runtime:
+          type: integer
+          description: 상영시간 (분)
+        releaseDate:
+          type: string
+          format: date
+        country:
+          type: string
+        posterUrl:
+          type: string
+        format:
+          type: string
+          enum: [단편, 시리즈]
+        episode:
+          type: integer
+          description: 시리즈 총 에피소드 수
+        cast:
+          type: array
+          description: 전체 출연진 (BFF 조인, castEntry.isMain으로 주연 구분)
+          items:
+            $ref: '#/components/schemas/BffMovieCastEntry'
