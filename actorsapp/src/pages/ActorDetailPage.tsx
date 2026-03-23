@@ -51,7 +51,7 @@ export function ActorDetailPage() {
           }
         </div>
         <div className="detail-actor-info">
-          <div className="detail-actor-name">{actor.name}</div>
+          <div className="detail-actor-name">{actor.name}{movies.length >= 2 ? <span className="actor-movie-count"> [{movies.length}]</span> : null}</div>
           <div className="detail-meta-row"><span className="detail-meta-label">출생연도</span><span>{actor.birthYear}년</span></div>
           <div className="detail-meta-row"><span className="detail-meta-label">국적</span><span>{actor.nationality}</span></div>
           {actor.gender && <div className="detail-meta-row"><span className="detail-meta-label">성별</span><span>{actor.gender}</span></div>}

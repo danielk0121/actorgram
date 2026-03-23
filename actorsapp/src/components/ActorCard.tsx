@@ -30,7 +30,7 @@ export function ActorCard({ actor, allMovies }: { actor: Actor; allMovies: Movie
           }
         </div>
         <div className="actor-card-body">
-          <div className="actor-card-name">{actor.name}</div>
+          <div className="actor-card-name">{actor.name}{totalMovieCount >= 2 ? <span className="actor-movie-count"> [{totalMovieCount}]</span> : null}</div>
           <div className="actor-card-detail">{actor.birthYear}년생 · {actor.nationality}{actor.gender ? ` · ${actor.gender}` : ''}</div>
           <div className="actor-card-detail">데뷔 {actor.debutDate} · 영화 {totalMovieCount}개</div>
         </div>
