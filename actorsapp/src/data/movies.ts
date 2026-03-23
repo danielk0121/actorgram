@@ -353,7 +353,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 24, title: '장송의 프리렌', year: 2023, genre: '애니메이션',
+    id: 9997, title: '장송의 프리렌', year: 2023, genre: '애니메이션',
     overview: '마왕을 무찌른 뒤 혼자 살아남은 엘프 마법사 프리렌이 동료들의 추억을 되새기며 세계를 여행하는 이야기.',
     director: '사이토 켄이치', writer: '야마다 카네후미',
     ageRating: '전체', runtime: 24, releaseDate: '2023-09-29', country: '일본',
