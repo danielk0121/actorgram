@@ -63,6 +63,12 @@
   justify-content: space-between;
 }
 
+.header-row2-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .header-left {
   display: flex;
   align-items: center;

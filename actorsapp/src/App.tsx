@@ -42,7 +42,6 @@ function App() {
               <NavLink to="/movies" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화</NavLink>
               <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
               <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
-              <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>?</NavLink>
               <button className="theme-toggle" onClick={() => setIsDark((d) => !d)} title={isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}>
                 {isDark ? '☀' : '●'}
               </button>
@@ -55,7 +54,10 @@ function App() {
               <NavLink to="/actor-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 상세</NavLink>
               <NavLink to="/movie-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화 상세</NavLink>
             </nav>
-            <div className="header-version">v260323-2334</div>
+            <div className="header-row2-right">
+              <div className="header-version">v260323-2334</div>
+              <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>?</NavLink>
+            </div>
           </div>
         </div>
       </header>
