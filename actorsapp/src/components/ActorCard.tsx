@@ -7,7 +7,7 @@ export function ActorCard({ actor }: { actor: ActorSummary & { filmography: Acto
 
   // 배역 이미지 있는 영화 최대 3개 (BFF에서 연도 내림차순 정렬된 상태)
   const movieRoles = actor.filmography
-    .filter((f) => f.roleImages.length > 0)
+    .filter((f) => f.castEntry.roleImages.length > 0)
     .slice(0, 3)
 
   return (
@@ -32,27 +32,27 @@ export function ActorCard({ actor }: { actor: ActorSummary & { filmography: Acto
         <div className="actor-card-movie-roles">
           {movieRoles.map((f) => (
             <button
-              key={f.movieId}
+              key={f.movie.id}
               className="actor-card-movie-role-row actor-card-movie-role-row--clickable"
-              onClick={() => navigate(`/movie-detail?movieId=${f.movieId}`)}
+              onClick={() => navigate(`/movie-detail?movieId=${f.movie.id}`)}
             >
               <div className="actor-card-movie-poster">
-                {f.posterUrl
-                  ? <img src={img(f.posterUrl)} alt={f.movieTitle} />
+                {f.movie.posterUrl
+                  ? <img src={img(f.movie.posterUrl)} alt={f.movie.title} />
                   : <span>없음</span>
                 }
               </div>
               <div className="actor-card-movie-role-info">
-                <div className="actor-card-movie-title">{f.movieTitle}</div>
-                <div className="actor-card-movie-role-name">{f.movieYear}년 · {f.role} 역</div>
+                <div className="actor-card-movie-title">{f.movie.title}</div>
+                <div className="actor-card-movie-role-name">{f.movie.year}년 · {f.castEntry.role} 역</div>
                 <div className="actor-card-role-thumbs">
-                  {f.roleImages.slice(0, 3).map((imgUrl, i) => (
+                  {f.castEntry.roleImages.slice(0, 3).map((imgUrl, i) => (
                     <div
                       key={i}
                       className="actor-card-role-thumb"
                       onClick={(e) => { e.stopPropagation(); navigate(`/actor-detail?actorId=${actor.id}`) }}
                     >
-                      <img src={img(imgUrl)} alt={`${f.role} ${i + 1}`} />
+                      <img src={img(imgUrl)} alt={`${f.castEntry.role} ${i + 1}`} />
                     </div>
                   ))}
                 </div>

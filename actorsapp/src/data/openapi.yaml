@@ -197,20 +197,27 @@ components:
           items:
             $ref: '#/components/schemas/ActorFilmography'
 
-    ActorFilmography:
+    MovieInfo:
       type: object
-      required: [movieId, movieTitle, movieYear, movieGenre, role, roleImages]
+      description: BFF가 조인한 영화정보 요약
+      required: [id, title, year, genre]
       properties:
-        movieId:
+        id:
           type: integer
-        movieTitle:
+        title:
           type: string
-        movieYear:
+        year:
           type: integer
-        movieGenre:
+        genre:
           type: string
         posterUrl:
           type: string
+
+    ActorCastEntry:
+      type: object
+      description: 배우 관점의 출연정보 (어떤 영화에서 어떤 배역)
+      required: [role, roleImages]
+      properties:
         role:
           type: string
           description: 배역명
@@ -218,6 +225,16 @@ components:
           type: array
           items:
             type: string
+
+    ActorFilmography:
+      type: object
+      description: 배우 필모그래피 항목 — MovieInfo + ActorCastEntry 조인
+      required: [movie, castEntry]
+      properties:
+        movie:
+          $ref: '#/components/schemas/MovieInfo'
+        castEntry:
+          $ref: '#/components/schemas/ActorCastEntry'
 
     ActorDetailResponse:
       allOf:

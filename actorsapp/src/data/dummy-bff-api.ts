@@ -17,14 +17,22 @@ import { SAMPLE_MOVIES } from './movies'
 // BFF 응답 타입 (프론트 친화적 포맷)
 // ----------------------------------------------------------------
 
-export interface ActorFilmography {
-  movieId: number
-  movieTitle: string
-  movieYear: number
-  movieGenre: string
+// BFF가 조인한 영화정보 요약 (Movie DB에서 필요한 필드만 추출)
+export interface MovieInfo {
+  id: number
+  title: string
+  year: number
+  genre: string
   posterUrl?: string
-  role: string
-  roleImages: string[]
+}
+
+// 배우 관점의 출연정보: 어떤 영화에서 어떤 배역을 맡았는지
+export interface ActorFilmography {
+  movie: MovieInfo
+  castEntry: {
+    role: string
+    roleImages: string[]
+  }
 }
 
 export interface ActorSummary {
@@ -134,20 +142,15 @@ export function getActors(params: {
       })
       const films = actorFilmography.get(c.actorId) ?? []
       films.push({
-        movieId: movie.id,
-        movieTitle: movie.title,
-        movieYear: movie.year,
-        movieGenre: movie.genre,
-        posterUrl: movie.posterUrl,
-        role: c.role,
-        roleImages: c.roleImages ?? [],
+        movie: { id: movie.id, title: movie.title, year: movie.year, genre: movie.genre, posterUrl: movie.posterUrl },
+        castEntry: { role: c.role, roleImages: c.roleImages ?? [] },
       })
       actorFilmography.set(c.actorId, films)
     }
   }
   // filmography 연도 내림차순 정렬
   for (const films of actorFilmography.values()) {
-    films.sort((a, b) => b.movieYear - a.movieYear)
+    films.sort((a, b) => b.movie.year - a.movie.year)
   }
 
   // 검색 필터
@@ -196,16 +199,11 @@ export function getActorDetail(actorId: number): ActorDetailResponse | null {
       const c = m.cast.find((c) => c.actorId === actorId)
       if (!c) return []
       return [{
-        movieId: m.id,
-        movieTitle: m.title,
-        movieYear: m.year,
-        movieGenre: m.genre,
-        posterUrl: m.posterUrl,
-        role: c.role,
-        roleImages: c.roleImages ?? [],
+        movie: { id: m.id, title: m.title, year: m.year, genre: m.genre, posterUrl: m.posterUrl },
+        castEntry: { role: c.role, roleImages: c.roleImages ?? [] },
       }]
     })
-    .sort((a, b) => b.movieYear - a.movieYear)
+    .sort((a, b) => b.movie.year - a.movie.year)
 
   return { ...actor, filmography }
 }

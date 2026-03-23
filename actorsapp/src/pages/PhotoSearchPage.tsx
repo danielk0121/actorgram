@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { SAMPLE_MOVIES } from '../data/movies'
-import { SAMPLE_ACTORS } from '../data/actors'
+import { getActors } from '../data/dummy-bff-api'
 import { PHOTO_SEARCH_DUMMY_ACTORS } from '../data/photoSearch'
 import { ActorCard } from '../components/ActorCard'
 
@@ -19,8 +18,9 @@ export function PhotoSearchPage() {
   }
 
   // TODO: API 서버 연동 시 실제 검색 결과로 교체
+  const allActors = getActors({}).items
   const matchedActors = PHOTO_SEARCH_DUMMY_ACTORS
-    .map((name) => SAMPLE_ACTORS.find((a) => a.name === name))
+    .map((name) => allActors.find((a) => a.name === name))
     .filter((a): a is NonNullable<typeof a> => a != null)
 
   return (
@@ -62,7 +62,7 @@ export function PhotoSearchPage() {
           <div className="section-title">배우</div>
           <div className="actor-list">
             {matchedActors.map((a) => (
-              <ActorCard key={a.id} actor={a} allMovies={SAMPLE_MOVIES} />
+              <ActorCard key={a.id} actor={a} />
             ))}
           </div>
         </section>

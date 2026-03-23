@@ -27,14 +27,14 @@ export function ActorDetailPage() {
     }
   }
 
-  const totalImageCount = actor.filmography.reduce((sum, f) => sum + f.roleImages.length, 0)
+  const totalImageCount = actor.filmography.reduce((sum, f) => sum + f.castEntry.roleImages.length, 0)
 
   const filteredFilmography = actor.filmography
-    .filter((f) => f.movieTitle.includes(movieSearch))
+    .filter((f) => f.movie.title.includes(movieSearch))
     .sort((a, b) => {
       const cmp = sortKey === 'name'
-        ? a.movieTitle.localeCompare(b.movieTitle, 'ko')
-        : a.movieYear - b.movieYear
+        ? a.movie.title.localeCompare(b.movie.title, 'ko')
+        : a.movie.year - b.movie.year
       return sortDir === 'asc' ? cmp : -cmp
     })
 
@@ -96,35 +96,35 @@ export function ActorDetailPage() {
             : (
               <div className="detail-movie-role-groups">
                 {filteredFilmography.map((f) => (
-                  <div key={f.movieId} className="detail-movie-role-group">
+                  <div key={f.movie.id} className="detail-movie-role-group">
                     <div className="detail-movie-role-group-header-wrap">
                       <button
                         className="detail-movie-role-group-header detail-movie-role-group-header--clickable"
-                        onClick={() => navigate(`/movie-detail?movieId=${f.movieId}`)}
+                        onClick={() => navigate(`/movie-detail?movieId=${f.movie.id}`)}
                       >
                         <div className="detail-movie-role-group-poster">
-                          {f.posterUrl
-                            ? <img src={img(f.posterUrl)} alt={f.movieTitle} />
+                          {f.movie.posterUrl
+                            ? <img src={img(f.movie.posterUrl)} alt={f.movie.title} />
                             : <span>이미지 없음</span>
                           }
                         </div>
                         <div className="detail-movie-role-group-info">
-                          <span className="detail-movie-role-group-title">{f.movieTitle}</span>
-                          <span className="detail-movie-role-group-meta">{f.movieYear} · {f.movieGenre} · 배역: {f.role}</span>
+                          <span className="detail-movie-role-group-title">{f.movie.title}</span>
+                          <span className="detail-movie-role-group-meta">{f.movie.year} · {f.movie.genre} · 배역: {f.castEntry.role}</span>
                         </div>
                       </button>
                     </div>
                     <div className="detail-movie-role-group-images-wrap">
-                      {f.roleImages.length === 0
+                      {f.castEntry.roleImages.length === 0
                         ? <div className="empty-state">이미지가 없어요</div>
                         : <div className="detail-role-images-grid">
-                          {f.roleImages.slice(0, 9).map((imgUrl, i) => {
-                            const isLast = i === 8 && f.roleImages.length > 9
+                          {f.castEntry.roleImages.slice(0, 9).map((imgUrl, i) => {
+                            const isLast = i === 8 && f.castEntry.roleImages.length > 9
                             return (
                               <div key={i} className={`detail-role-image-item${isLast ? ' detail-role-image-item--more' : ''}`}>
                                 <img src={img(imgUrl)} alt={`${actor.name} ${i + 1}`} />
                                 {isLast && (
-                                  <div className="detail-role-image-more-overlay">+{f.roleImages.length - 9}</div>
+                                  <div className="detail-role-image-more-overlay">+{f.castEntry.roleImages.length - 9}</div>
                                 )}
                               </div>
                             )
