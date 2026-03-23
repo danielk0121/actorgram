@@ -466,7 +466,7 @@
 .movie-grid--single .movie-card-poster {
   width: 120px;
   min-width: 120px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
 }
 
 .movie-grid--single .movie-card-info {
@@ -1308,7 +1308,7 @@
 .detail-movie-header-poster {
   width: 120px;
   min-width: 120px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
   background: #e8e8e8;
   border-radius: var(--radius);
   overflow: hidden;
