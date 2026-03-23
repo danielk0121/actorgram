@@ -6,19 +6,19 @@
 
 ### 도메인 주도 설계 (Domain-Driven Design)
 
-- 도메인 전문가와 개발자가 공통 언어로 소통할 수 있도록 유비쿼터스 언어(Ubiquitous Language)를 정의한다.  
-- 코드, 문서, 커뮤니케이션 전반에서 동일한 용어를 일관되게 사용한다.  
-- 용어 정의는 `specs/PRD.md`의 유비쿼터스 언어 섹션에 관리한다.  
+- 도메인 전문가와 개발자가 공통 언어로 소통할 수 있도록 유비쿼터스 언어(Ubiquitous Language)를 정의한다.
+- 코드, 문서, 커뮤니케이션 전반에서 동일한 용어를 일관되게 사용한다.
+- 용어 정의는 [specs/PRD.md](specs/PRD.md)의 유비쿼터스 언어 섹션에 관리한다.
 
 ### 요구사항 문서 기반 개발 (Spec-Driven Development)
 
-- 기능 구현 전에 요구사항을 `specs/PRD.md`에 먼저 명세한다.  
-- PRD는 도메인별 유스케이스(사용자 시나리오)를 중심으로 작성하며, 구현은 PRD 명세를 기준으로 진행한다.  
-- 명세와 구현이 불일치할 경우 명세를 우선 수정한 뒤 코드에 반영한다.  
+- 기능 구현 전에 요구사항을 [specs/PRD.md](specs/PRD.md)에 먼저 명세한다.
+- PRD는 도메인별 유스케이스(사용자 시나리오)를 중심으로 작성하며, 구현은 PRD 명세를 기준으로 진행한다.
+- 명세와 구현이 불일치할 경우 명세를 우선 수정한 뒤 코드에 반영한다.
 
 ### 프로토타입 주도 개발 (Prototype-Driven Development)
 
-- API 연동 전에 샘플 데이터(`src/data/`)를 사용해 화면과 인터랙션을 먼저 구현한다. 
+- API 연동 전에 샘플 데이터(`src/data/`)를 사용해 화면과 인터랙션을 먼저 구현한다.
 - 실제 데이터 구조와 동일한 타입(`src/types/`)을 샘플 단계부터 적용한다.
 - 이로인해, API 연동 시 데이터 레이어만 교체하면 화면 코드는 그대로 동작하도록 설계한다.
 
@@ -43,8 +43,8 @@
 
 ## ERD
 
-도메인 모델의 기준 문서. DBML 형식으로 `specs/erd.dbml`에 관리한다.
-코드(`types/index.ts`), PRD 용어사전, API 명세(`openapi.yaml`)는 이 ERD를 기준으로 한다.
+도메인 모델의 기준 문서. DBML 형식으로 [specs/erd.dbml](specs/erd.dbml)에 관리한다.
+코드([actorsapp/src/types/index.ts](actorsapp/src/types/index.ts)), PRD 용어사전, API 명세([specs/openapi.yaml](specs/openapi.yaml))는 이 ERD를 기준으로 한다.
 
 ```
 Actor ──────────────────────────────────────────┐
@@ -144,4 +144,4 @@ npm run dev   # http://localhost:40000
 - CSS 라이브러리(Tailwind, MUI 등) 사용 금지, `var(--color-*)` CSS 변수 활용
 - 무채색 톤 유지
 - 모바일 브레이크포인트: 420px 이하
-- 요구사항은 `specs/PRD.md`에 기록
+- 요구사항은 [specs/PRD.md](specs/PRD.md)에 기록
