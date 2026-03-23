@@ -296,7 +296,7 @@
 
 .actor-card-top--clickable {
   width: 100%;
-  background: #f0f0f0;
+  background: var(--color-surface);
   border: none;
   font-family: inherit;
   text-align: left;
@@ -307,7 +307,7 @@
 }
 
 .actor-card-top--clickable:hover {
-  background: #e8e8e8;
+  background: #f5f5f5;
 }
 
 /* 배우 카드 영화별 배역 목록 */
@@ -316,6 +316,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
 }
 
 .actor-card-movie-role-row {
@@ -339,7 +341,7 @@
 }
 
 .actor-card-movie-role-row--clickable:hover {
-  background: var(--color-bg);
+  background: #dcdcdc;
 }
 
 .actor-card-movie-poster {
