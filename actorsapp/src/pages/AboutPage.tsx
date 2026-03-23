@@ -58,17 +58,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="about-section">
-        <h2 className="about-section-title">기술 스택</h2>
-        <ul className="about-list">
-          <li>React 19 + TypeScript</li>
-          <li>Vite 8 (번들러 및 개발 서버)</li>
-          <li>React Router 7 (클라이언트 사이드 라우팅)</li>
-          <li>CSS 변수 기반 커스텀 스타일 (외부 CSS 라이브러리 미사용)</li>
-        </ul>
-      </section>
-
-      <section className="about-section">
+<section className="about-section">
         <h2 className="about-section-title">개발자</h2>
         <p className="about-text">danielk0121</p>
       </section>
