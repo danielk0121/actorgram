@@ -25,27 +25,30 @@ export function PhotoSearchPage() {
 
   return (
     <>
-      <div
-        className="photo-search-dropzone"
-        onDrop={handleDrop}
-        onDragOver={(e) => e.preventDefault()}
-      >
-        {preview
-          ? <img src={preview} alt="업로드된 사진" className="photo-search-preview" />
-          : (
-            <>
-              <div className="photo-search-icon">🖼</div>
-              <div className="photo-search-label">사진을 드래그하거나 클릭하여 업로드</div>
-              <div className="photo-search-sub">배우 또는 영화를 사진으로 검색합니다</div>
-            </>
-          )
-        }
-        <input
-          type="file"
-          accept="image/*"
-          className="photo-search-input"
-          onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFile(f) }}
-        />
+      <div className="photo-search-wrap">
+        <div
+          className="photo-search-dropzone"
+          onDrop={handleDrop}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          {preview
+            ? <img src={preview} alt="업로드된 사진" className="photo-search-preview" />
+            : (
+              <>
+                <div className="photo-search-icon">🖼</div>
+                <div className="photo-search-label">사진을 드래그하거나 클릭하여 업로드</div>
+                <div className="photo-search-sub">배우 또는 영화를 사진으로 검색합니다</div>
+              </>
+            )
+          }
+          <input
+            type="file"
+            accept="image/*"
+            className="photo-search-input"
+            onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFile(f) }}
+          />
+        </div>
+        <button className="ai-search-btn">검색</button>
       </div>
 
       {/* TODO: API 서버 연동 시 실제 인식 결과로 교체 */}
