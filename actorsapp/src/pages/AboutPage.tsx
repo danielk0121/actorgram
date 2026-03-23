@@ -48,14 +48,6 @@ export function AboutPage() {
             </tbody>
           </table>
         </div>
-        <div className="about-notice">
-          <strong>⚠ 고지 누락 문제</strong>
-          <p>
-            현재 앱에 오픈소스 저작권 고지(NOTICE, LICENSE) 파일이 없습니다.
-            MIT 및 Apache 2.0 라이선스는 빌드 결과물에 원저작권자 고지를 포함할 의무가 있습니다.
-            향후 배포 버전에서 NOTICE 파일 추가가 필요합니다.
-          </p>
-        </div>
       </section>
 
 <section className="about-section">
