@@ -627,6 +627,11 @@
   color: var(--color-text-primary);
   font-weight: 500;
 }
+.actor-movie-count {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 0.85em;
+}
 
 .movie-card-actor-detail {
   color: var(--color-text-secondary);

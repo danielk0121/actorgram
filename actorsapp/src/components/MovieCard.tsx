@@ -1,5 +1,6 @@
 import type { Movie } from '../types'
 import { SAMPLE_ACTORS } from '../data/actors'
+import { SAMPLE_MOVIES } from '../data/movies'
 import { img } from '../utils/image'
 
 export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
@@ -63,7 +64,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                         : <span>{actor.name[0]}</span>
                       }
                     </div>
-                    <div className="movie-card-actor-name">{actor.name}</div>
+                    <div className="movie-card-actor-name">{actor.name} <span className="actor-movie-count">[{SAMPLE_MOVIES.filter((m) => m.cast.some((ce) => ce.actorId === actor.id)).length}]</span></div>
                     <div className="movie-card-actor-detail">{c.role} 역</div>
                   </div>
                   <div className="movie-card-actor-row-images">

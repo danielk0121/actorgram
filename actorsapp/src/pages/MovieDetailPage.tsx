@@ -3,6 +3,10 @@ import { SAMPLE_MOVIES } from '../data/movies'
 import { SAMPLE_ACTORS } from '../data/actors'
 import { img } from '../utils/image'
 
+// 배우의 출연 영화 수 계산
+const movieCountByActor = (actorId: number) =>
+  SAMPLE_MOVIES.filter((m) => m.cast.some((c) => c.actorId === actorId)).length
+
 export function MovieDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -67,7 +71,7 @@ export function MovieDetailPage() {
                         : <span>{actor.name[0]}</span>
                       }
                     </div>
-                    <div className="movie-card-actor-name">{actor.name}</div>
+                    <div className="movie-card-actor-name">{actor.name} <span className="actor-movie-count">[{movieCountByActor(actor.id)}]</span></div>
                     <div className="movie-card-actor-detail">{c.role} 역</div>
                   </div>
                   <div className="movie-card-actor-row-images">
