@@ -23,7 +23,7 @@ public class AiSearchService {
 
     // Gemini REST API 엔드포인트
     private static final String GEMINI_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
 
     // 응답 끝에 포함된 추출 JSON 마커 패턴
     private static final Pattern EXTRACTED_JSON_PATTERN =
