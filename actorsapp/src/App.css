@@ -399,6 +399,7 @@
 .actor-card-movie-role-name {
   font-size: 12px;
   color: var(--color-text-secondary);
+  word-break: keep-all;
 }
 
 .actor-card-role-thumbs {
@@ -450,6 +451,7 @@
   font-size: 15px;
   font-weight: 600;
   color: var(--color-text-primary);
+  word-break: keep-all;
 }
 
 .actor-card-detail {
@@ -681,6 +683,7 @@
 .movie-card-actor-name {
   color: var(--color-text-primary);
   font-weight: 500;
+  word-break: keep-all;
 }
 .actor-movie-count {
   color: var(--color-text-secondary);
@@ -690,6 +693,7 @@
 
 .movie-card-actor-detail {
   color: var(--color-text-secondary);
+  word-break: keep-all;
 }
 
 .movie-card-actor--clickable {
@@ -1258,6 +1262,7 @@
 .detail-movie-role-group-meta {
   font-size: 12px;
   color: var(--color-text-secondary);
+  word-break: keep-all;
 }
 
 .detail-role-images-grid {
