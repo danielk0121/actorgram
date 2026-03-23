@@ -2,6 +2,7 @@
 // DBML 형식으로 관리되는 도메인 모델의 기준 문서.
 // 코드(types/index.ts), PRD 용어사전, API 명세(openapi.yaml)는 이 ERD를 기준으로 한다.
 // 참고: https://dbml.dbdiagram.io/docs
+// 이 코드를 https://dbdiagram.io/d 여기에 붙여놓고 실행
 
 Table Actor {
   id          int         [pk, note: "배우 고유 ID"]
