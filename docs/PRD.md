@@ -174,3 +174,20 @@ Actor (배우)
 | 배역 이미지 | Role Image | `roleImages` | 배우가 특정 작품에서 배역을 연기하는 장면 이미지 목록. CastEntry의 속성. |
 | 필모그래피 | Filmography | — | 특정 배우의 전체 출연 기록. 해당 Actor의 CastEntry를 작품을 가로질러 집계한 목록. |
 | 출연 정보 카드 | Cast Entry Card | `CastEntryCard` | 배우 카드 안에서 CastEntry 1건의 정보(포스터·제목·개봉연도·배역명·배역 이미지 썸네일)를 표시하는 UI 단위. |
+
+#### BFF 응답 타입
+
+도메인 원본 타입(Actor, Movie, CastEntry)을 프론트엔드가 필요한 형태로 조인·집계한 타입. 실제 API 서버 연동 시 fetch() 응답으로 교체된다.
+
+| 한글 | 영어 | 소스코드 | 설명 |
+|---|---|---|---|
+| 배우 목록 응답 | Actor List Response | `ActorListResponse` | GET /actors 응답 루트. ActorSummary 배열 + 페이징 정보. |
+| 배우 상세 응답 | Actor Detail Response | `ActorDetailResponse` | GET /actors/:id 응답 루트. 배우 기본 정보 + 필모그래피. |
+| 영화 목록 응답 | Movie List Response | `MovieListResponse` | GET /movies 응답 루트. MovieSummary 배열 + 페이징 정보. |
+| 영화 상세 응답 | Movie Detail Response | `MovieDetailResponse` | GET /movies/:id 응답 루트. 영화 기본 정보 + 전체 출연진. |
+| 배우 요약 | Actor Summary | `ActorSummary` | ActorListResponse의 items 원소. 배우 기본 정보 + 집계 통계 + 필모그래피 포함. |
+| 영화 요약 | Movie Summary | `MovieSummary` | MovieListResponse의 items 원소. 영화 기본 정보 + 주연배우 목록 포함. |
+| 영화정보 요약 | Movie Info | `MovieInfo` | BFF가 Movie DB에서 필요한 필드만 추출한 요약 타입. BffActorFilmographyEntry 안에서 사용. |
+| 배우정보 요약 | Actor Info | `ActorInfo` | BFF가 Actor DB에서 필요한 필드만 추출한 요약 타입. BffMovieCastEntry 안에서 사용. |
+| BFF 배우 필모그래피 항목 | Bff Actor Filmography Entry | `BffActorFilmographyEntry` | 배우 관점 BFF 조인 타입. actor.filmography[]의 원소 1개. CastEntry + MovieInfo 조인. |
+| BFF 영화 출연진 항목 | Bff Movie Cast Entry | `BffMovieCastEntry` | 영화 관점 BFF 조인 타입. movie.cast[]의 원소 1개. CastEntry + ActorInfo 조인. |

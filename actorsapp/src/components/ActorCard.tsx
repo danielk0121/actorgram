@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import type { ActorSummary, ActorFilmography } from '../data/dummy-bff-api'
+import type { ActorSummary } from '../data/dummy-bff-api'
 import { img } from '../utils/image'
 
-export function ActorCard({ actor }: { actor: ActorSummary & { filmography: ActorFilmography[] } }) {
+export function ActorCard({ actor }: { actor: ActorSummary }) {
   const navigate = useNavigate()
 
   // 배역 이미지 있는 영화 최대 3개 (BFF에서 연도 내림차순 정렬된 상태)

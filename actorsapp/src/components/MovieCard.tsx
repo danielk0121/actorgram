@@ -34,24 +34,24 @@ export function MovieCard({ movie, onClick, onActorClick }: {
         <div className="movie-card-actors-list">
           {movie.mainCast.map((c) => (
             <button
-              key={c.actorId}
+              key={c.actor.id}
               className="movie-card-actor-row"
-              onClick={(e) => { e.stopPropagation(); onActorClick?.(c.actorId) ?? navigate(`/actor-detail?actorId=${c.actorId}`) }}
+              onClick={(e) => { e.stopPropagation(); onActorClick?.(c.actor.id) ?? navigate(`/actor-detail?actorId=${c.actor.id}`) }}
             >
               <div className="movie-card-actor-row-info">
                 <div className="movie-card-actor-profile">
-                  {c.actorProfileImage
-                    ? <img src={img(c.actorProfileImage)} alt={c.actorName} />
-                    : <span>{c.actorName[0]}</span>
+                  {c.actor.profileImage
+                    ? <img src={img(c.actor.profileImage)} alt={c.actor.name} />
+                    : <span>{c.actor.name[0]}</span>
                   }
                 </div>
-                <div className="movie-card-actor-name">{c.actorName}{c.movieCount >= 2 ? <span className="actor-movie-count"> [{c.movieCount}]</span> : null}</div>
-                <div className="movie-card-actor-detail">{c.role} 역</div>
+                <div className="movie-card-actor-name">{c.actor.name}{c.actor.movieCount >= 2 ? <span className="actor-movie-count"> [{c.actor.movieCount}]</span> : null}</div>
+                <div className="movie-card-actor-detail">{c.castEntry.role} 역</div>
               </div>
               <div className="movie-card-actor-row-images">
-                {c.roleImages.slice(0, 3).map((imgUrl, i) => (
+                {c.castEntry.roleImages.slice(0, 3).map((imgUrl, i) => (
                   <div key={i} className="movie-card-actor-row-image">
-                    <img src={img(imgUrl)} alt={`${c.role} ${i + 1}`} />
+                    <img src={img(imgUrl)} alt={`${c.castEntry.role} ${i + 1}`} />
                   </div>
                 ))}
               </div>

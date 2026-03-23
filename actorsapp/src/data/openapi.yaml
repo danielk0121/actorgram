@@ -46,7 +46,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PagedActorSummary'
+                $ref: '#/components/schemas/ActorListResponse'
 
   /actors/{actorId}:
     get:
@@ -98,7 +98,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PagedMovieSummary'
+                $ref: '#/components/schemas/MovieListResponse'
 
   /movies/{movieId}:
     get:
@@ -126,10 +126,98 @@ paths:
 components:
   schemas:
 
-    PagedResponse:
+    # ---------------------------------------------------------------
+    # BFF 조인 타입
+    # ---------------------------------------------------------------
+
+    MovieInfo:
       type: object
-      required: [total, page, pageSize, totalPages]
+      description: BFF가 조인한 영화정보 요약 (Movie DB에서 필요한 필드만 추출)
+      required: [id, title, year, genre]
       properties:
+        id:
+          type: integer
+        title:
+          type: string
+        year:
+          type: integer
+        genre:
+          type: string
+        posterUrl:
+          type: string
+
+    ActorInfo:
+      type: object
+      description: BFF가 조인한 배우정보 요약 (Actor DB에서 필요한 필드만 추출)
+      required: [id, name, movieCount]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        profileImage:
+          type: string
+        movieCount:
+          type: integer
+          description: 배우의 전체 출연 작품 수 (BFF 집계)
+
+    BffActorFilmographyEntry:
+      type: object
+      description: 배우 관점 BFF 조인 타입 — actor.filmography[]의 원소 1개. CastEntry + Movie 정보 조인.
+      required: [movie, castEntry]
+      properties:
+        movie:
+          $ref: '#/components/schemas/MovieInfo'
+        castEntry:
+          type: object
+          required: [role, roleImages]
+          properties:
+            role:
+              type: string
+              description: 배역명
+            roleImages:
+              type: array
+              items:
+                type: string
+
+    BffMovieCastEntry:
+      type: object
+      description: 영화 관점 BFF 조인 타입 — movie.cast[]의 원소 1개. CastEntry + Actor 정보 조인.
+      required: [actor, castEntry]
+      properties:
+        actor:
+          $ref: '#/components/schemas/ActorInfo'
+        castEntry:
+          type: object
+          required: [role, roleImages, isMain]
+          properties:
+            role:
+              type: string
+              description: 배역명
+            roleProfileImage:
+              type: string
+              description: 배역 대표 이미지
+            roleImages:
+              type: array
+              items:
+                type: string
+            isMain:
+              type: boolean
+              description: 주연 여부
+
+    # ---------------------------------------------------------------
+    # API 응답 루트 타입
+    # ---------------------------------------------------------------
+
+    ActorListResponse:
+      type: object
+      description: GET /actors 응답
+      required: [items, total, page, pageSize, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActorSummary'
         total:
           type: integer
           description: 전체 결과 수
@@ -143,30 +231,31 @@ components:
           type: integer
           description: 전체 페이지 수
 
-    PagedActorSummary:
-      allOf:
-        - $ref: '#/components/schemas/PagedResponse'
-        - type: object
-          required: [items]
-          properties:
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/ActorSummary'
-
-    PagedMovieSummary:
-      allOf:
-        - $ref: '#/components/schemas/PagedResponse'
-        - type: object
-          required: [items]
-          properties:
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/MovieSummary'
+    MovieListResponse:
+      type: object
+      description: GET /movies 응답
+      required: [items, total, page, pageSize, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieSummary'
+        total:
+          type: integer
+          description: 전체 결과 수
+        page:
+          type: integer
+          description: 현재 페이지
+        pageSize:
+          type: integer
+          description: 페이지당 항목 수
+        totalPages:
+          type: integer
+          description: 전체 페이지 수
 
     ActorSummary:
       type: object
+      description: 배우 목록 항목
       required: [id, name, birthYear, nationality, debutDate, movieCount, roleImageCount, filmography]
       properties:
         id:
@@ -193,89 +282,36 @@ components:
           description: 전체 배역 이미지 수 (BFF 집계, 정렬 기준)
         filmography:
           type: array
-          description: 필모그래피 — 배우 목록 화면에 필요하므로 N+1 방지용으로 포함 (연도 내림차순)
+          description: 필모그래피 — N+1 방지용으로 포함 (연도 내림차순)
           items:
-            $ref: '#/components/schemas/ActorFilmography'
+            $ref: '#/components/schemas/BffActorFilmographyEntry'
 
-    MovieInfo:
+    ActorDetailResponse:
       type: object
-      description: BFF가 조인한 영화정보 요약
-      required: [id, title, year, genre]
+      description: GET /actors/:id 응답
+      required: [id, name, birthYear, nationality, debutDate, filmography]
       properties:
         id:
           type: integer
-        title:
+        name:
           type: string
-        year:
+        birthYear:
           type: integer
-        genre:
+        nationality:
           type: string
-        posterUrl:
+        debutDate:
           type: string
-
-    ActorCastEntry:
-      type: object
-      description: 배우 관점의 출연정보 (어떤 영화에서 어떤 배역)
-      required: [role, roleImages]
-      properties:
-        role:
+          format: date
+        gender:
           type: string
-          description: 배역명
-        roleImages:
+          enum: [남, 여]
+        profileImage:
+          type: string
+        filmography:
           type: array
+          description: 필모그래피 (연도 내림차순)
           items:
-            type: string
-
-    ActorFilmography:
-      type: object
-      description: 배우 필모그래피 항목 — MovieInfo + ActorCastEntry 조인
-      required: [movie, castEntry]
-      properties:
-        movie:
-          $ref: '#/components/schemas/MovieInfo'
-        castEntry:
-          $ref: '#/components/schemas/ActorCastEntry'
-
-    ActorDetailResponse:
-      allOf:
-        - $ref: '#/components/schemas/ActorSummary'
-        - type: object
-          required: [filmography]
-          properties:
-            filmography:
-              type: array
-              description: 필모그래피 (연도 내림차순)
-              items:
-                $ref: '#/components/schemas/ActorFilmography'
-
-    CastMember:
-      type: object
-      required: [actorId, actorName, movieCount, role, roleImages, isMain]
-      properties:
-        actorId:
-          type: integer
-        actorName:
-          type: string
-          description: 배우 이름 (BFF 조인)
-        actorProfileImage:
-          type: string
-          description: 배우 프로필 이미지 (BFF 조인)
-        movieCount:
-          type: integer
-          description: 배우의 전체 출연 작품 수 (BFF 집계)
-        role:
-          type: string
-          description: 배역명
-        roleProfileImage:
-          type: string
-          description: 배역 대표 이미지
-        roleImages:
-          type: array
-          items:
-            type: string
-        isMain:
-          type: boolean
-          description: 주연 여부
+            $ref: '#/components/schemas/BffActorFilmographyEntry'
 
     MovieBase:
       type: object
@@ -313,6 +349,7 @@ components:
           description: 시리즈 총 에피소드 수
 
     MovieSummary:
+      description: 영화 목록 항목
       allOf:
         - $ref: '#/components/schemas/MovieBase'
         - type: object
@@ -322,9 +359,10 @@ components:
               type: array
               description: 주연배우 목록 (BFF 조인)
               items:
-                $ref: '#/components/schemas/CastMember'
+                $ref: '#/components/schemas/BffMovieCastEntry'
 
     MovieDetailResponse:
+      description: GET /movies/:id 응답
       allOf:
         - $ref: '#/components/schemas/MovieBase'
         - type: object
@@ -335,6 +373,6 @@ components:
               description: 줄거리
             cast:
               type: array
-              description: 전체 출연진 (BFF 조인, isMain으로 주연 구분)
+              description: 전체 출연진 (BFF 조인, castEntry.isMain으로 주연 구분)
               items:
-                $ref: '#/components/schemas/CastMember'
+                $ref: '#/components/schemas/BffMovieCastEntry'

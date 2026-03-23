@@ -14,7 +14,7 @@ import { SAMPLE_ACTORS } from './actors'
 import { SAMPLE_MOVIES } from './movies'
 
 // ----------------------------------------------------------------
-// BFF 응답 타입 (프론트 친화적 포맷)
+// BFF 조인 타입
 // ----------------------------------------------------------------
 
 // BFF가 조인한 영화정보 요약 (Movie DB에서 필요한 필드만 추출)
@@ -26,14 +26,39 @@ export interface MovieInfo {
   posterUrl?: string
 }
 
-// 배우 관점의 출연정보: 어떤 영화에서 어떤 배역을 맡았는지
-export interface ActorFilmography {
+// BFF가 조인한 배우정보 요약 (Actor DB에서 필요한 필드만 추출)
+export interface ActorInfo {
+  id: number
+  name: string
+  profileImage?: string
+  movieCount: number  // BFF 집계
+}
+
+// 배우 관점 BFF 조인 타입 — actor.filmography[]의 원소 1개
+// CastEntry + Movie 정보 조인
+export interface BffActorFilmographyEntry {
   movie: MovieInfo
   castEntry: {
     role: string
     roleImages: string[]
   }
 }
+
+// 영화 관점 BFF 조인 타입 — movie.cast[]의 원소 1개
+// CastEntry + Actor 정보 조인
+export interface BffMovieCastEntry {
+  actor: ActorInfo
+  castEntry: {
+    role: string
+    roleProfileImage?: string
+    roleImages: string[]
+    isMain: boolean
+  }
+}
+
+// ----------------------------------------------------------------
+// API 응답 루트 타입
+// ----------------------------------------------------------------
 
 export interface ActorSummary {
   id: number
@@ -45,7 +70,7 @@ export interface ActorSummary {
   profileImage?: string
   movieCount: number          // BFF 집계
   roleImageCount: number      // BFF 집계 (정렬 기준)
-  filmography: ActorFilmography[]  // BFF 조인 (N+1 방지)
+  filmography: BffActorFilmographyEntry[]  // BFF 조인 (N+1 방지)
 }
 
 export interface ActorDetailResponse {
@@ -56,18 +81,7 @@ export interface ActorDetailResponse {
   debutDate: string
   gender?: '남' | '여'
   profileImage?: string
-  filmography: ActorFilmography[]   // BFF 조인: Movie + CastEntry
-}
-
-export interface CastMember {
-  actorId: number
-  actorName: string             // BFF 조인
-  actorProfileImage?: string    // BFF 조인
-  movieCount: number            // BFF 집계 (전체 출연 작품 수)
-  role: string
-  roleProfileImage?: string
-  roleImages: string[]
-  isMain: boolean               // BFF 집계
+  filmography: BffActorFilmographyEntry[]  // BFF 조인: Movie + CastEntry
 }
 
 export interface MovieSummary {
@@ -84,7 +98,7 @@ export interface MovieSummary {
   posterUrl?: string
   format: '단편' | '시리즈'
   episode?: number
-  mainCast: CastMember[]        // BFF 조인: 주연배우만
+  mainCast: BffMovieCastEntry[]  // BFF 조인: 주연배우만
 }
 
 export interface MovieDetailResponse {
@@ -102,11 +116,19 @@ export interface MovieDetailResponse {
   posterUrl?: string
   format: '단편' | '시리즈'
   episode?: number
-  cast: CastMember[]            // BFF 조인: 전체 출연진
+  cast: BffMovieCastEntry[]  // BFF 조인: 전체 출연진
 }
 
-export interface PagedResponse<T> {
-  items: T[]
+export interface ActorListResponse {
+  items: ActorSummary[]
+  total: number
+  page: number
+  pageSize: number
+  totalPages: number
+}
+
+export interface MovieListResponse {
+  items: MovieSummary[]
   total: number
   page: number
   pageSize: number
@@ -126,13 +148,13 @@ const PAGE_SIZE = 20
 export function getActors(params: {
   q?: string
   page?: number
-}): PagedResponse<ActorSummary> {
+}): ActorListResponse {
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 
   // DB 조인: 배우별 통계 + filmography 사전 구성 (루프 1회)
   const actorStats = new Map<number, { movieCount: number; roleImageCount: number }>()
-  const actorFilmography = new Map<number, ActorFilmography[]>()
+  const actorFilmography = new Map<number, BffActorFilmographyEntry[]>()
   for (const movie of SAMPLE_MOVIES) {
     for (const c of movie.cast) {
       const prev = actorStats.get(c.actorId) ?? { movieCount: 0, roleImageCount: 0 }
@@ -194,7 +216,7 @@ export function getActorDetail(actorId: number): ActorDetailResponse | null {
   const actor = SAMPLE_ACTORS.find((a) => a.id === actorId)
   if (!actor) return null
 
-  const filmography: ActorFilmography[] = SAMPLE_MOVIES
+  const filmography: BffActorFilmographyEntry[] = SAMPLE_MOVIES
     .flatMap((m) => {
       const c = m.cast.find((c) => c.actorId === actorId)
       if (!c) return []
@@ -216,7 +238,7 @@ export function getActorDetail(actorId: number): ActorDetailResponse | null {
 export function getMovies(params: {
   q?: string
   page?: number
-}): PagedResponse<MovieSummary> {
+}): MovieListResponse {
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 
@@ -262,14 +284,18 @@ export function getMovies(params: {
       .map((c) => {
         const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
         return {
-          actorId: c.actorId,
-          actorName: actor?.name ?? '',
-          actorProfileImage: actor?.profileImage,
-          movieCount: actorStats.get(c.actorId)?.movieCount ?? 0,
-          role: c.role,
-          roleProfileImage: c.roleProfileImage,
-          roleImages: c.roleImages ?? [],
-          isMain: true,
+          actor: {
+            id: c.actorId,
+            name: actor?.name ?? '',
+            profileImage: actor?.profileImage,
+            movieCount: actorStats.get(c.actorId)?.movieCount ?? 0,
+          },
+          castEntry: {
+            role: c.role,
+            roleProfileImage: c.roleProfileImage,
+            roleImages: c.roleImages ?? [],
+            isMain: true,
+          },
         }
       }),
   }))
@@ -294,17 +320,21 @@ export function getMovieDetail(movieId: number): MovieDetailResponse | null {
     }
   }
 
-  const cast: CastMember[] = movie.cast.map((c) => {
+  const cast: BffMovieCastEntry[] = movie.cast.map((c) => {
     const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
     return {
-      actorId: c.actorId,
-      actorName: actor?.name ?? '',
-      actorProfileImage: actor?.profileImage,
-      movieCount: movieCountMap.get(c.actorId) ?? 0,
-      role: c.role,
-      roleProfileImage: c.roleProfileImage,
-      roleImages: c.roleImages ?? [],
-      isMain: movie.mainActors.includes(c.actorId),
+      actor: {
+        id: c.actorId,
+        name: actor?.name ?? '',
+        profileImage: actor?.profileImage,
+        movieCount: movieCountMap.get(c.actorId) ?? 0,
+      },
+      castEntry: {
+        role: c.role,
+        roleProfileImage: c.roleProfileImage,
+        roleImages: c.roleImages ?? [],
+        isMain: movie.mainActors.includes(c.actorId),
+      },
     }
   })
 
