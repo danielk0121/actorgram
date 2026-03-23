@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { getActors, getActorDetail } from '../data/dummy-bff-api'
+import { getActors } from '../data/dummy-bff-api'
 import { ActorCard } from '../components/ActorCard'
 
 export function ActorSearchPage() {
@@ -16,12 +16,6 @@ export function ActorSearchPage() {
   }, [searchParams])
 
   const result = getActors({ q: search })
-
-  // ActorCard에 filmography 포함해서 전달 (BFF 조인)
-  const actorsWithFilmography = result.items.map((a) => ({
-    ...a,
-    filmography: getActorDetail(a.id)?.filmography ?? [],
-  }))
 
   const handleSearch = () => {
     setSearch(query)
@@ -51,7 +45,7 @@ export function ActorSearchPage() {
       <section className="result-section">
         <div className="section-title">{search ? `검색 배우 (${result.total})` : `전체 배우 (${result.total})`}</div>
         <div className="actor-list">
-          {actorsWithFilmography.map((a) => (
+          {result.items.map((a) => (
             <ActorCard key={a.id} actor={a} />
           ))}
         </div>

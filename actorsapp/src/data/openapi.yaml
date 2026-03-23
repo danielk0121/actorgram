@@ -167,7 +167,7 @@ components:
 
     ActorSummary:
       type: object
-      required: [id, name, birthYear, nationality, debutDate, movieCount, roleImageCount]
+      required: [id, name, birthYear, nationality, debutDate, movieCount, roleImageCount, filmography]
       properties:
         id:
           type: integer
@@ -191,6 +191,11 @@ components:
         roleImageCount:
           type: integer
           description: 전체 배역 이미지 수 (BFF 집계, 정렬 기준)
+        filmography:
+          type: array
+          description: 필모그래피 — 배우 목록 화면에 필요하므로 N+1 방지용으로 포함 (연도 내림차순)
+          items:
+            $ref: '#/components/schemas/ActorFilmography'
 
     ActorFilmography:
       type: object

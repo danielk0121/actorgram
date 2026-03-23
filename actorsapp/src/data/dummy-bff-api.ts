@@ -17,6 +17,16 @@ import { SAMPLE_MOVIES } from './movies'
 // BFF 응답 타입 (프론트 친화적 포맷)
 // ----------------------------------------------------------------
 
+export interface ActorFilmography {
+  movieId: number
+  movieTitle: string
+  movieYear: number
+  movieGenre: string
+  posterUrl?: string
+  role: string
+  roleImages: string[]
+}
+
 export interface ActorSummary {
   id: number
   name: string
@@ -27,16 +37,7 @@ export interface ActorSummary {
   profileImage?: string
   movieCount: number          // BFF 집계
   roleImageCount: number      // BFF 집계 (정렬 기준)
-}
-
-export interface ActorFilmography {
-  movieId: number
-  movieTitle: string
-  movieYear: number
-  movieGenre: string
-  posterUrl?: string
-  role: string
-  roleImages: string[]
+  filmography: ActorFilmography[]  // BFF 조인 (N+1 방지)
 }
 
 export interface ActorDetailResponse {
@@ -121,8 +122,9 @@ export function getActors(params: {
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 
-  // DB 조인: 배우별 출연 영화/이미지 수 사전 집계
+  // DB 조인: 배우별 통계 + filmography 사전 구성 (루프 1회)
   const actorStats = new Map<number, { movieCount: number; roleImageCount: number }>()
+  const actorFilmography = new Map<number, ActorFilmography[]>()
   for (const movie of SAMPLE_MOVIES) {
     for (const c of movie.cast) {
       const prev = actorStats.get(c.actorId) ?? { movieCount: 0, roleImageCount: 0 }
@@ -130,7 +132,22 @@ export function getActors(params: {
         movieCount: prev.movieCount + 1,
         roleImageCount: prev.roleImageCount + (c.roleImages?.length ?? 0),
       })
+      const films = actorFilmography.get(c.actorId) ?? []
+      films.push({
+        movieId: movie.id,
+        movieTitle: movie.title,
+        movieYear: movie.year,
+        movieGenre: movie.genre,
+        posterUrl: movie.posterUrl,
+        role: c.role,
+        roleImages: c.roleImages ?? [],
+      })
+      actorFilmography.set(c.actorId, films)
     }
+  }
+  // filmography 연도 내림차순 정렬
+  for (const films of actorFilmography.values()) {
+    films.sort((a, b) => b.movieYear - a.movieYear)
   }
 
   // 검색 필터
@@ -159,6 +176,7 @@ export function getActors(params: {
     ...a,
     movieCount: actorStats.get(a.id)?.movieCount ?? 0,
     roleImageCount: actorStats.get(a.id)?.roleImageCount ?? 0,
+    filmography: actorFilmography.get(a.id) ?? [],
   }))
 
   return { items, total, page, pageSize: PAGE_SIZE, totalPages }
