@@ -53,6 +53,15 @@ claude_test/                  # 프로젝트 루트
 - `git commit -m "메시지"` 형식 사용 (heredoc 사용 금지)
 - 커밋 메시지는 간결한 한 문장으로 작성
 
+## 버전 정보 갱신 규칙
+
+커밋·푸시 전, 아래 절차를 반드시 수행한다.
+
+1. `actorsapp/src/App.tsx`의 `header-version` 값을 확인한다. 형식: `v YYMMDD-HHmm`
+2. 현재 한국 시간(`TZ=Asia/Seoul date +"%y%m%d-%H%M"`)과 비교한다.
+3. **30분 이상 차이**가 나면 버전 값을 현재 한국 시간으로 수정한 뒤 커밋에 포함한다.
+4. 30분 미만이면 그대로 둔다.
+
 ## actorsapp 실행
 
 ```bash
