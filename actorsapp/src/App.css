@@ -285,6 +285,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
 }
 
 .actor-card-top {
@@ -295,7 +296,7 @@
 
 .actor-card-top--clickable {
   width: 100%;
-  background: var(--color-bg);
+  background: #f0f0f0;
   border: none;
   font-family: inherit;
   text-align: left;
@@ -306,7 +307,7 @@
 }
 
 .actor-card-top--clickable:hover {
-  background: #ebebeb;
+  background: #e8e8e8;
 }
 
 /* 배우 카드 영화별 배역 목록 */
