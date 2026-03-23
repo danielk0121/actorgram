@@ -68,7 +68,8 @@ Movie ──── CastEntry (출연 정보, 주연 여부 포함) ──┘
 actorgram/
 ├── docs/
 │   ├── PRD.md               # 전체 요구사항 문서
-│   └── erd.dbml             # ERD (DBML 형식, 도메인 모델 기준)
+│   ├── erd.dbml             # ERD (DBML 형식, 도메인 모델 기준)
+│   └── todo.md              # 작업 목록
 ├── actorsapp/               # 배우/영화 탐색 앱
 │   ├── src/
 │   │   ├── types/
