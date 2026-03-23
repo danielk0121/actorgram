@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
 import { ScrollToTop } from './components/ScrollToTop'
 import './App.css'
@@ -11,11 +12,16 @@ import { AboutPage } from './pages/AboutPage'
 
 function App() {
   const navigate = useNavigate()
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  }, [isDark])
 
   const handleActorClick = (actorId: number) => {
     navigate(`/actor-detail?actorId=${actorId}`)
   }
-
 
   return (
     <div className="app">
@@ -36,6 +42,9 @@ function App() {
               <NavLink to="/photos" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>사진 검색</NavLink>
               <NavLink to="/ai" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>AI 검색</NavLink>
               <NavLink to="/about" className={({ isActive }) => `nav-item nav-item--about${isActive ? ' nav-item--active' : ''}`}>?</NavLink>
+              <button className="theme-toggle" onClick={() => setIsDark((d) => !d)} title={isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}>
+                {isDark ? '☀' : '●'}
+              </button>
             </nav>
           </div>
         </div>
