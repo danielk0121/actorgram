@@ -1,0 +1,318 @@
+openapi: 3.0.3
+info:
+  title: Actors BFF API
+  description: |
+    actors 앱의 BFF(Backend For Frontend) API.
+    프론트엔드가 필요한 형태로 데이터를 조인·집계하여 응답한다.
+    actors / movies 도메인 DB를 조인하여 역방향 조회 없이 렌더링 가능한 포맷으로 반환한다.
+  version: 1.0.0
+
+servers:
+  - url: /api
+    description: BFF API 서버
+
+tags:
+  - name: actors
+    description: 배우 도메인
+  - name: movies
+    description: 영화 도메인
+
+paths:
+
+  /actors:
+    get:
+      tags: [actors]
+      summary: 배우 목록 조회
+      description: |
+        배우 이름 또는 배역명으로 검색, roleImageCount 기준 내림차순 정렬, 페이징.
+        각 배우의 출연 영화 수(movieCount)와 배역 이미지 수(roleImageCount)를 집계하여 반환한다.
+      parameters:
+        - name: q
+          in: query
+          description: 검색어 (배우 이름 또는 배역명)
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: 페이지 번호 (1부터 시작)
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedActorSummary'
+
+  /actors/{actorId}:
+    get:
+      tags: [actors]
+      summary: 배우 상세 조회
+      description: |
+        배우 기본 정보 + 필모그래피(출연 영화 목록).
+        필모그래피는 영화 정보와 배역 정보를 조인하여 반환한다. 연도 내림차순 정렬.
+      parameters:
+        - name: actorId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActorDetailResponse'
+        '404':
+          description: 배우 없음
+
+  /movies:
+    get:
+      tags: [movies]
+      summary: 영화 목록 조회
+      description: |
+        영화 제목, 장르, 감독으로 검색, 페이징.
+        각 영화의 주연배우(mainCast) 정보를 배우 DB와 조인하여 반환한다.
+      parameters:
+        - name: q
+          in: query
+          description: 검색어 (영화 제목, 장르, 감독)
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: 페이지 번호 (1부터 시작)
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedMovieSummary'
+
+  /movies/{movieId}:
+    get:
+      tags: [movies]
+      summary: 영화 상세 조회
+      description: |
+        영화 기본 정보 + 전체 출연진(cast).
+        출연진 각각에 배우 DB를 조인하여 배우 이름, 프로필 이미지, 출연 작품 수를 포함하여 반환한다.
+      parameters:
+        - name: movieId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieDetailResponse'
+        '404':
+          description: 영화 없음
+
+components:
+  schemas:
+
+    PagedResponse:
+      type: object
+      required: [total, page, pageSize, totalPages]
+      properties:
+        total:
+          type: integer
+          description: 전체 결과 수
+        page:
+          type: integer
+          description: 현재 페이지
+        pageSize:
+          type: integer
+          description: 페이지당 항목 수
+        totalPages:
+          type: integer
+          description: 전체 페이지 수
+
+    PagedActorSummary:
+      allOf:
+        - $ref: '#/components/schemas/PagedResponse'
+        - type: object
+          required: [items]
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/ActorSummary'
+
+    PagedMovieSummary:
+      allOf:
+        - $ref: '#/components/schemas/PagedResponse'
+        - type: object
+          required: [items]
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/MovieSummary'
+
+    ActorSummary:
+      type: object
+      required: [id, name, birthYear, nationality, debutDate, movieCount, roleImageCount]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        birthYear:
+          type: integer
+        nationality:
+          type: string
+        debutDate:
+          type: string
+          format: date
+        gender:
+          type: string
+          enum: [남, 여]
+        profileImage:
+          type: string
+        movieCount:
+          type: integer
+          description: 출연 작품 수 (BFF 집계)
+        roleImageCount:
+          type: integer
+          description: 전체 배역 이미지 수 (BFF 집계, 정렬 기준)
+
+    ActorFilmography:
+      type: object
+      required: [movieId, movieTitle, movieYear, movieGenre, role, roleImages]
+      properties:
+        movieId:
+          type: integer
+        movieTitle:
+          type: string
+        movieYear:
+          type: integer
+        movieGenre:
+          type: string
+        posterUrl:
+          type: string
+        role:
+          type: string
+          description: 배역명
+        roleImages:
+          type: array
+          items:
+            type: string
+
+    ActorDetailResponse:
+      allOf:
+        - $ref: '#/components/schemas/ActorSummary'
+        - type: object
+          required: [filmography]
+          properties:
+            filmography:
+              type: array
+              description: 필모그래피 (연도 내림차순)
+              items:
+                $ref: '#/components/schemas/ActorFilmography'
+
+    CastMember:
+      type: object
+      required: [actorId, actorName, movieCount, role, roleImages, isMain]
+      properties:
+        actorId:
+          type: integer
+        actorName:
+          type: string
+          description: 배우 이름 (BFF 조인)
+        actorProfileImage:
+          type: string
+          description: 배우 프로필 이미지 (BFF 조인)
+        movieCount:
+          type: integer
+          description: 배우의 전체 출연 작품 수 (BFF 집계)
+        role:
+          type: string
+          description: 배역명
+        roleProfileImage:
+          type: string
+          description: 배역 대표 이미지
+        roleImages:
+          type: array
+          items:
+            type: string
+        isMain:
+          type: boolean
+          description: 주연 여부
+
+    MovieBase:
+      type: object
+      required: [id, title, year, genre, director, writer, ageRating, runtime, releaseDate, country, format]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        year:
+          type: integer
+        genre:
+          type: string
+        director:
+          type: string
+        writer:
+          type: string
+        ageRating:
+          type: string
+        runtime:
+          type: integer
+          description: 상영시간 (분)
+        releaseDate:
+          type: string
+          format: date
+        country:
+          type: string
+        posterUrl:
+          type: string
+        format:
+          type: string
+          enum: [단편, 시리즈]
+        episode:
+          type: integer
+          description: 시리즈 총 에피소드 수
+
+    MovieSummary:
+      allOf:
+        - $ref: '#/components/schemas/MovieBase'
+        - type: object
+          required: [mainCast]
+          properties:
+            mainCast:
+              type: array
+              description: 주연배우 목록 (BFF 조인)
+              items:
+                $ref: '#/components/schemas/CastMember'
+
+    MovieDetailResponse:
+      allOf:
+        - $ref: '#/components/schemas/MovieBase'
+        - type: object
+          required: [overview, cast]
+          properties:
+            overview:
+              type: string
+              description: 줄거리
+            cast:
+              type: array
+              description: 전체 출연진 (BFF 조인, isMain으로 주연 구분)
+              items:
+                $ref: '#/components/schemas/CastMember'
