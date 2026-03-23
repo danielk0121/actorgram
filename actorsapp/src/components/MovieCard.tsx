@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import type { MovieSummary } from '../data/dummy-bff-api'
+import type { MovieSummary } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function MovieCard({ movie, onClick, onActorClick }: {

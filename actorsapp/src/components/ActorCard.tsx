@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import type { ActorSummary } from '../data/dummy-bff-api'
+import type { ActorSummary } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function ActorCard({ actor }: { actor: ActorSummary }) {

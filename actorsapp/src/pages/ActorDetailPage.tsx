@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { getActorDetail } from '../data/dummy-bff-api'
+import { getActorDetail } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function ActorDetailPage() {

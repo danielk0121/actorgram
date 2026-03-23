@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { getActors } from '../data/dummy-bff-api'
-import type { ActorSummary } from '../data/dummy-bff-api'
+import { getActors } from '../data/bff-api'
+import type { ActorSummary } from '../data/bff-api'
 import { ActorCard } from '../components/ActorCard'
 
 export function ActorSearchPage() {

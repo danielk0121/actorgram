@@ -1,5 +1,5 @@
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { getMovieDetail } from '../data/dummy-bff-api'
+import { getMovieDetail } from '../data/bff-api'
 import { img } from '../utils/image'
 
 export function MovieDetailPage() {

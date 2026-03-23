@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { getActors } from '../data/dummy-bff-api'
-import type { ActorSummary } from '../data/dummy-bff-api'
+import { getActors } from '../data/bff-api'
+import type { ActorSummary } from '../data/bff-api'
 import { PHOTO_SEARCH_DUMMY_ACTORS } from '../data/photoSearch'
 import { ActorCard } from '../components/ActorCard'
 

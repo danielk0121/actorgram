@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { getMovies } from '../data/dummy-bff-api'
-import type { MovieSummary } from '../data/dummy-bff-api'
+import { getMovies } from '../data/bff-api'
+import type { MovieSummary } from '../data/bff-api'
 import { MovieCard } from '../components/MovieCard'
 
 export function MovieSearchPage({ onActorClick }: { onActorClick: (actorId: number) => void }) {
