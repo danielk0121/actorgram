@@ -1,0 +1,13 @@
+server:
+  port: 40003
+
+spring:
+  application:
+    name: api3
+
+gemini:
+  api-key: ${GEMINI_API_KEY:}
+
+logging:
+  level:
+    com.actorgram.api3: DEBUG
