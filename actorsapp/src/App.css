@@ -60,6 +60,7 @@
   height: 36px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .header-left {
@@ -82,11 +83,6 @@
   letter-spacing: -0.5px;
 }
 
-.header-logo-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
 
 .header-version {
   font-size: 11px;
