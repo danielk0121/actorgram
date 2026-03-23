@@ -12,7 +12,11 @@ import { AboutPage } from './pages/AboutPage'
 
 function App() {
   const navigate = useNavigate()
-  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    if (saved === null) localStorage.setItem('theme', 'light')
+    return saved === 'dark'
+  })
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
