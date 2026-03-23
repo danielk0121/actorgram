@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { SAMPLE_MOVIES } from '../data/movies'
-import { SAMPLE_ACTORS } from '../data/actors'
+import { getActors, getActorDetail } from '../data/dummy-bff-api'
 import { ActorCard } from '../components/ActorCard'
 
 export function ActorSearchPage() {
@@ -16,23 +15,13 @@ export function ActorSearchPage() {
     setSearch(q)
   }, [searchParams])
 
-  const q = search.toLowerCase()
+  const result = getActors({ q: search })
 
-  // TODO: API 서버 연동 시 fetch 호출로 교체
-  const getRoleImageCount = (actorId: number) =>
-    SAMPLE_MOVIES.flatMap((m) => m.cast.find((c) => c.actorId === actorId)?.roleImages ?? []).length
-
-  const matchedActors = (
-    search
-      ? SAMPLE_ACTORS.filter((a) => {
-          const nameMatch = a.name.toLowerCase().includes(q)
-          const roleMatch = SAMPLE_MOVIES.flatMap((m) => m.cast).some(
-            (c) => c.actorId === a.id && c.role.toLowerCase().includes(q)
-          )
-          return nameMatch || roleMatch
-        })
-      : SAMPLE_ACTORS
-  ).sort((a, b) => getRoleImageCount(b.id) - getRoleImageCount(a.id))
+  // ActorCard에 filmography 포함해서 전달 (BFF 조인)
+  const actorsWithFilmography = result.items.map((a) => ({
+    ...a,
+    filmography: getActorDetail(a.id)?.filmography ?? [],
+  }))
 
   const handleSearch = () => {
     setSearch(query)
@@ -55,15 +44,15 @@ export function ActorSearchPage() {
         <button onClick={handleSearch}>검색</button>
       </div>
 
-      {search && matchedActors.length === 0 && (
+      {search && result.total === 0 && (
         <div className="empty-state">검색 결과가 없습니다.</div>
       )}
 
       <section className="result-section">
-        <div className="section-title">{search ? `검색 배우 (${matchedActors.length})` : `전체 배우 (${matchedActors.length})`}</div>
+        <div className="section-title">{search ? `검색 배우 (${result.total})` : `전체 배우 (${result.total})`}</div>
         <div className="actor-list">
-          {matchedActors.map((a) => (
-            <ActorCard key={a.id} actor={a} allMovies={SAMPLE_MOVIES} />
+          {actorsWithFilmography.map((a) => (
+            <ActorCard key={a.id} actor={a} />
           ))}
         </div>
       </section>

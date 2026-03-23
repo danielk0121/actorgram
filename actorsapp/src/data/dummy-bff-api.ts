@@ -54,6 +54,7 @@ export interface CastMember {
   actorId: number
   actorName: string             // BFF 조인
   actorProfileImage?: string    // BFF 조인
+  movieCount: number            // BFF 집계 (전체 출연 작품 수)
   role: string
   roleProfileImage?: string
   roleImages: string[]
@@ -239,6 +240,7 @@ export function getMovies(params: {
           actorId: c.actorId,
           actorName: actor?.name ?? '',
           actorProfileImage: actor?.profileImage,
+          movieCount: actorStats.get(c.actorId)?.movieCount ?? 0,
           role: c.role,
           roleProfileImage: c.roleProfileImage,
           roleImages: c.roleImages ?? [],
@@ -259,12 +261,21 @@ export function getMovieDetail(movieId: number): MovieDetailResponse | null {
   const movie = SAMPLE_MOVIES.find((m) => m.id === movieId)
   if (!movie) return null
 
+  // 배우별 출연 영화 수 집계
+  const movieCountMap = new Map<number, number>()
+  for (const m of SAMPLE_MOVIES) {
+    for (const c of m.cast) {
+      movieCountMap.set(c.actorId, (movieCountMap.get(c.actorId) ?? 0) + 1)
+    }
+  }
+
   const cast: CastMember[] = movie.cast.map((c) => {
     const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
     return {
       actorId: c.actorId,
       actorName: actor?.name ?? '',
       actorProfileImage: actor?.profileImage,
+      movieCount: movieCountMap.get(c.actorId) ?? 0,
       role: c.role,
       roleProfileImage: c.roleProfileImage,
       roleImages: c.roleImages ?? [],

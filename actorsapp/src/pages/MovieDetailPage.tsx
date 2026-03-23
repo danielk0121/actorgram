@@ -1,24 +1,19 @@
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import { SAMPLE_MOVIES } from '../data/movies'
-import { SAMPLE_ACTORS } from '../data/actors'
+import { getMovieDetail } from '../data/dummy-bff-api'
 import { img } from '../utils/image'
-
-// 배우의 출연 영화 수 계산
-const movieCountByActor = (actorId: number) =>
-  SAMPLE_MOVIES.filter((m) => m.cast.some((c) => c.actorId === actorId)).length
 
 export function MovieDetailPage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const movieId = Number(searchParams.get('movieId') ?? '19')
 
-  const movie = SAMPLE_MOVIES.find((m) => m.id === movieId)
+  const movie = getMovieDetail(movieId)
 
   if (!movie) {
     return <div className="empty-state">영화 정보를 찾을 수 없습니다.</div>
   }
 
-  const mainCast = movie.cast.filter((c) => movie.mainActors.includes(c.actorId))
+  const mainCast = movie.cast.filter((c) => c.isMain)
 
   return (
     <>
@@ -26,7 +21,7 @@ export function MovieDetailPage() {
       <div className="detail-movie-header">
         <div className="detail-movie-header-poster">
           {movie.posterUrl
-            ? <img src={img(movie.posterUrl!)} alt={movie.title} />
+            ? <img src={img(movie.posterUrl)} alt={movie.title} />
             : <span>이미지 없음</span>
           }
         </div>
@@ -50,40 +45,36 @@ export function MovieDetailPage() {
         <p className="detail-overview">{movie.overview}</p>
       </section>
 
-      {/* 주연배우 */}
+      {/* 주연배우 — BFF에서 조인 완료 */}
       {mainCast.length > 0 && (
         <section className="result-section">
           <div className="section-title">주연배우 ({mainCast.length})</div>
           <div className="movie-card-actors-list">
-            {mainCast.map((c) => {
-              const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
-              if (!actor) return null
-              return (
-                <button
-                  key={c.id}
-                  className="movie-card-actor-row"
-                  onClick={() => navigate(`/actor-detail?actorId=${actor.id}`)}
-                >
-                  <div className="movie-card-actor-row-info">
-                    <div className="movie-card-actor-profile">
-                      {actor.profileImage
-                        ? <img src={img(actor.profileImage!)} alt={actor.name} />
-                        : <span>{actor.name[0]}</span>
-                      }
+            {mainCast.map((c) => (
+              <button
+                key={c.actorId}
+                className="movie-card-actor-row"
+                onClick={() => navigate(`/actor-detail?actorId=${c.actorId}`)}
+              >
+                <div className="movie-card-actor-row-info">
+                  <div className="movie-card-actor-profile">
+                    {c.actorProfileImage
+                      ? <img src={img(c.actorProfileImage)} alt={c.actorName} />
+                      : <span>{c.actorName[0]}</span>
+                    }
+                  </div>
+                  <div className="movie-card-actor-name">{c.actorName}{c.movieCount >= 2 ? <span className="actor-movie-count"> [{c.movieCount}]</span> : null}</div>
+                  <div className="movie-card-actor-detail">{c.role} 역</div>
+                </div>
+                <div className="movie-card-actor-row-images">
+                  {c.roleImages.slice(0, 3).map((imgUrl, i) => (
+                    <div key={i} className="movie-card-actor-row-image">
+                      <img src={img(imgUrl)} alt={`${c.role} ${i + 1}`} />
                     </div>
-                    <div className="movie-card-actor-name">{actor.name}{movieCountByActor(actor.id) >= 2 ? <span className="actor-movie-count"> [{movieCountByActor(actor.id)}]</span> : null}</div>
-                    <div className="movie-card-actor-detail">{c.role} 역</div>
-                  </div>
-                  <div className="movie-card-actor-row-images">
-                    {(c.roleImages ?? []).slice(0, 3).map((imgUrl, i) => (
-                      <div key={i} className="movie-card-actor-row-image">
-                        <img src={img(imgUrl)} alt={`${c.role} ${i + 1}`} />
-                      </div>
-                    ))}
-                  </div>
-                </button>
-              )
-            })}
+                  ))}
+                </div>
+              </button>
+            ))}
           </div>
         </section>
       )}
