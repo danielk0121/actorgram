@@ -9,10 +9,10 @@ img {
 }
 
 :root {
-  --color-bg: #e6e6e6;
-  --color-sunken: #eeeeee;
-  --color-surface: #ffffff;
-  --color-border: #e0e0e0;
+  --color-bg: #ffffff;
+  --color-sunken: #ebebeb;
+  --color-surface: #f2f2f2;
+  --color-border: #d8d8d8;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #6b6b6b;
   --color-accent: #2c2c2c;
