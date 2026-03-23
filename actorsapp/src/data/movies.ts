@@ -327,7 +327,7 @@ export const SAMPLE_MOVIES: Movie[] = [
       { id: 137, actorId: 111, role: '이시다 우류', roleProfileImage: '/images/poster9.jpg', roleImages: ['/images/poster9.jpg', '/images/actor72.jpg'] },
       { id: 204, actorId: 104, role: '울키오라 시파', roleProfileImage: '/images/actor71.jpg', roleImages: ['/images/actor71.jpg', '/images/poster9.jpg'] },
       { id: 205, actorId: 113, role: '소이퐁', roleProfileImage: '/images/poster9.jpg', roleImages: ['/images/poster9.jpg', '/images/actor72.jpg'] },
-      { id: 206, actorId: 114, role: '히나모리 모모', roleProfileImage: '/images/actor70.jpg', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },
+      { id: 206, actorId: 114, role: '그레미 투뮤', roleProfileImage: '/images/actor70.jpg', roleImages: ['/images/actor70.jpg', '/images/poster9.jpg'] },
     ],
   },
   {
@@ -344,7 +344,7 @@ export const SAMPLE_MOVIES: Movie[] = [
       { id: 122, actorId: 112, role: '리바이 아커만', roleProfileImage: '/images/aot1.jpg', roleImages: ['/images/aot1.jpg', '/images/aot3.jpg'] },
       { id: 123, actorId: 113, role: '히스토리아 레이스', roleProfileImage: '/images/aot2.jpg', roleImages: ['/images/aot2.jpg'] },
       { id: 207, actorId: 104, role: '에르빈 스미스', roleProfileImage: '/images/aot3.jpg', roleImages: ['/images/aot3.jpg', '/images/aot2.jpg'] },
-      { id: 208, actorId: 114, role: '베르톨트 후버', roleProfileImage: '/images/aot1.jpg', roleImages: ['/images/aot1.jpg', '/images/aot2.jpg'] },
+      { id: 208, actorId: 114, role: '팔코 그라이스', roleProfileImage: '/images/aot1.jpg', roleImages: ['/images/aot1.jpg', '/images/aot2.jpg'] },
     ],
   },
   {
@@ -381,12 +381,11 @@ export const SAMPLE_MOVIES: Movie[] = [
     director: '사이토 켄이치', writer: '야마다 카네후미',
     ageRating: '전체', runtime: 24, releaseDate: '2023-09-29', country: '일본',
     posterUrl: '/images/poster19.jpg', format: '시리즈', episode: 28,
-    mainActors: [122, 117, 124, 114, 126, 112, 109],
+    mainActors: [122, 117, 124, 126, 112, 109],
     cast: [
       { id: 132, actorId: 122, role: '프리렌', roleProfileImage: '/images/fr1.jpg', roleImages: ['/images/fr1.jpg', '/images/fr2.jpg', '/images/fr3.jpg'] },
       { id: 133, actorId: 117, role: '힘멜', roleProfileImage: '/images/fr2.jpg', roleImages: ['/images/fr2.jpg', '/images/fr1.jpg'] },
       { id: 134, actorId: 124, role: '페른', roleProfileImage: '/images/fr3.jpg', roleImages: ['/images/fr3.jpg', '/images/fr1.jpg'] },
-      { id: 135, actorId: 114, role: '자이데', roleProfileImage: '/images/fr1.jpg', roleImages: ['/images/fr1.jpg', '/images/fr3.jpg'] },
       { id: 136, actorId: 126, role: '하이터', roleProfileImage: '/images/fr2.jpg', roleImages: ['/images/fr2.jpg'] },
       { id: 209, actorId: 112, role: '그라나트', roleProfileImage: '/images/fr3.jpg', roleImages: ['/images/fr3.jpg', '/images/fr1.jpg'] },
       { id: 210, actorId: 109, role: '덴켄', roleProfileImage: '/images/fr2.jpg', roleImages: ['/images/fr2.jpg', '/images/fr3.jpg'] },
