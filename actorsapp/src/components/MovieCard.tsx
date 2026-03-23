@@ -51,6 +51,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
             {mainCast.map((c) => {
               const actor = SAMPLE_ACTORS.find((a) => a.id === c.actorId)
               if (!actor) return null
+              const movieCount = SAMPLE_MOVIES.filter((m) => m.cast.some((ce) => ce.actorId === actor.id)).length
               return (
                 <button
                   key={c.id}
@@ -64,7 +65,7 @@ export function MovieCard({ movie, search, mode, onClick, onActorClick }: {
                         : <span>{actor.name[0]}</span>
                       }
                     </div>
-                    <div className="movie-card-actor-name">{actor.name} <span className="actor-movie-count">[{SAMPLE_MOVIES.filter((m) => m.cast.some((ce) => ce.actorId === actor.id)).length}]</span></div>
+                    <div className="movie-card-actor-name">{actor.name}{movieCount >= 2 ? <span className="actor-movie-count"> [{movieCount}]</span> : null}</div>
                     <div className="movie-card-actor-detail">{c.role} 역</div>
                   </div>
                   <div className="movie-card-actor-row-images">

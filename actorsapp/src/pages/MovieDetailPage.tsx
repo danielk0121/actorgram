@@ -71,7 +71,7 @@ export function MovieDetailPage() {
                         : <span>{actor.name[0]}</span>
                       }
                     </div>
-                    <div className="movie-card-actor-name">{actor.name} <span className="actor-movie-count">[{movieCountByActor(actor.id)}]</span></div>
+                    <div className="movie-card-actor-name">{actor.name}{movieCountByActor(actor.id) >= 2 ? <span className="actor-movie-count"> [{movieCountByActor(actor.id)}]</span> : null}</div>
                     <div className="movie-card-actor-detail">{c.role} 역</div>
                   </div>
                   <div className="movie-card-actor-row-images">
