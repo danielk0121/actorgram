@@ -1125,16 +1125,22 @@
 .detail-movie-role-groups {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
+  background: var(--color-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px;
 }
 
 .detail-movie-role-group {
   display: flex;
   flex-direction: column;
   gap: 0;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
 }
 
 .detail-movie-role-group-header-wrap {
@@ -1144,6 +1150,7 @@
 .detail-movie-role-group-images-wrap {
   border-top: 1px solid var(--color-border);
   padding: 12px 14px;
+  background: var(--color-bg);
 }
 
 .detail-movie-role-group-header {
