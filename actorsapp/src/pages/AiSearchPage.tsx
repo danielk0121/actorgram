@@ -25,8 +25,7 @@ export function AiSearchPage() {
         <div className="ai-search-bar">
           <textarea
             className="ai-search-textarea"
-            rows={4}
-            placeholder="배우나 영화에 대해 자유롭게 질문하세요..."
+placeholder="배우나 영화에 대해 자유롭게 질문하세요..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
