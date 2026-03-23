@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getActors } from '../data/dummy-bff-api'
+import type { ActorSummary } from '../data/dummy-bff-api'
 import { PHOTO_SEARCH_DUMMY_ACTORS } from '../data/photoSearch'
 import { ActorCard } from '../components/ActorCard'
 
 export function PhotoSearchPage() {
   const [preview, setPreview] = useState<string | null>(null)
+  const [matchedActors, setMatchedActors] = useState<ActorSummary[]>([])
+
+  useEffect(() => {
+    // 각 이름으로 검색해서 첫 번째 결과 수집
+    Promise.all(
+      PHOTO_SEARCH_DUMMY_ACTORS.map((name) => getActors({ q: name, page: 1 }))
+    ).then((results) => {
+      const matched = results
+        .map((r, i) => r.items.find((a) => a.name === PHOTO_SEARCH_DUMMY_ACTORS[i]))
+        .filter((a): a is ActorSummary => a != null)
+      setMatchedActors(matched)
+    })
+  }, [])
 
   const handleFile = (file: File) => {
     const url = URL.createObjectURL(file)
@@ -16,12 +30,6 @@ export function PhotoSearchPage() {
     const file = e.dataTransfer.files[0]
     if (file) handleFile(file)
   }
-
-  // TODO: API 서버 연동 시 실제 검색 결과로 교체
-  const allActors = getActors({}).items
-  const matchedActors = PHOTO_SEARCH_DUMMY_ACTORS
-    .map((name) => allActors.find((a) => a.name === name))
-    .filter((a): a is NonNullable<typeof a> => a != null)
 
   return (
     <>

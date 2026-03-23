@@ -187,12 +187,8 @@ export async function getActors(params: {
     )
   })
 
-  // 정렬 (roleImageCount 내림차순)
-  const sorted = [...filtered].sort((a, b) => {
-    const statA = actorStats.get(a.id)?.roleImageCount ?? 0
-    const statB = actorStats.get(b.id)?.roleImageCount ?? 0
-    return statB - statA
-  })
+  // 정렬 (id 내림차순)
+  const sorted = [...filtered].sort((a, b) => b.id - a.id)
 
   // 페이징
   const total = sorted.length
@@ -263,9 +259,12 @@ export async function getMovies(params: {
     )
   })
 
-  const total = filtered.length
+  // 정렬 (id 내림차순)
+  const sorted = [...filtered].sort((a, b) => b.id - a.id)
+
+  const total = sorted.length
   const totalPages = Math.ceil(total / PAGE_SIZE)
-  const sliced = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  const sliced = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   const items: MovieSummary[] = sliced.map((m) => ({
     id: m.id,

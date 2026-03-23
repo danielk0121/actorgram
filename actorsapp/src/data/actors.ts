@@ -1,7 +1,7 @@
 import type { Actor } from '../types'
 
 export const SAMPLE_ACTORS: Actor[] = [
-  { id: 1, name: '톰 크루즈', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', profileImage: '/images/actor1.jpg' },
+  { id: 9999, name: '톰 크루즈', birthYear: 1962, nationality: '미국', debutDate: '1981-08-05', gender: '남', profileImage: '/images/actor1.jpg' },
   { id: 2, name: '존 보이트', birthYear: 1938, nationality: '미국', debutDate: '1960-01-01', gender: '남', profileImage: '/images/actor2.jpg' },
   { id: 3, name: '엠마뉴엘 베아르', birthYear: 1963, nationality: '프랑스', debutDate: '1984-01-01', gender: '여', profileImage: '/images/actor3.jpg' },
   { id: 4, name: '헨리 체르니', birthYear: 1959, nationality: '캐나다', debutDate: '1987-01-01', gender: '남', profileImage: '/images/actor4.jpg' },

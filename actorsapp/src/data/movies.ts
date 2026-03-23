@@ -5,13 +5,13 @@ import type { Movie } from '../types'
 
 export const SAMPLE_MOVIES: Movie[] = [
   {
-    id: 19, title: '미션 임파서블', year: 1996, genre: '액션',
+    id: 9998, title: '미션 임파서블', year: 1996, genre: '액션',
     overview: '미국 정보요원 이단 헌트는 동료들의 죽음에 대한 누명을 쓰고 조직에 숨어든 진짜 스파이를 밝혀내기 위해 독자적으로 움직인다.',
     director: '브라이언 드 팔마', writer: '데이비드 코엡',
     ageRating: '15세', runtime: 110, releaseDate: '1996-05-22', country: '미국',
     posterUrl: '/images/poster13.jpg', format: '단편',
     cast: [
-      { id: 1, actorId: 1, role: '이단 헌트', isMain: true, roleProfileImage: '/images/mi1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
+      { id: 1, actorId: 9999, role: '이단 헌트', isMain: true, roleProfileImage: '/images/mi1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi2.jpg', '/images/mi3.jpg', '/images/poster2.jpg', '/images/poster3.jpg', '/images/poster4.jpg', '/images/poster5.jpg', '/images/poster6.jpg', '/images/poster7.jpg', '/images/poster8.jpg', '/images/poster9.jpg', '/images/poster10.jpg'] },
       { id: 2, actorId: 2, role: '짐 펠프스', isMain: true, roleProfileImage: '/images/mi2.jpg', roleImages: ['/images/mi2.jpg', '/images/poster13.jpg'] },
       { id: 3, actorId: 3, role: '클레어 펠프스', isMain: true, roleProfileImage: '/images/mi1.jpg', roleImages: ['/images/mi1.jpg', '/images/mi3.jpg'] },
       { id: 4, actorId: 4, role: '유진 킷트리지', isMain: true, roleProfileImage: '/images/mi2.jpg', roleImages: ['/images/mi2.jpg'] },
@@ -24,7 +24,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 139, releaseDate: '1996-12-13', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
     cast: [
-      { id: 5, actorId: 1, role: '제리 맥과이어', isMain: true, roleProfileImage: '/images/jm1.jpg', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
+      { id: 5, actorId: 9999, role: '제리 맥과이어', isMain: true, roleProfileImage: '/images/jm1.jpg', roleImages: ['/images/jm1.jpg', '/images/jm2.jpg', '/images/jm3.jpg'] },
       { id: 6, actorId: 5, role: '도로시 보이드', isMain: true },
       { id: 7, actorId: 6, role: '로드 타이드웰', isMain: true },
       { id: 8, actorId: 7, role: '에이버리 비숍', isMain: true },
@@ -39,7 +39,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 130, releaseDate: '2022-06-22', country: '미국',
     posterUrl: '/images/poster15.jpg', format: '단편',
     cast: [
-      { id: 11, actorId: 1, role: '매버릭', isMain: true, roleProfileImage: '/images/tg1.jpg', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
+      { id: 11, actorId: 9999, role: '매버릭', isMain: true, roleProfileImage: '/images/tg1.jpg', roleImages: ['/images/tg1.jpg', '/images/tg2.jpg', '/images/tg3.jpg'] },
       { id: 12, actorId: 10, role: '루스터', isMain: true },
       { id: 13, actorId: 11, role: '페니 벤자민', isMain: true },
       { id: 14, actorId: 12, role: '사이클론', isMain: true },
@@ -57,7 +57,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ageRating: '12세', runtime: 110, releaseDate: '1986-05-16', country: '미국',
     posterUrl: '/images/poster13.jpg', format: '단편',
     cast: [
-      { id: 20, actorId: 1, role: '매버릭', isMain: true, roleProfileImage: '/images/tg1.jpg', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
+      { id: 20, actorId: 9999, role: '매버릭', isMain: true, roleProfileImage: '/images/tg1.jpg', roleImages: ['/images/tg1.jpg', '/images/actor1.jpg', '/images/poster15.jpg'] },
       { id: 21, actorId: 18, role: '찰리', isMain: true },
       { id: 22, actorId: 17, role: '아이스맨', isMain: false },
       { id: 23, actorId: 19, role: '구스', isMain: true },
@@ -70,7 +70,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ageRating: '15세', runtime: 145, releaseDate: '2002-07-05', country: '미국',
     posterUrl: '/images/poster14.jpg', format: '단편',
     cast: [
-      { id: 24, actorId: 1, role: '존 앤더튼', isMain: true, roleProfileImage: '/images/mi1.jpg', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
+      { id: 24, actorId: 9999, role: '존 앤더튼', isMain: true, roleProfileImage: '/images/mi1.jpg', roleImages: ['/images/mi1.jpg', '/images/jm1.jpg', '/images/poster13.jpg'] },
       { id: 25, actorId: 20, role: '대니 위트워', isMain: true },
       { id: 26, actorId: 21, role: '아가사', isMain: true },
       { id: 27, actorId: 22, role: '라마르 버제스', isMain: true },
@@ -293,7 +293,7 @@ export const SAMPLE_MOVIES: Movie[] = [
     ],
   },
   {
-    id: 20, title: '블리치', year: 2004, genre: '애니메이션',
+    id: 9999, title: '블리치', year: 2004, genre: '애니메이션',
     overview: '어느 날 갑자기 사신의 힘을 얻게 된 고교생 쿠로사키 이치고는 가족과 친구를 지키기 위해 호로와 맞서 싸우며 점점 더 깊은 영적 세계로 발을 들인다.',
     director: '아베 노리유키', writer: '쿠보 타이토',
     ageRating: '15세', runtime: 24, releaseDate: '2004-10-05', country: '일본',
