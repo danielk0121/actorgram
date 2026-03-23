@@ -9,11 +9,13 @@
 - 도메인 전문가와 개발자가 공통 언어로 소통할 수 있도록 유비쿼터스 언어(Ubiquitous Language)를 정의한다.
 - 코드, 문서, 커뮤니케이션 전반에서 동일한 용어를 일관되게 사용한다.
 - 용어 정의는 [specs/PRD.md](specs/PRD.md)의 유비쿼터스 언어 섹션에 관리한다.
+- 도메인 모델은 [specs/erd.dbml](specs/erd.dbml)을 기준으로 한다.
 
 ### 요구사항 문서 기반 개발 (Spec-Driven Development)
 
 - 기능 구현 전에 요구사항을 [specs/PRD.md](specs/PRD.md)에 먼저 명세한다.
 - PRD는 도메인별 유스케이스(사용자 시나리오)를 중심으로 작성하며, 구현은 PRD 명세를 기준으로 진행한다.
+- API 명세는 [specs/openapi.yaml](specs/openapi.yaml)에 관리한다.
 - 명세와 구현이 불일치할 경우 명세를 우선 수정한 뒤 코드에 반영한다.
 
 ### 프로토타입 주도 개발 (Prototype-Driven Development)
