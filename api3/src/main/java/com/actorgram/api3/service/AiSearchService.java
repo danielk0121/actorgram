@@ -38,11 +38,20 @@ public class AiSearchService {
             "EXTRACTED_JSON:{\"actorNames\":[\"배우이름1\",\"배우이름2\"],\"movieTitles\":[\"영화제목1\",\"영화제목2\"]}\n" +
             "언급된 배우나 영화가 없으면 빈 배열로 표시하세요.";
 
-    @Value("${gemini.api-key}")
+    @Value("${gemini.api-key:}")
     private String apiKey;
 
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+        log.info("Gemini API 키 업데이트됨");
+    }
+
+    public boolean hasApiKey() {
+        return apiKey != null && !apiKey.isBlank();
+    }
 
     public AiSearchResponse search(AiSearchRequest request) {
         String rawResponse = callGeminiApi(request.getQuery());
