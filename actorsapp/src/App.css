@@ -540,6 +540,12 @@
   object-fit: cover;
 }
 
+.movie-card-actor-row-no-image {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  align-self: center;
+}
+
 /* Movie card */
 .movie-card {
   background: var(--color-surface);
