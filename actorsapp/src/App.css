@@ -610,7 +610,7 @@
   position: relative;
   border: 2px dashed var(--color-border);
   border-radius: var(--radius);
-  height: 137px;
+  height: 144px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1284,7 +1284,7 @@
 
 .ai-search-textarea {
   width: 100%;
-  height: 137px;
+  height: 144px;
   padding: 12px 14px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
