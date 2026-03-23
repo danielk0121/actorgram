@@ -140,15 +140,17 @@ export interface MovieListResponse {
 // ----------------------------------------------------------------
 
 const PAGE_SIZE = 20
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
  * GET /actors
  * 배우 목록. 검색어로 이름/배역명 필터, roleImageCount 기준 내림차순 정렬, 페이징.
  */
-export function getActors(params: {
+export async function getActors(params: {
   q?: string
   page?: number
-}): ActorListResponse {
+}): Promise<ActorListResponse> {
+  await sleep(50)
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 
@@ -235,10 +237,11 @@ export function getActorDetail(actorId: number): ActorDetailResponse | null {
  * 영화 목록. 검색어로 제목/장르/감독 필터, 페이징.
  * 주연배우 정보 조인 완료 — 프론트는 SAMPLE_ACTORS.find 불필요.
  */
-export function getMovies(params: {
+export async function getMovies(params: {
   q?: string
   page?: number
-}): MovieListResponse {
+}): Promise<MovieListResponse> {
+  await sleep(50)
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
 

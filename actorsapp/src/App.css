@@ -709,6 +709,26 @@
   font-size: 14px;
 }
 
+/* 스피너 */
+.spinner-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* 사진 검색 */
 .photo-search-wrap {
   max-width: 640px;
