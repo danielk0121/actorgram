@@ -142,6 +142,14 @@ export interface MovieListResponse {
 const PAGE_SIZE = 20
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
+// 네트워크 로그처럼 BFF 호출을 콘솔에 출력
+function bffLog(method: string, path: string, startedAt: number, response: unknown) {
+  const ms = Date.now() - startedAt
+  console.groupCollapsed(`[BFF] ${method} ${path}  →  200 OK  (${ms}ms)`)
+  console.log(response)
+  console.groupEnd()
+}
+
 /**
  * GET /actors
  * 배우 목록. 검색어로 이름/배역명 필터, roleImageCount 기준 내림차순 정렬, 페이징.
@@ -150,6 +158,7 @@ export async function getActors(params: {
   q?: string
   page?: number
 }): Promise<ActorListResponse> {
+  const startedAt = Date.now()
   await sleep(50)
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
@@ -202,7 +211,10 @@ export async function getActors(params: {
     filmography: actorFilmography.get(a.id) ?? [],
   }))
 
-  return { items, total, page, pageSize: PAGE_SIZE, totalPages }
+  const result = { items, total, page, pageSize: PAGE_SIZE, totalPages }
+  const qs = [params.q ? `q=${params.q}` : '', `page=${page}`].filter(Boolean).join('&')
+  bffLog('GET', `/actors${qs ? `?${qs}` : ''}`, startedAt, result)
+  return result
 }
 
 /**
@@ -211,6 +223,7 @@ export async function getActors(params: {
  * cast 조인 완료 — 프론트는 역방향 조회 불필요.
  */
 export function getActorDetail(actorId: number): ActorDetailResponse | null {
+  const startedAt = Date.now()
   const actor = SAMPLE_ACTORS.find((a) => a.id === actorId)
   if (!actor) return null
 
@@ -225,7 +238,9 @@ export function getActorDetail(actorId: number): ActorDetailResponse | null {
     })
     .sort((a, b) => b.movie.year - a.movie.year)
 
-  return { ...actor, filmography }
+  const result = { ...actor, filmography }
+  bffLog('GET', `/actors/${actorId}`, startedAt, result)
+  return result
 }
 
 /**
@@ -237,6 +252,7 @@ export async function getMovies(params: {
   q?: string
   page?: number
 }): Promise<MovieListResponse> {
+  const startedAt = Date.now()
   await sleep(50)
   const q = (params.q ?? '').toLowerCase()
   const page = params.page ?? 1
@@ -302,7 +318,10 @@ export async function getMovies(params: {
       }),
   }))
 
-  return { items, total, page, pageSize: PAGE_SIZE, totalPages }
+  const result = { items, total, page, pageSize: PAGE_SIZE, totalPages }
+  const qs = [params.q ? `q=${params.q}` : '', `page=${page}`].filter(Boolean).join('&')
+  bffLog('GET', `/movies${qs ? `?${qs}` : ''}`, startedAt, result)
+  return result
 }
 
 /**
@@ -311,6 +330,7 @@ export async function getMovies(params: {
  * 프론트는 SAMPLE_ACTORS.find 불필요.
  */
 export function getMovieDetail(movieId: number): MovieDetailResponse | null {
+  const startedAt = Date.now()
   const movie = SAMPLE_MOVIES.find((m) => m.id === movieId)
   if (!movie) return null
 
@@ -340,7 +360,7 @@ export function getMovieDetail(movieId: number): MovieDetailResponse | null {
     }
   })
 
-  return {
+  const result = {
     id: movie.id,
     title: movie.title,
     year: movie.year,
@@ -357,4 +377,6 @@ export function getMovieDetail(movieId: number): MovieDetailResponse | null {
     episode: movie.episode,
     cast,
   }
+  bffLog('GET', `/movies/${movieId}`, startedAt, result)
+  return result
 }
