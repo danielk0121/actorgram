@@ -55,7 +55,7 @@ function App() {
               <NavLink to="/actor-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>배우 상세</NavLink>
               <NavLink to="/movie-detail" className={({ isActive }) => `nav-item${isActive ? ' nav-item--active' : ''}`}>영화 상세</NavLink>
             </nav>
-            <div className="header-version">v260323-2302</div>
+            <div className="header-version">v260323-2334</div>
           </div>
         </div>
       </header>
