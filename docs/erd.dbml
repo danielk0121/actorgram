@@ -1,0 +1,47 @@
+// Actorgram ERD
+// DBML 형식으로 관리되는 도메인 모델의 기준 문서.
+// 코드(types/index.ts), PRD 용어사전, API 명세(openapi.yaml)는 이 ERD를 기준으로 한다.
+// 참고: https://dbml.dbdiagram.io/docs
+
+Table Actor {
+  id          int         [pk, note: "배우 고유 ID"]
+  name        varchar     [not null, note: "배우 이름"]
+  birthYear   int         [not null, note: "출생 연도"]
+  nationality varchar     [not null, note: "국적"]
+  debutDate   date        [not null, note: "데뷔일"]
+  gender      varchar     [note: "'남' 또는 '여'"]
+  profileImage varchar    [note: "프로필 이미지 URL"]
+}
+
+Table Movie {
+  id          int         [pk, note: "작품 고유 ID"]
+  title       varchar     [not null, note: "작품 제목"]
+  year        int         [not null, note: "개봉 연도"]
+  genre       varchar     [not null, note: "장르"]
+  overview    text        [not null, note: "줄거리"]
+  director    varchar     [not null, note: "감독"]
+  writer      varchar     [not null, note: "작가(각본가)"]
+  ageRating   varchar     [not null, note: "관람등급"]
+  runtime     int         [not null, note: "상영시간 (분)"]
+  releaseDate date        [not null, note: "개봉일"]
+  country     varchar     [not null, note: "제작국가"]
+  posterUrl   varchar     [note: "포스터 이미지 URL"]
+  format      varchar     [not null, note: "'단편' 또는 '시리즈'"]
+  episode     int         [note: "시리즈 총 에피소드 수 (단편이면 null)"]
+}
+
+Table CastEntry {
+  id               int      [pk, note: "출연 정보 고유 ID"]
+  movieId          int      [not null, ref: > Movie.id, note: "출연 작품 참조"]
+  actorId          int      [not null, ref: > Actor.id, note: "출연 배우 참조"]
+  role             varchar  [not null, note: "배역명"]
+  isMain           boolean  [not null, note: "주연 여부"]
+  roleProfileImage varchar  [note: "배역 대표 이미지 URL"]
+}
+
+Table RoleImage {
+  id           int     [pk, note: "배역 이미지 고유 ID"]
+  castEntryId  int     [not null, ref: > CastEntry.id, note: "출연 정보 참조"]
+  url          varchar [not null, note: "이미지 URL"]
+  seq          int     [not null, note: "표시 순서"]
+}

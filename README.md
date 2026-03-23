@@ -41,12 +41,33 @@
 - 주요 유스케이스 기반 E2E 시나리오 작성
 - E2E 테스트 자동화 구축 및 CI 연동
 
+## ERD
+
+도메인 모델의 기준 문서. DBML 형식으로 `docs/erd.dbml`에 관리한다.
+코드(`types/index.ts`), PRD 용어사전, API 명세(`openapi.yaml`)는 이 ERD를 기준으로 한다.
+
+```
+Actor ──────────────────────────────────────────┐
+                                                 │ actorId
+Movie ──── CastEntry (출연 정보, 주연 여부 포함) ──┘
+               │
+               └──── RoleImage (배역 이미지 목록)
+```
+
+| 테이블 | 설명 |
+|---|---|
+| `Actor` | 배우 마스터 |
+| `Movie` | 작품 마스터 |
+| `CastEntry` | 배우 × 작품 출연 기록. `isMain`으로 주연 여부 구분 |
+| `RoleImage` | 배역 이미지 목록 (`CastEntry`의 `roleImages[]`를 정규화) |
+
 ## 프로젝트 구조
 
 ```
 actorgram/
 ├── docs/
-│   └── PRD.md               # 전체 요구사항 문서
+│   ├── PRD.md               # 전체 요구사항 문서
+│   └── erd.dbml             # ERD (DBML 형식, 도메인 모델 기준)
 ├── actorsapp/               # 배우/영화 탐색 앱
 │   ├── src/
 │   │   ├── types/
